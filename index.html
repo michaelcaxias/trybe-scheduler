@@ -110,16 +110,18 @@ limitations under the License.
       function handleAddEvent() {
         const currentDate = new Date();
         const date = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+        const scheduleValue = document.querySelector('textarea').value;
+        const scheduleFiltered = filterString(scheduleValue);
         const event = {
           'summary': 'Google I/O 2015',
           'location': 'Remoto',
           'description': 'A chance to hear more about Google\'s developer products.',
           'start': {
-            'dateTime': '2021-11-30T09:00:00-07:00',
+            'dateTime': `${date}T09:00:00-03:00`,
             'timeZone': 'America/Sao_Paulo'
           },
           'end': {
-            'dateTime': '2021-11-30T17:00:00-07:00',
+            'dateTime': `${date}T17:00:00-03:00`,
             'timeZone': 'America/Sao_Paulo'
           },
           'reminders': {
@@ -138,6 +140,26 @@ limitations under the License.
         request.execute((event) => {
           appendPre('Event created: ' + event.htmlLink);
         });
+      }
+
+      filterString = (string) => {
+        return string
+        .split('\n')
+        .filter(line => line)
+        .map(filterLines => filterLines.split(/zoom/i)[0])
+        .filter(char => char[0] !== ' ')
+        .map(filterLines => {
+          const filterObligated = filterLines.split('[*]')
+          return filterObligated[1] ? filterObligated[1].trim() : filterObligated[0]
+        })
+        .map(filterLines => {
+          const filterArray = filterLines.split('-')
+          return {
+            title: filterArray[1].trim(),
+            startTime: filterArray[0].split('às')[0].replace('h',':').trim(),
+            endTime: filterArray[0].split('às')[1].replace('h',':').trim(),
+          }
+        })
       }
 
       /**
