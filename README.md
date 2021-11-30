@@ -1,5 +1,7 @@
-# trybe-schedule
+# Trybe Schedule
 ---
+Projeto dedicado aos estudantes da instituição Trybe para ajudar nos agendamentos diários de aula 😀
+
 ## Link do projeto:
 https://trybe-schedule.vercel.app/
 
