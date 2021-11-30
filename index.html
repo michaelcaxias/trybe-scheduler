@@ -112,7 +112,6 @@ limitations under the License.
         const date = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
         const scheduleValue = document.querySelector('textarea').value;
         const scheduleFiltered = filterString(scheduleValue);
-        console.log(scheduleFiltered);
         scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
           const event = {
             'summary': title,
