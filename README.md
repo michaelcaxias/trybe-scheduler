@@ -1,7 +1,26 @@
 # schedule-project
 ---
-Link do projeto:
+## Link do projeto:
 https://schedule-project.vercel.app/
+
+## Como Iniciar 🌟
+
+Clone o projeto e acesse a pasta do mesmo.
+
+```bash
+$ git clone git@github.com:michaelcaxias/schedule-project.git
+$ cd schedule-project
+```
+
+Para iniciá-lo, siga os passos abaixo:
+```bash
+# Instalar as dependências
+$ code .
+# Dentro do VS Code, baixe a extensão "Live Server" e clique em "Go Live"
+# Acesse o link: http://localhost:5500/
+```
+
+---
 
 ## Documentação do Google Calendar
 https://developers.google.com/calendar/api/quickstart/js
