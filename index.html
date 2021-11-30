@@ -26,6 +26,7 @@ limitations under the License.
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
+    <textarea cols="30" rows="10" placeholder="Cole aqui a agenda do dia"></textarea>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -39,7 +40,7 @@ limitations under the License.
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+      var SCOPES = "https://www.googleapis.com/auth/calendar";
 
       var authorizeButton = document.getElementById('authorize_button');
       var signoutButton = document.getElementById('signout_button');
