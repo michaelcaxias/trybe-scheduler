@@ -1,4 +1,4 @@
-# schedule-project
+# trybe-schedule
 ---
 ## Link do projeto:
 (atualmente não está funcionando)
