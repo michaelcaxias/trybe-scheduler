@@ -27,23 +27,25 @@ limitations under the License.
     <button id="authorize_button" style="display: none;">Authorize</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
     <textarea cols="30" rows="10" placeholder="Cole aqui a agenda do dia"></textarea>
+    <button id="add_event">Adicionar</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
-      var CLIENT_ID = '21771173827-darl8kjorgcnu0chelaillutki3fqc5e.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyCuU61dFOxsqTw0 wu8qvRSisl5nqTG4vbA';
+      const CLIENT_ID = '21771173827-darl8kjorgcnu0chelaillutki3fqc5e.apps.googleusercontent.com';
+      const API_KEY = 'AIzaSyCuU61dFOxsqTw0 wu8qvRSisl5nqTG4vbA';
 
       // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+      const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/calendar";
+      const SCOPES = "https://www.googleapis.com/auth/calendar";
 
-      var authorizeButton = document.getElementById('authorize_button');
-      var signoutButton = document.getElementById('signout_button');
+      const authorizeButton = document.getElementById('authorize_button');
+      const signoutButton = document.getElementById('signout_button');
+      const addEventButton = document.getElementById('add_event');
 
       /**
        *  On load, called to load the auth2 library and API client library.
@@ -70,6 +72,7 @@ limitations under the License.
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
           authorizeButton.onclick = handleAuthClick;
           signoutButton.onclick = handleSignoutClick;
+          addEventButton.onclick = handleAddEvent;
         }, function(error) {
           appendPre(JSON.stringify(error, null, 2));
         });
@@ -102,6 +105,37 @@ limitations under the License.
        */
       function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
+      }
+
+      function handleAddEvent() {
+        const event = {
+          'summary': 'Google I/O 2015',
+          'location': 'Remoto',
+          'description': 'A chance to hear more about Google\'s developer products.',
+          'start': {
+            'dateTime': '2021-11-30T09:00:00-07:00',
+            'timeZone': 'America/Sao_Paulo'
+          },
+          'end': {
+            'dateTime': '2021-11-30T17:00:00-07:00',
+            'timeZone': 'America/Sao_Paulo'
+          },
+          'reminders': {
+            'useDefault': false,
+            'overrides': [
+              {'method': 'popup', 'minutes': 10}
+            ]
+          }
+        };
+
+        const request = gapi.client.calendar.events.insert({
+          'calendarId': 'primary',
+          'resource': event
+        });
+
+        request.execute((event) => {
+          appendPre('Event created: ' + event.htmlLink);
+        });
       }
 
       /**
