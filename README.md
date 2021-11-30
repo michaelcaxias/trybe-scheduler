@@ -1,6 +1,7 @@
 # schedule-project
 ---
 ## Link do projeto:
+(atualmente não está funcionando)
 https://schedule-project.vercel.app/
 
 ## Como Iniciar 🌟
