@@ -108,6 +108,8 @@ limitations under the License.
       }
 
       function handleAddEvent() {
+        const currentDate = new Date();
+        const date = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
         const event = {
           'summary': 'Google I/O 2015',
           'location': 'Remoto',
