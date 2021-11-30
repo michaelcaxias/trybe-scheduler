@@ -112,34 +112,36 @@ limitations under the License.
         const date = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
         const scheduleValue = document.querySelector('textarea').value;
         const scheduleFiltered = filterString(scheduleValue);
-        const event = {
-          'summary': 'Google I/O 2015',
-          'location': 'Remoto',
-          'description': 'A chance to hear more about Google\'s developer products.',
-          'start': {
-            'dateTime': `${date}T09:00:00-03:00`,
-            'timeZone': 'America/Sao_Paulo'
-          },
-          'end': {
-            'dateTime': `${date}T17:00:00-03:00`,
-            'timeZone': 'America/Sao_Paulo'
-          },
-          'reminders': {
-            'useDefault': false,
-            'overrides': [
-              {'method': 'popup', 'minutes': 10}
-            ]
-          }
-        };
-
-        const request = gapi.client.calendar.events.insert({
-          'calendarId': 'primary',
-          'resource': event
-        });
-
-        request.execute((event) => {
-          appendPre('Event created: ' + event.htmlLink);
-        });
+        console.log(scheduleFiltered);
+        scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
+          const event = {
+            'summary': title,
+            'location': 'Remoto',
+            'description': '',
+            'start': {
+              'dateTime': `${date}T${startTime}:00-03:00`,
+              'timeZone': 'America/Sao_Paulo'
+            },
+            'end': {
+              'dateTime': `${date}T${endTime}:00-03:00`,
+              'timeZone': 'America/Sao_Paulo'
+            },
+            'reminders': {
+              'useDefault': false,
+              'overrides': [
+                {'method': 'popup', 'minutes': 10}
+              ]
+            }
+          };
+          const request = gapi.client.calendar.events.insert({
+            'calendarId': 'primary',
+            'resource': event
+          });
+  
+          request.execute((event) => {
+            appendPre('Event created: ' + event.htmlLink);
+          });
+        }, 1000))
       }
 
       filterString = (string) => {
@@ -161,6 +163,15 @@ limitations under the License.
           }
         })
       }
+
+      const delayLoop = (func, delay) => {
+        return (param, i) => {
+          setTimeout(() => {
+            func(param);
+            console.log('foi')
+          }, i * delay);
+        }
+      };
 
       /**
        * Append a pre element to the body containing the given message
