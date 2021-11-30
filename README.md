@@ -1,8 +1,7 @@
 # trybe-schedule
 ---
 ## Link do projeto:
-(atualmente não está funcionando)
-https://schedule-project.vercel.app/
+https://trybe-schedule.vercel.app/
 
 ## Como Iniciar 🌟
 
