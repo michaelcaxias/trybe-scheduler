@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 
 const { gapi } = window;
@@ -32,20 +33,19 @@ const getCurrentDate = () => {
   const fullYear = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  console.log(`${fullYear}-${month}-${day}`);
-  return `${fullYear}-${month + 1}-${day}`;
+  return `${fullYear}-${month}-${day}`;
 };
 
-const eventFormat = (title, startTime, endTime) => ({
+const eventFormat = (title, date, startTime, endTime) => ({
   summary: title,
   location: 'Remoto',
   description: '',
   start: {
-    dateTime: `${getCurrentDate()}T${startTime}:00-03:00`,
+    dateTime: `${date}T${startTime}:00-03:00`,
     timeZone: 'America/Sao_Paulo',
   },
   end: {
-    dateTime: `${getCurrentDate()}T${endTime}:00-03:00`,
+    dateTime: `${date}T${endTime}:00-03:00`,
     timeZone: 'America/Sao_Paulo',
   },
   reminders: {
@@ -70,13 +70,13 @@ function App() {
   const handleClick = () => {
     const scheduleFiltered = filterString(scheduleValue);
     scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
-      console.log(`${title} - ${startTime} - ${endTime}`);
       const request = gapi.client.calendar.events.insert({
         calendarId: 'primary',
-        resource: eventFormat(title, startTime, endTime),
+        resource: eventFormat(title, getCurrentDate(), startTime, endTime),
       });
+
       request.execute((event) => {
-        console.log(event);
+        console.log(`Event created: ${event.htmlLink}`);
       });
     }, ONE_SECOND));
   };
