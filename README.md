@@ -16,10 +16,14 @@ $ cd schedule-project
 
 Para iniciá-lo, siga os passos abaixo:
 ```bash
-# Instalar as dependências
+# Primeira alternativa:
 $ code .
 # Dentro do VS Code, baixe a extensão "Live Server" e clique em "Go Live"
-# Acesse o link: http://localhost:5500/
+# Acesse o link: http://localhost:5500/ no navegador
+
+# Segunda alternativa:
+python3 -m http.server 8000
+# Acesse o link: http://localhost:8000/ no navegador
 ```
 
 ---
