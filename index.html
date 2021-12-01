@@ -23,13 +23,20 @@ limitations under the License.
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p>Google Calendar API Quickstart</p>
-
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
     <button id="signout_button" style="display: none;">Sign Out</button>
-    <textarea cols="30" rows="10" placeholder="Cole aqui a agenda do dia"></textarea>
-    <button id="add_event">Adicionar</button>
+    
+    <section class="schedule-container">
+      <p>Google Calendar API Quickstart</p>
+      <textarea
+        class="textarea-schedule"
+        cols="30"
+        rows="10"
+        placeholder="Cole aqui a agenda do dia"
+      ></textarea>
+      <button id="add_event">Adicionar</button>
+    </section>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
