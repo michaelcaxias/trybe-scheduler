@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const { gapi } = window;
 
@@ -32,6 +32,7 @@ const getCurrentDate = () => {
   const fullYear = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
+  console.log(`${fullYear}-${month}-${day}`);
   return `${fullYear}-${month + 1}-${day}`;
 };
 
@@ -64,41 +65,57 @@ const delayLoop = (func, delay) => (param, i) => {
 
 function App() {
   const [scheduleValue, changeScheduleValue] = useState('');
+  const [isSignedIn, changeSignedInState] = useState(false);
+
   const handleClick = () => {
+    const scheduleFiltered = filterString(scheduleValue);
+    scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
+      console.log(`${title} - ${startTime} - ${endTime}`);
+      const request = gapi.client.calendar.events.insert({
+        calendarId: 'primary',
+        resource: eventFormat(title, startTime, endTime),
+      });
+      request.execute((event) => {
+        console.log(event);
+      });
+    }, ONE_SECOND));
+  };
+
+  const handleAuthClick = () => {
+    gapi.auth2.getAuthInstance().signIn();
+  };
+
+  const handleSignoutClick = () => {
+    gapi.auth2.getAuthInstance().signOut();
+  };
+
+  useEffect(() => {
     gapi.load('client:auth2', () => {
-      console.log('iniciou');
       gapi.client.init({
         apiKey: API_KEY,
         clientId: CLIENT_ID,
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES,
-      });
+      }).then(() => {
+        gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
+        changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
+      }).catch((error) => console.log(`Error intialize:${error}`));
 
       gapi.client.load('calendar', 'v3');
-
-      gapi.auth2.getAuthInstance().signIn()
-        .then(() => {
-          console.log('logou');
-          const scheduleFiltered = filterString(scheduleValue);
-          scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
-            console.log(`${title} - ${startTime} - ${endTime}`);
-            const request = gapi.client.calendar.events.insert({
-              calendarId: 'primary',
-              resource: eventFormat(title, startTime, endTime),
-            });
-            request.execute((event) => {
-              console.log(event);
-            });
-          }, ONE_SECOND));
-        }).catch((error) => console.log(`deu erro${error.message}`));
     });
-  };
+  }, []);
 
   return (
     <main>
+      <button
+        type="button"
+        onClick={ isSignedIn ? handleSignoutClick : handleAuthClick }
+      >
+        { isSignedIn ? 'Sair' : 'Logar' }
+      </button>
       <textarea
         cols="30"
-        onClick={ ({ target: { value } }) => changeScheduleValue(value) }
+        onChange={ ({ target: { value } }) => changeScheduleValue(value) }
         rows="10"
         placeholder="Cole aqui a agenda do dia"
       />
