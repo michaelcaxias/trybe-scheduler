@@ -15,8 +15,22 @@ body {
   width: 100vw;
 }
 
+.title {
+  color: #e6e6e6;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2rem 0;
+  text-shadow: 2px 1.5px 2px rgba(0, 0, 0, 0.5);
+}
+
 .schedule-container {
+  align-items: center;
   background: #59B5D9;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.432);
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
   width: 40%;
 }
 
