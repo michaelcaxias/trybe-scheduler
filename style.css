@@ -36,4 +36,5 @@ body {
 
 .textarea-schedule {
   resize: none;
+  width: 90%;
 }
