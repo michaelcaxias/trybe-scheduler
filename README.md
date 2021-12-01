@@ -10,8 +10,8 @@ https://trybe-schedule.vercel.app/
 Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
-$ git clone git@github.com:michaelcaxias/schedule-project.git
-$ cd schedule-project
+$ git clone git@github.com:michaelcaxias/trybe-schedule.git
+$ cd trybe-schedule
 ```
 
 Para iniciá-lo, siga os passos abaixo:
