@@ -9,22 +9,23 @@ const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
 const ONE_SECOND = 1000;
+const regex = /([0-2][0-9]h[0-5][0-9])/;
 
 const filterString = (string) => string
   .split('\n')
-  .filter((line) => line)
-  .map((filterLines) => filterLines.split(/zoom/i)[0])
-  .filter((char) => char[0] !== ' ')
-  .map((filterLines) => {
-    const filterObligated = filterLines.split('[*]');
-    return filterObligated[1] ? filterObligated[1].trim() : filterObligated[0];
+  .filter((str) => str.match(regex))
+  .map((line) => {
+    const optionalLine = line.split('[*]');
+    return optionalLine[1] ? `${optionalLine[1].trim()} (Opcional)` : optionalLine[0];
   })
-  .map((filterLines) => {
-    const filterArray = filterLines.split('-');
+  .map((line) => {
+    const filterArray = line.split('-');
+    const optionalLine = line.includes('(Opcional)');
     return {
       title: filterArray[1].trim(),
       startTime: filterArray[0].split('às')[0].replace('h', ':').trim(),
       endTime: filterArray[0].split('às')[1].replace('h', ':').trim(),
+      description: optionalLine ? 'Momento Opcional' : '',
     };
   });
 
@@ -36,10 +37,10 @@ const getCurrentDate = () => {
   return `${fullYear}-${month}-${day}`;
 };
 
-const eventFormat = (title, date, startTime, endTime) => ({
+const eventFormat = ({ title, startTime, endTime, description }, date) => ({
   summary: title,
   location: 'Remoto',
-  description: '',
+  description,
   start: {
     dateTime: `${date}T${startTime}:00-03:00`,
     timeZone: 'America/Sao_Paulo',
@@ -69,10 +70,10 @@ function App() {
 
   const handleClick = () => {
     const scheduleFiltered = filterString(scheduleValue);
-    scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
+    scheduleFiltered.forEach(delayLoop((calendarEvents) => {
       const request = gapi.client.calendar.events.insert({
         calendarId: 'primary',
-        resource: eventFormat(title, getCurrentDate(), startTime, endTime),
+        resource: eventFormat(calendarEvents, getCurrentDate()),
       });
 
       request.execute((event) => {
