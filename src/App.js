@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
+const { gapi } = window;
+
 const CLIENT_ID = '21771173827-darl8kjorgcnu0chelaillutki3fqc5e.apps.googleusercontent.com';
 const API_KEY = 'AIzaSyCuU61dFOxsqTw0 wu8qvRSisl5nqTG4vbA';
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
-const { gapi } = window;
+
+const ONE_SECOND = 1000;
 
 const filterString = (string) => string
   .split('\n')
@@ -24,16 +27,24 @@ const filterString = (string) => string
     };
   });
 
-const eventFormat = (title, date, startTime, endTime) => ({
+const getCurrentDate = () => {
+  const date = new Date();
+  const fullYear = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return `${fullYear}-${month + 1}-${day}`;
+};
+
+const eventFormat = (title, startTime, endTime) => ({
   summary: title,
   location: 'Remoto',
   description: '',
   start: {
-    dateTime: `${date}T${startTime}:00-03:00`,
+    dateTime: `${getCurrentDate()}T${startTime}:00-03:00`,
     timeZone: 'America/Sao_Paulo',
   },
   end: {
-    dateTime: `${date}T${endTime}:00-03:00`,
+    dateTime: `${getCurrentDate()}T${endTime}:00-03:00`,
     timeZone: 'America/Sao_Paulo',
   },
   reminders: {
@@ -45,10 +56,17 @@ const eventFormat = (title, date, startTime, endTime) => ({
   colorId: '2',
 });
 
+const delayLoop = (func, delay) => (param, i) => {
+  setTimeout(() => {
+    func(param);
+  }, i * delay);
+};
+
 function App() {
   const [scheduleValue, changeScheduleValue] = useState('');
   const handleClick = () => {
     gapi.load('client:auth2', () => {
+      console.log('iniciou');
       gapi.client.init({
         apiKey: API_KEY,
         clientId: CLIENT_ID,
@@ -60,17 +78,19 @@ function App() {
 
       gapi.auth2.getAuthInstance().signIn()
         .then(() => {
+          console.log('logou');
           const scheduleFiltered = filterString(scheduleValue);
-          const request = gapi.client.calendar.events.insert({
-            calendarId: 'primary',
-            resource: event,
-          });
-
-          request.execute((event) => {
-            console.log(event);
-            window.open(event.htmlLink);
-          });
-        });
+          scheduleFiltered.forEach(delayLoop(({ title, startTime, endTime }) => {
+            console.log(`${title} - ${startTime} - ${endTime}`);
+            const request = gapi.client.calendar.events.insert({
+              calendarId: 'primary',
+              resource: eventFormat(title, startTime, endTime),
+            });
+            request.execute((event) => {
+              console.log(event);
+            });
+          }, ONE_SECOND));
+        }).catch((error) => console.log(`deu erro${error.message}`));
     });
   };
 
