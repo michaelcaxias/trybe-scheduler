@@ -25,6 +25,8 @@ $ code .
 python3 -m http.server 8000
 # Acesse o link: http://localhost:8000/ no navegador
 ```
+Em caso de erros:
+- Caso esteja utilizando o metodo "Live Server", certifique-se de que está no http://localhost:5500/ e não http://127.0.0.1:5500/
 
 ---
 
