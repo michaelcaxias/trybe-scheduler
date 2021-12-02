@@ -23,7 +23,7 @@ export default function SelectTime() {
   return (
     <Select
       classNamePrefix="select"
-      onChange={ ({ value }) => setMinutes(value) }
+      onChange={ (event) => (event ? setMinutes(event.value) : setMinutes(0)) }
       defaultValue={ OPTIONS[0] }
       isDisabled={ false }
       isClearable
