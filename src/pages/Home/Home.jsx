@@ -1,17 +1,18 @@
-/* eslint-disable max-len */
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from './index';
 import SelectTime from '../../components/SelectTime';
 import { MyContext } from '../../context/Provider';
 import SelectColors from '../../components/SelectColors';
+import TextArea from '../../components/TextArea';
 
 const { gapi } = window;
 
 const ONE_SECOND = 1000;
 
 export default function Home() {
-  const { isSignedIn, colorId, minutes } = useContext(MyContext);
-  const [scheduleValue, changeScheduleValue] = useState('');
+  const {
+    isSignedIn, colorId, minutes, scheduleValue,
+  } = useContext(MyContext);
 
   const handleClick = () => {
     const scheduleFiltered = filterString(scheduleValue);
@@ -43,13 +44,7 @@ export default function Home() {
       >
         { isSignedIn ? 'Sair' : 'Logar' }
       </button>
-      <textarea
-        cols="30"
-        onChange={ ({ target: { value } }) => changeScheduleValue(value) }
-        rows="10"
-        placeholder="Cole aqui a agenda do dia"
-        disabled={ !isSignedIn }
-      />
+      <TextArea />
       <button
         type="button"
         disabled={ !isSignedIn }

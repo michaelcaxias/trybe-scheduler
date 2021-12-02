@@ -15,14 +15,17 @@ export function Provider({ children }) {
   const [minutes, setMinutes] = useState(0);
   const [isSignedIn, changeSignedInState] = useState(false);
   const [colorId, setColorId] = useState({ color: '#33b679', name: 'Sálvia', id: '2' });
+  const [scheduleValue, changeScheduleValue] = useState('');
 
   const context = {
     minutes,
     isSignedIn,
     colorId,
+    scheduleValue,
     setMinutes,
     changeSignedInState,
     setColorId,
+    changeScheduleValue,
   };
 
   useEffect(() => {
