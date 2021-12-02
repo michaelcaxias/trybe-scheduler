@@ -2,24 +2,27 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 
-const options = [
-  { value: 1, label: '1 Minuto' },
-  { value: 2, label: '2 Minutos' },
-  { value: 3, label: '3 Minutos' },
-];
+const ONE_HOUR = 60;
+const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].slice(1);
+const TEN = 10;
+
+const OPTIONS = MAX_TIME.map((time) => ({
+  value: time,
+  label: `${time < TEN ? `${time} minuto` : `${time} minutos`}`,
+}));
 
 export default function SelectTime() {
-  const [minutes, setMinutes] = useState(options[0].value);
+  const [minutes, setMinutes] = useState(OPTIONS[0].value);
   return (
     <Select
       classNamePrefix="select"
       onChange={ ({ value }) => setMinutes(value) }
-      defaultValue={ options[0] }
+      defaultValue={ OPTIONS[0] }
       isDisabled={ false }
       isClearable
       isSearchable
       name="color"
-      options={ options }
+      options={ OPTIONS }
     />
   );
 }
