@@ -1,12 +1,10 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Select from 'react-select';
+import { MyContext } from '../context/Provider';
 
 const ONE_HOUR = 60;
 const MAX_TIME = [...Array(ONE_HOUR + 1).keys()];
 const TEN = 10;
-
-console.log(MAX_TIME);
 
 const OPTIONS = MAX_TIME.map((time) => {
   const moreThanZero = {
@@ -21,7 +19,7 @@ const OPTIONS = MAX_TIME.map((time) => {
 });
 
 export default function SelectTime() {
-  const [minutes, setMinutes] = useState(OPTIONS[0].value);
+  const { setMinutes } = useContext(MyContext);
   return (
     <Select
       classNamePrefix="select"

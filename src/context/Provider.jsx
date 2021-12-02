@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
-import React, { createContext } from 'react';
+import React, { useState, createContext } from 'react';
 
 export const MyContext = createContext();
 
 export function Provider({ children }) {
+  const [minutes, setMinutes] = useState(0);
+
   const context = {
-    any: '',
+    minutes,
+    setMinutes,
   };
 
   return (
