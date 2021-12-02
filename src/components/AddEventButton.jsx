@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { MyContext } from '../context/Provider';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { Button } from '@material-ui/core';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
+import { MyContext } from '../context/Provider';
 
 const ONE_SECOND = 1000;
 const { gapi } = window;
 
-export default function AddEvent() {
+export default function AddEventButton() {
   const {
     isSignedIn, colorId, minutes, scheduleValue,
   } = useContext(MyContext);
@@ -25,12 +27,13 @@ export default function AddEvent() {
   };
 
   return (
-    <button
-      type="button"
+    <Button
       disabled={ !isSignedIn }
       onClick={ handleClick }
+      variant="outlined"
+      startIcon={ <CalendarTodayIcon /> }
     >
       Adicionar
-    </button>
+    </Button>
   );
 }
