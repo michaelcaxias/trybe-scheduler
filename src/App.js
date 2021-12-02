@@ -19,12 +19,15 @@ const filterString = (string) => string
     return optionalLine[1] ? `${optionalLine[1].trim()} (Opcional)` : optionalLine[0];
   })
   .map((line) => {
-    const filterArray = line.split('-');
+    const filterArray = line.split('às');
+    const startTime = filterArray[0].replace('h', ':').trim();
+    const endTime = filterArray[1].replace('h', ':').trim().split(' ')[0];
+    const title = filterArray[1].replace('h', ':').replace(endTime, ' ').trim();
     const optionalLine = line.includes('(Opcional)');
     return {
-      title: filterArray[1].trim(),
-      startTime: filterArray[0].split('às')[0].replace('h', ':').trim(),
-      endTime: filterArray[0].split('às')[1].replace('h', ':').trim(),
+      title,
+      startTime,
+      endTime,
       description: optionalLine ? 'Momento Opcional' : '',
     };
   });
