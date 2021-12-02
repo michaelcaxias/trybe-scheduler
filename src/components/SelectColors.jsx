@@ -1,18 +1,35 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext } from 'react';
 import '../styles/selectColors.css';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { MyContext } from '../context/Provider';
+
+const colors = [
+  { color: '#7986cb', name: 'Lavender', id: 1 },
+  { color: '#33b679', name: 'Sage', id: 2 },
+  { color: '#8e24aa', name: 'Grape', id: 3 },
+  { color: '#e67c73', name: 'Flamingo', id: 4 },
+  { color: '#f6c026', name: 'Banana', id: 5 },
+  { color: '#f5511d', name: 'Tangerine', id: 6 },
+  { color: '#039be5', name: 'Peacock', id: 7 },
+  { color: '#616161', name: 'Graphite', id: 8 },
+  { color: '#3f51b5', name: 'Blueberry', id: 9 },
+  { color: '#0b8043', name: 'Basil', id: 10 },
+  { color: '#d60000', name: 'Tomato', id: 11 },
+];
 
 export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const { colorId, setColorId } = useContext(MyContext);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = (id) => {
+  const handleClose = (currentColor) => {
     setAnchorEl(null);
-    console.log(id);
+    setColorId(currentColor);
   };
 
   return (
@@ -24,7 +41,7 @@ export default function BasicMenu() {
         aria-expanded={ open ? 'true' : undefined }
         onClick={ handleClick }
       >
-        <div className="color-picker" />
+        <div className="color-picker" style={ { backgroundColor: colorId.color } } />
         Cor do Evento
       </Button>
       <Menu
@@ -36,15 +53,18 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         } }
       >
-        <MenuItem
-          id="1"
-          onClick={ ({ target: { id } }) => handleClose(id) }
-        >
-          Profile
+        { colors.map(({ name, id, color }) => (
+          <MenuItem
+            key={ name }
+            id={ id }
+            className="color-picker-menu-item"
+            onClick={ () => handleClose({ name, id, color }) }
+          >
+            <div className="color-picker" style={ { backgroundColor: color } } />
+            {name}
 
-        </MenuItem>
-        <MenuItem onClick={ handleClose }>My account</MenuItem>
-        <MenuItem onClick={ handleClose }>Logout</MenuItem>
+          </MenuItem>
+        ))}
       </Menu>
     </div>
   );

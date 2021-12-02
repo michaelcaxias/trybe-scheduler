@@ -14,12 +14,15 @@ export const MyContext = createContext();
 export function Provider({ children }) {
   const [minutes, setMinutes] = useState(0);
   const [isSignedIn, changeSignedInState] = useState(false);
+  const [colorId, setColorId] = useState({ color: '#33b679', name: 'Sage', id: 2 });
 
   const context = {
     minutes,
     isSignedIn,
+    colorId,
     setMinutes,
     changeSignedInState,
+    setColorId,
   };
 
   useEffect(() => {
