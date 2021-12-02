@@ -18,6 +18,7 @@ export default function TextArea() {
     <TextField
       fullWidth
       multiline
+      variant="filled"
       onChange={ ({ target: { value } }) => changeScheduleValue(value) }
       disabled={ !isSignedIn }
       placeholder={ placeholder }

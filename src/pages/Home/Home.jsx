@@ -4,6 +4,8 @@ import SelectTime from '../../components/SelectTime';
 import { MyContext } from '../../context/Provider';
 import SelectColors from '../../components/SelectColors';
 import TextArea from '../../components/TextArea';
+import LoginButton from '../../components/LoginButton';
+import '../../styles/home.css';
 
 const { gapi } = window;
 
@@ -28,23 +30,14 @@ export default function Home() {
     }, ONE_SECOND));
   };
 
-  const handleAuthClick = () => {
-    gapi.auth2.getAuthInstance().signIn();
-  };
-
-  const handleSignoutClick = () => {
-    gapi.auth2.getAuthInstance().signOut();
-  };
-
   return (
     <main>
-      <button
-        type="button"
-        onClick={ isSignedIn ? handleSignoutClick : handleAuthClick }
-      >
-        { isSignedIn ? 'Sair' : 'Logar' }
-      </button>
+      <LoginButton />
       <TextArea />
+      <section className="input-group">
+        <SelectTime />
+        <SelectColors />
+      </section>
       <button
         type="button"
         disabled={ !isSignedIn }
@@ -52,8 +45,6 @@ export default function Home() {
       >
         Adicionar
       </button>
-      <SelectTime />
-      <SelectColors />
     </main>
   );
 }
