@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from './index';
 import SelectTime from '../../components/SelectTime';
 import { MyContext } from '../../context/Provider';
+import SelectColors from '../../components/SelectColors';
 
 const { gapi } = window;
 
@@ -57,6 +58,7 @@ export default function Home() {
         Adicionar
       </button>
       <SelectTime />
+      <SelectColors />
     </main>
   );
 }
