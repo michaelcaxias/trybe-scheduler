@@ -4,6 +4,7 @@ import { MyContext } from '../context/Provider';
 
 const ONE_HOUR = 60;
 const MAX_TIME = [...Array(ONE_HOUR + 1).keys()];
+const TEN = 10;
 
 const OPTIONS = MAX_TIME.map((time) => {
   const moreThanZero = {
