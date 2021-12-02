@@ -1,0 +1,14 @@
+.color-picker {
+  background-color: red;
+  padding: 0.7rem;
+  border-radius: 100%;
+}
+
+.color-picker-button{
+  gap: 0.5rem;
+  display: flex;
+}
+
+.color-picker-menu-item {
+  gap: 0.5rem;
+}
