@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from './index';
+import SelectTime from '../../components/SelectTime';
 
 const { gapi } = window;
 
@@ -73,6 +74,7 @@ export default function Home() {
       >
         Adicionar
       </button>
+      <SelectTime />
     </main>
   );
 }
