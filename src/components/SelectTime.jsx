@@ -19,13 +19,13 @@ const OPTIONS = MAX_TIME.map((time) => {
 });
 
 export default function SelectTime() {
-  const { setMinutes } = useContext(MyContext);
+  const { setMinutes, isSignedIn } = useContext(MyContext);
   return (
     <Select
       classNamePrefix="select"
       onChange={ (event) => (event ? setMinutes(event.value) : setMinutes(0)) }
       defaultValue={ OPTIONS[0] }
-      isDisabled={ false }
+      isDisabled={ !isSignedIn }
       isClearable
       isSearchable
       name="color"
