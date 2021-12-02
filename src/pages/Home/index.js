@@ -29,7 +29,7 @@ export const getCurrentDate = () => {
   return `${fullYear}-${month}-${day}`;
 };
 
-export const eventFormat = ({ title, startTime, endTime, description }, date) => ({
+export const eventFormat = ({ title, startTime, endTime, description }, date, color) => ({
   summary: title,
   location: 'Remoto',
   description,
@@ -47,7 +47,7 @@ export const eventFormat = ({ title, startTime, endTime, description }, date) =>
       { method: 'popup', minutes: 10 },
     ],
   },
-  colorId: '2',
+  colorId: color,
 });
 
 export const delayLoop = (func, delay) => (param, i) => {
