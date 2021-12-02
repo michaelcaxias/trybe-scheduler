@@ -13,7 +13,7 @@ const placeholder = `
 `;
 
 export default function TextArea() {
-  const { isSignedIn } = useContext(MyContext);
+  const { isSignedIn, changeScheduleValue } = useContext(MyContext);
   return (
     <TextField
       fullWidth
@@ -23,7 +23,6 @@ export default function TextArea() {
       disabled={ !isSignedIn }
       placeholder={ placeholder }
       rows={ 10 }
-      rowsMax={ 30 }
       label="Agenda do Dia"
     />
   );
