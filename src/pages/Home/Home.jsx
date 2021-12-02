@@ -10,7 +10,7 @@ const { gapi } = window;
 const ONE_SECOND = 1000;
 
 export default function Home() {
-  const { isSignedIn, colorId } = useContext(MyContext);
+  const { isSignedIn, colorId, minutes } = useContext(MyContext);
   const [scheduleValue, changeScheduleValue] = useState('');
 
   const handleClick = () => {
@@ -18,7 +18,7 @@ export default function Home() {
     scheduleFiltered.forEach(delayLoop((calendarEvents) => {
       const request = gapi.client.calendar.events.insert({
         calendarId: 'primary',
-        resource: eventFormat(calendarEvents, getCurrentDate(), colorId.id),
+        resource: eventFormat(calendarEvents, getCurrentDate(), colorId.id, minutes),
       });
 
       request.execute((event) => {

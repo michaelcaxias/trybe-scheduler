@@ -11,7 +11,8 @@ export const filterString = (string) => string
     const filterArray = line.split('às');
     const startTime = filterArray[0].replace('h', ':').trim();
     const endTime = filterArray[1].replace('h', ':').trim().split(' ')[0];
-    const title = filterArray[1].replace('h', ':').replace(endTime, ' ').trim();
+    const title = filterArray[1].replace('h', ':').replace(endTime, ' ')
+      .replace(/-/g, '').trim();
     const optionalLine = line.includes('(Opcional)');
     return {
       title,
@@ -29,7 +30,9 @@ export const getCurrentDate = () => {
   return `${fullYear}-${month}-${day}`;
 };
 
-export const eventFormat = ({ title, startTime, endTime, description }, date, color) => ({
+export const eventFormat = (
+  { title, startTime, endTime, description }, date, color, minutes,
+) => ({
   summary: title,
   location: 'Remoto',
   description,
@@ -44,7 +47,7 @@ export const eventFormat = ({ title, startTime, endTime, description }, date, co
   reminders: {
     useDefault: false,
     overrides: [
-      { method: 'popup', minutes: 10 },
+      { method: 'popup', minutes: Number(minutes) },
     ],
   },
   colorId: color,
