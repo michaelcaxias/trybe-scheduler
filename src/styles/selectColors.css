@@ -4,9 +4,10 @@
   border-radius: 100%;
 }
 
-.color-picker-button{
+.color-picker-button {
   gap: 0.5rem;
   display: flex;
+  height: 100%;
 }
 
 .color-picker-menu-item {
