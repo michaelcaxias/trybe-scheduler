@@ -88,6 +88,7 @@ export default function AddEventButton() {
         disabled={ !isSignedIn }
         onClick={ handleClick }
         variant="outlined"
+        size="large"
         startIcon={ <CalendarTodayIcon /> }
       >
         Adicionar

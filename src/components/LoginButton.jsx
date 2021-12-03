@@ -20,6 +20,7 @@ export default function LoginButton() {
     <Button
       variant="outlined"
       onClick={ handleAuthClick }
+      size="large"
       startIcon={ <GoogleIcon /> }
     >
       Conectar
@@ -30,6 +31,7 @@ export default function LoginButton() {
     <Button
       variant="contained"
       onClick={ handleSignoutClick }
+      size="large"
       color="error"
       startIcon={ <GoogleIcon /> }
     >

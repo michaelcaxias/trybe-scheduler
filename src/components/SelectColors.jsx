@@ -40,6 +40,7 @@ export default function BasicMenu() {
         disabled={ !isSignedIn }
         variant="outlined"
         color="secondary"
+        size="large"
         aria-haspopup="true"
         aria-expanded={ open ? 'true' : undefined }
         onClick={ handleClick }

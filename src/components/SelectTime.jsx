@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { MyContext } from '../context/Provider';
+import '../styles/selectTime.css';
 
 const ONE_HOUR = 60;
 const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % 5 === 0);
@@ -27,13 +28,12 @@ const OPTIONS = MAX_TIME.map((time) => {
 export default function SelectTime() {
   const { minutes, setMinutes, isSignedIn } = useContext(MyContext);
   return (
-    <FormControl sx={ { m: 1, width: 300 } }>
+    <FormControl variant="filled" sx={ { minWidth: 200 } } color="secondary">
       <InputLabel>Notificar antecipadamente</InputLabel>
       <Select
+        className="select-time"
         value={ minutes }
         onChange={ ({ target: { value } }) => setMinutes(value) }
-        color="secondary"
-        input={ <OutlinedInput color="secondary" label="Notificar antecipadamente" /> }
       >
         {OPTIONS.map(({ value, label }) => (
           <MenuItem
