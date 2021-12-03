@@ -21,7 +21,7 @@ const colors = [
 ];
 
 export default function BasicMenu() {
-  const { colorId, setColorId } = useContext(MyContext);
+  const { colorId, setColorId, isSignedIn } = useContext(MyContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -37,6 +37,10 @@ export default function BasicMenu() {
       <Button
         className="color-picker-button"
         aria-controls="basic-menu"
+        disabled={ !isSignedIn }
+        variant="outlined"
+        color="secondary"
+        size="large"
         aria-haspopup="true"
         aria-expanded={ open ? 'true' : undefined }
         onClick={ handleClick }
