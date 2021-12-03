@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/cognitive-complexity */
 import React, { useContext, useState, useEffect } from 'react';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Button from '@mui/material/Button';
@@ -8,8 +9,8 @@ import Alert from './Alert';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
 import { MyContext } from '../context/Provider';
 
-const ONE_SECOND = 1000;
 const { gapi } = window;
+const ONE_SECOND = 1000;
 
 export default function AddEventButton() {
   const {
@@ -21,13 +22,20 @@ export default function AddEventButton() {
   const [messageInfo, setMessageInfo] = useState(undefined);
   const [alertVariant, setAlertVariant] = useState('success');
 
-  const handleClick = () => {
-    const scheduleFiltered = filterString(scheduleValue);
-    scheduleFiltered.forEach(delayLoop((calendarEvents) => {
+  const eventNotPossible = () => {
+    setAlertVariant('warning');
+    setSnackPack((prev) => [...prev, {
+      message: 'Insira um valor válido no campo de texto', key: new Date().getTime(),
+    }]);
+  };
+
+  const insertEvent = (textAreaValue) => (
+    textAreaValue.forEach(delayLoop((calendarEvents) => {
       const message = `
-      Evento criado:
-      ${calendarEvents.startTime} até ${calendarEvents.endTime} - ${calendarEvents.title}
-      `;
+    Evento criado:
+    ${calendarEvents.startTime} até ${calendarEvents.endTime} - ${calendarEvents.title}
+    `;
+      const errorEventMessage = 'Não foi possível criar o evento';
       const request = gapi.client.calendar.events.insert({
         calendarId: 'primary',
         resource: eventFormat(calendarEvents, getCurrentDate(), colorId.id, minutes),
@@ -35,9 +43,8 @@ export default function AddEventButton() {
       request.execute((event) => {
         if (!event.htmlLink) {
           setAlertVariant('error');
-          const messageEvent = 'Não foi possível criar o evento';
           setSnackPack((prev) => [...prev, {
-            message: messageEvent, key: new Date().getTime(),
+            message: errorEventMessage, key: new Date().getTime(),
           }]);
         } else {
           setAlertVariant('success');
@@ -46,7 +53,14 @@ export default function AddEventButton() {
           }]);
         }
       });
-    }, ONE_SECOND));
+    }, ONE_SECOND)));
+
+  const handleClick = () => {
+    const scheduleFiltered = filterString(scheduleValue);
+    if (!scheduleFiltered.length) {
+      eventNotPossible();
+    }
+    insertEvent(scheduleFiltered);
   };
 
   const handleClose = (_event, reason) => {
