@@ -34,6 +34,7 @@ export default function SelectTime() {
         className="select-time"
         value={ minutes }
         onChange={ ({ target: { value } }) => setMinutes(value) }
+        disabled={ !isSignedIn }
       >
         {OPTIONS.map(({ value, label }) => (
           <MenuItem
