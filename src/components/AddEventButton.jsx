@@ -93,6 +93,7 @@ export default function AddEventButton() {
         Adicionar
       </Button>
       <Snackbar
+        anchorOrigin={ { vertical: 'top', horizontal: 'right' } }
         key={ messageInfo ? messageInfo.key : undefined }
         open={ open }
         autoHideDuration={ 3000 }

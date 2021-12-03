@@ -1,3 +1,11 @@
 .input-group {
   display: flex;
 }
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: #59c18c;
+  padding: 5rem;
+}

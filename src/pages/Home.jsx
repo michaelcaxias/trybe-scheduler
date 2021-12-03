@@ -8,7 +8,7 @@ import '../styles/home.css';
 
 export default function Home() {
   return (
-    <main>
+    <main className="main-content">
       <LoginButton />
       <TextArea />
       <section className="input-group">
