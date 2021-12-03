@@ -1,15 +1,21 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import Select from 'react-select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import { MyContext } from '../context/Provider';
 
 const ONE_HOUR = 60;
-const MAX_TIME = [...Array(ONE_HOUR + 1).keys()];
+const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % 5 === 0);
 const TEN = 10;
 
 const OPTIONS = MAX_TIME.map((time) => {
   const moreThanZero = {
     value: time,
-    label: `${time < TEN ? `${time} minuto` : `${time} minutos`}`,
+    label: `${time < 1 ? `${time} minuto` : `${time} minutos`}`,
   };
   const zero = {
     value: time,
@@ -19,17 +25,34 @@ const OPTIONS = MAX_TIME.map((time) => {
 });
 
 export default function SelectTime() {
-  const { setMinutes, isSignedIn } = useContext(MyContext);
+  const { minutes, setMinutes, isSignedIn } = useContext(MyContext);
   return (
-    <Select
-      classNamePrefix="select"
-      onChange={ (event) => (event ? setMinutes(event.value) : setMinutes(0)) }
-      defaultValue={ OPTIONS[0] }
-      isDisabled={ !isSignedIn }
-      isClearable
-      isSearchable
-      name="color"
-      options={ OPTIONS }
-    />
+    <FormControl sx={ { m: 1, width: 300 } }>
+      <InputLabel>Notificar antecipadamente</InputLabel>
+      <Select
+        value={ minutes }
+        onChange={ ({ target: { value } }) => setMinutes(value) }
+        color="secondary"
+        input={ <OutlinedInput color="secondary" label="Notificar antecipadamente" /> }
+      >
+        {OPTIONS.map(({ value, label }) => (
+          <MenuItem
+            key={ value }
+            value={ value }
+          >
+            {label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
+
+// <Select
+//   classNamePrefix="select"
+//   onChange={ (event) => (event ? setMinutes(event.value) : setMinutes(0)) }
+//   defaultValue={ OPTIONS[0] }
+//   isDisabled={ !isSignedIn }
+//   isClearable
+//   isSearchable
+//   options={ OPTIONS }
