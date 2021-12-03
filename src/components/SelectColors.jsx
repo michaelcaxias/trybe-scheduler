@@ -38,6 +38,8 @@ export default function BasicMenu() {
         className="color-picker-button"
         aria-controls="basic-menu"
         disabled={ !isSignedIn }
+        variant="outlined"
+        color="secondary"
         aria-haspopup="true"
         aria-expanded={ open ? 'true' : undefined }
         onClick={ handleClick }

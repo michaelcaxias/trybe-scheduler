@@ -10,7 +10,10 @@ export default function Home() {
   return (
     <main className="main-content">
       <LoginButton />
-      <TextArea />
+      <section className="textarea-container">
+        <h1>Cole a agenda do dia abaixo</h1>
+        <TextArea />
+      </section>
       <section className="input-group">
         <SelectTime />
         <SelectColors />
