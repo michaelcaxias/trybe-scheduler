@@ -17,15 +17,9 @@ $ cd trybe-schedule
 Para iniciá-lo, siga os passos abaixo:
 ```bash
 # Instale as dependências
-# Com npm:
 $ npm install 
-# Com yarn:
-$ yarn install
 # Inicie o projeto
-# Com npm:
 $ npm start
-# Com yarn:
-$ yarn start
 # Acesse o link: http://localhost:3000/ no navegador
 ```
 ---
