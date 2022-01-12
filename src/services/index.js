@@ -14,7 +14,8 @@ export const filterString = (string) => {
     .filter((str) => str.match(regex))
     .map((line) => {
       const startTime = filterTime(line)[0].replace('h', ':').trim();
-      const endTime = filterTime(line)[1].replace('h', ':').trim();
+      const endTime = filterTime(line)[1] ? filterTime(line)[1]
+        .replace('h', ':').trim() : startTime;
       const title = line
         .replace(/-/g, '').trim();
       const optionalLine = line.includes('[*]') || line.includes('(*)');
