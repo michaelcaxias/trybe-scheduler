@@ -17,22 +17,20 @@ $ cd trybe-schedule
 Para iniciá-lo, siga os passos abaixo:
 ```bash
 # Instale as dependências
-# Com npm:
 $ npm install 
-# Com yarn:
-$ yarn install
 # Inicie o projeto
-# Com npm:
 $ npm start
-# Com yarn:
-$ yarn start
 # Acesse o link: http://localhost:3000/ no navegador
 ```
 ---
+## Como contribuir ℹ️
+  1. Crie um fork do projeto
+  2. Crie uma branch e adicione a sua contribuição
+  4. Altere o caminho de merge da sua branch para a master do projeto `michaelcaxias:master`
+  3. Abra uma Issue no Github informando a sua contribuição 
+  5. Aguarde até a aprovação.
 
+---
 ## Documentação do Google Calendar
 https://developers.google.com/calendar/api/quickstart/js
 ![image](https://user-images.githubusercontent.com/79621661/143962267-cd4fda15-2637-4425-ab4f-93862d66443b.png)
-## Console Cloud do Google
-https://console.cloud.google.com/
-![image](https://user-images.githubusercontent.com/79621661/143962356-650c052a-c86a-429b-a761-bafe388772ad.png)

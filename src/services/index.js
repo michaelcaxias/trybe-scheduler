@@ -1,14 +1,14 @@
 const filterTime = (string) => string.split(' ').filter((str) => (
-  str.match(/([0-2][0-9]h[0-5][0-9])/) || str.match(/([0-2][0-9]h)/)))
+  str.match(/([0-2][0-9](h|:)[0-5][0-9])/) || str.match(/([0-2][0-9](h|:))/)))
   .map((str) => {
-    if (str.match(/([0-2][0-9]h[0-5][0-9])/)) {
+    if (str.match(/([0-2][0-9](h|:)[0-5][0-9])/)) {
       return str;
     }
     return `${str}00`;
   });
 
 export const filterString = (string) => {
-  const regex = /([0-2][0-9]h[0-5][0-9])/;
+  const regex = /([0-2][0-9](h|:)[0-5][0-9])/;
   return string
     .split('\n')
     .filter((str) => str.match(regex))

@@ -4,7 +4,7 @@ import { MyContext } from '../context/Provider';
 
 const placeholder = `
 [*] 13h00 às 13h50 - Mentoria
-14h00 às 14h45 - Abertira
+14h00 às 14h45 - Abertura
 14h45 às 16h20 - Conteúdo
 16h20 às 18h00 - Aula ao Vivo 
 [*] 18h40 às 19h30 - Mentorias técnicas

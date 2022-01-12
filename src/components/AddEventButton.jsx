@@ -31,10 +31,7 @@ export default function AddEventButton() {
 
   const insertEvent = (textAreaValue) => (
     textAreaValue.forEach(delayLoop((calendarEvents) => {
-      const message = `
-    Evento criado:
-    ${calendarEvents.startTime} até ${calendarEvents.endTime} - ${calendarEvents.title}
-    `;
+      const message = `Evento criado: ${calendarEvents.title}`;
       const errorEventMessage = 'Não foi possível criar o evento';
       const request = gapi.client.calendar.events.insert({
         calendarId: 'primary',
