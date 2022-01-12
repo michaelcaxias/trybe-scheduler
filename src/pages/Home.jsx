@@ -9,9 +9,9 @@ import '../styles/home.scss';
 export default function Home() {
   return (
     <main className="main-content">
+      <h1>Agende seus Horários</h1>
       <LoginButton />
       <section className="textarea-container">
-        <h1>Cole a agenda do dia abaixo</h1>
         <TextArea />
       </section>
       <section className="input-group">
