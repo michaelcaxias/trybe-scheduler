@@ -4,7 +4,7 @@ import SelectColors from '../components/SelectColors';
 import TextArea from '../components/TextArea';
 import LoginButton from '../components/LoginButton';
 import AddEventButton from '../components/AddEventButton';
-import '../styles/home.css';
+import '../styles/home.scss';
 
 export default function Home() {
   return (
