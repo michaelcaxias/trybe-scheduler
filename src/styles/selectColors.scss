@@ -1,13 +1,20 @@
 .color-picker {
   background-color: #33b679;
-  padding: 0.7rem;
+  padding: 0.8rem;
   border-radius: 100%;
+}
+
+.MuiButton-root {
+  padding: 10px 5px;
 }
 
 .color-picker-button {
   gap: 0.5rem;
   display: flex;
   height: 100%;
+  svg {
+    font-size: 1.4rem;
+  }
 }
 
 .color-picker-menu-item {

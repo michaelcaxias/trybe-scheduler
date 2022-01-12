@@ -47,7 +47,7 @@ export default function BasicMenu() {
         onClick={ handleClick }
       >
         <div className="color-picker" style={ { backgroundColor: colorId.color } } />
-        {anchorEl ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
+        {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
       </Button>
       <Menu
         id="basic-menu"
