@@ -1,0 +1,14 @@
+$primary-color: #4285F4;
+$secondary-color: #86e0bf;
+$background-color: #DDFFF3;
+$main-purple: #9A33AF;
+
+.MuiFilledInput-root {
+  background-color: transparent;
+}
+
+.MuiFormControl-root {
+  background-color: $secondary-color;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
