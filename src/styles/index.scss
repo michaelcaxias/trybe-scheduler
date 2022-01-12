@@ -1,7 +1,13 @@
+$primary-color: #4285F4;
+$secondary-color: #86e0bf;
+$background-color: #DDFFF3;
+$main-purple: #9A33AF;
+
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #6ae7a7;
+  background-color: $background-color;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
