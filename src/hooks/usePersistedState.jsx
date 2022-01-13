@@ -11,8 +11,12 @@ export default function usePersistedState(key, initialState) {
   });
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
+    try {
+      localStorage.setItem(key, JSON.stringify(state));
+    } catch (error) {
+      localStorage.setItem(key, JSON.stringify(initialState));
+    }
+  }, [key, state, initialState]);
 
   return [state, setState];
 }
