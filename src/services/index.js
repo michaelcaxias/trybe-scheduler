@@ -14,7 +14,7 @@ export const filterString = (string) => {
       return {
         title,
         startTime,
-        endTime,
+        endTime: endTime || startTime,
         description: optionalLine ? 'Momento opcional' : '',
       };
     });
