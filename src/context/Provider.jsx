@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, createContext } from 'react';
+import usePersistedState from '../hooks/usePersistedState';
 
 const { gapi } = window;
 
@@ -12,9 +13,10 @@ const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 export const MyContext = createContext();
 
 export function Provider({ children }) {
-  const [minutes, setMinutes] = useState(0);
+  const [minutes, setMinutes] = usePersistedState('minutes', 0);
   const [isSignedIn, changeSignedInState] = useState(false);
-  const [colorId, setColorId] = useState({ color: '#33b679', name: 'Sálvia', id: '2' });
+  const [colorId, setColorId] = usePersistedState('color',
+    { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
 
   const context = {
