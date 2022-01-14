@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
-import GoogleIcon from '@mui/icons-material/Google';
+import { FcGoogle } from 'react-icons/fc';
 import { MyContext } from '../context/Provider';
+import '../styles/loginButton.scss';
 
 const { gapi } = window;
 
@@ -18,12 +19,14 @@ export default function LoginButton() {
 
   const connectButton = (
     <Button
-      variant="outlined"
+      className="login-button"
       onClick={ handleAuthClick }
       size="large"
-      startIcon={ <GoogleIcon /> }
     >
-      Conectar
+      <div className="google-icon-div">
+        <FcGoogle />
+      </div>
+      Logar com o Google
     </Button>
   );
 
@@ -33,7 +36,6 @@ export default function LoginButton() {
       onClick={ handleSignoutClick }
       size="large"
       color="error"
-      startIcon={ <GoogleIcon /> }
     >
       Desconectar
     </Button>
