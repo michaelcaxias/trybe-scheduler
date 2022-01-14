@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Button } from '@material-ui/core';
 import { FcGoogle } from 'react-icons/fc';
+import { ImExit } from 'react-icons/im';
 import { MyContext } from '../context/Provider';
 import '../styles/loginButton.scss';
 
@@ -19,7 +20,7 @@ export default function LoginButton() {
 
   const connectButton = (
     <Button
-      className="login-button"
+      className="login-logout login-button"
       onClick={ handleAuthClick }
       size="large"
     >
@@ -32,11 +33,15 @@ export default function LoginButton() {
 
   const disconnectButton = (
     <Button
+      className="login-logout logout-button"
       variant="contained"
       onClick={ handleSignoutClick }
       size="large"
       color="error"
     >
+      <div className="exit-icon-div">
+        <ImExit />
+      </div>
       Desconectar
     </Button>
   );

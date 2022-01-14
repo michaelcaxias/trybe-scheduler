@@ -1,20 +1,22 @@
 $primary-color: #4285F4;
+$secondary-color: #d4472f;
 
-.login-button {
-  background-color: $primary-color !important;
-  border-radius: 8px;
+.login-logout {
   display: flex;
   gap: 1rem;
   color: white !important;
-  font-family: 'Heebo' !important;
   border-radius: 8px !important;
+  font-family: 'Heebo' !important;
   text-transform: none !important;
   font-size: 1.2rem;
-  font-weight: bold;
   padding: 0.5rem 1rem 0.5rem 0.5rem !important;
-  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.login-button {
+  background-color: $primary-color !important;
   transition: all 0.2s ease-in-out;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, 
+  box-shadow: rgba(61, 61, 114, 0.25) 0px 13px 27px -5px, 
   rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
   &:hover {
     background-color: #3779e2 !important;
@@ -28,5 +30,22 @@ $primary-color: #4285F4;
     justify-content: center;
     background-color: white;
     border-radius: 8px;
+  }
+}
+
+.logout-button {
+  background-color: $secondary-color !important;
+  transition: all 0.2s ease-in-out;
+  gap: 0.5rem !important;
+  &:hover {
+    background-color: #c53c24 !important;
+    color: white;
+  }
+  .exit-icon-div {
+    font-size: 1.5rem;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
