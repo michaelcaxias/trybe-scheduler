@@ -1,28 +1,20 @@
-const filterTime = (string) => string.split(' ').filter((str) => (
-  str.match(/([0-2][0-9](h|:)[0-5][0-9])/) || str.match(/([0-2][0-9](h|:))/)))
-  .map((str) => {
-    if (str.match(/([0-2][0-9](h|:)[0-5][0-9])/)) {
-      return str;
-    }
-    return `${str}00`;
-  });
+const filterTime = (string, regex) => string.match(regex);
 
 export const filterString = (string) => {
-  const regex = /([0-2][0-9](h|:)[0-5][0-9])/;
+  const regex = /(([0-1]\d|2[0-4])(h|:)([0-5]\d)?)/ig;
   return string
     .split('\n')
     .filter((str) => str.match(regex))
     .map((line) => {
-      const startTime = filterTime(line)[0].replace('h', ':').trim();
-      const endTime = filterTime(line)[1] ? filterTime(line)[1]
-        .replace('h', ':').trim() : startTime;
+      const [startTime, endTime] = filterTime(line, regex)
+        .map((hour) => hour.replace(/h(\d\d)?/i, (_, min) => (min ? `:${min}` : ':00')));
       const title = line
         .replace(/-/g, '').trim();
       const optionalLine = line.includes('[*]') || line.includes('(*)');
       return {
         title,
         startTime,
-        endTime,
+        endTime: endTime || startTime,
         description: optionalLine ? 'Momento opcional' : '',
       };
     });
