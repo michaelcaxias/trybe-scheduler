@@ -80,3 +80,22 @@ $secondary-color: #84dfbe;
   align-items: center;
   width: 80%;
 }
+
+@media (max-width: 930px) {
+  .home-page {
+    width: 100%;
+    height: 100vh;
+    .aside-content {
+      display: none;
+    }
+    .main-content {
+      width: 100%;
+      .schedule-content {
+        width: 100%;
+      }
+      .wavy {
+        display: none;
+      }
+    }
+  }
+}
