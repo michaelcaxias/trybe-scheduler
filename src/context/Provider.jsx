@@ -53,7 +53,7 @@ export function Provider({ children }) {
         setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
           .getBasicProfile().getImageUrl());
         setLoading(false);
-      });
+      }).catch(() => setLoading(false));
     });
   }, []);
 
