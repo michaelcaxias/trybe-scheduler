@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { MyContext } from '../context/Provider';
-import '../styles/textarea.scss';
+import '../styles/TextArea.scss';
 
 const placeholder = `
 [*] 13h00 às 13h50 - Mentoria

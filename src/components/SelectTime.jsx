@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { MyContext } from '../context/Provider';
-import '../styles/selectTime.scss';
+import '../styles/SelectTime.scss';
 
 const ONE_HOUR = 60;
 const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % 5 === 0);
