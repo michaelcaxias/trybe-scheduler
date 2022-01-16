@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SelectTime from '../components/SelectTime';
 import SelectColors from '../components/SelectColors';
 import TextArea from '../components/TextArea';
@@ -7,8 +7,10 @@ import AddEventButton from '../components/AddEventButton';
 import '../styles/Home.scss';
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
+import { MyContext } from '../context/Provider';
 
 export default function Home() {
+  const { userImage } = useContext(MyContext);
   return (
     <section className="home-page">
       <aside className="aside-content">
@@ -33,6 +35,12 @@ export default function Home() {
         </section>
       </aside>
       <main className="main-content">
+        <img
+          src={ userImage }
+          alt="user-profile"
+          className="user-profile"
+          draggable={ false }
+        />
         <section className="schedule-content">
           <img
             draggable={ false }

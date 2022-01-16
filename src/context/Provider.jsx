@@ -18,6 +18,7 @@ export function Provider({ children }) {
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
+  const [userImage, setUserImage] = useState('');
 
   const context = {
     minutes,
@@ -25,6 +26,7 @@ export function Provider({ children }) {
     colorId,
     scheduleValue,
     setMinutes,
+    userImage,
     changeSignedInState,
     setColorId,
     changeScheduleValue,
@@ -40,6 +42,7 @@ export function Provider({ children }) {
       }).then(() => {
         gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
         changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
+        setUserImage(gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile().getImageUrl());
       }).catch((error) => console.log(`Error intialize:${error}`));
 
       gapi.client.load('calendar', 'v3');
