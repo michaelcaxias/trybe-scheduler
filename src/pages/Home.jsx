@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Avatar } from '@mui/material';
 import SelectTime from '../components/SelectTime';
@@ -9,10 +10,11 @@ import '../styles/Home.scss';
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
 import { MyContext } from '../context/Provider';
+import Loading from '../components/Loading';
 
 export default function Home() {
-  const { userImage } = useContext(MyContext);
-  return (
+  const { userImage, loading } = useContext(MyContext);
+  const homePage = (
     <section className="home-page">
       <aside className="aside-content">
         <section>
@@ -58,4 +60,5 @@ export default function Home() {
       </main>
     </section>
   );
+  return <Loading />;
 }

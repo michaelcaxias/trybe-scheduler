@@ -20,6 +20,7 @@ export function Provider({ children }) {
     { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
   const [userImage, setUserImage] = useState(blankImage);
+  const [loading, setLoading] = useState(true);
 
   const context = {
     minutes,
@@ -32,6 +33,7 @@ export function Provider({ children }) {
     changeSignedInState,
     setColorId,
     changeScheduleValue,
+    loading,
   };
 
   useEffect(() => {
@@ -50,6 +52,7 @@ export function Provider({ children }) {
       gapi.client.load('calendar', 'v3').then(() => {
         setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
           .getBasicProfile().getImageUrl());
+        setLoading(false);
       });
     });
   }, []);
