@@ -19,7 +19,7 @@ export function Provider({ children }) {
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
-  const [userImage, setUserImage] = useState(blankImage);
+  const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
   const [loading, setLoading] = useState(true);
 
   const context = {
@@ -55,7 +55,7 @@ export function Provider({ children }) {
         setLoading(false);
       }).catch(() => setLoading(false));
     });
-  }, []);
+  }, [setUserImage]);
 
   return (
     <MyContext.Provider value={ context }>
