@@ -1,23 +1,72 @@
+$secondary-color: #84dfbe;
+
+
+.home-page {
+  display: flex;
+  .aside-content {
+    background: $secondary-color;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 5rem;
+    position: relative;
+    height: 100vh;
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        font-size: 2rem;
+        font-family: 'Heebo';
+        color: white;
+        span {
+          color: #9A33AF;
+        }
+      }
+      .logo {
+        width: 60%;
+        height: 100%;
+        user-select: none;
+      }
+      .wavy {
+        position: absolute;
+        right: -5rem;
+        top: 0;
+        height: 100%;
+        user-select: none;
+      }
+    }
+  }
+  .main-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    .schedule-content {
+      display: flex;
+      width: 60%;
+      flex-direction: column;
+      justify-self: center;
+      padding: 0 2rem;
+      gap: 2rem;
+      h1 {
+        font-size: 2rem;
+        font-family: 'Heebo', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: wavy;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
 .input-group {
   display: flex;
   justify-content: center;
   gap: 1rem;
   align-items: center;
   width: 100%;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 2rem);
-  padding: 1rem 2rem;
-  justify-content: space-evenly;
-  h1 {
-    font-size: 2rem;
-    font-family: 'Heebo', sans-serif;
-    font-weight: bold;
-    text-align: center;
-  }
 }
 
 .textarea-container {
