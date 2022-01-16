@@ -30,16 +30,16 @@ export default function Home() {
             className="logo"
             alt="logo"
           />
+        </section>
+      </aside>
+      <main className="main-content">
+        <section className="schedule-content">
           <img
             draggable={ false }
             className="wavy"
             src={ wavy }
             alt="wavy"
           />
-        </section>
-      </aside>
-      <main className="main-content">
-        <section className="schedule-content">
           <h1>Agende seus Horários</h1>
           <LoginButton />
           <section className="textarea-container">

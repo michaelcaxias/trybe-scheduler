@@ -7,31 +7,23 @@ $secondary-color: #84dfbe;
     background: $secondary-color;
     display: flex;
     align-items: center;
-    text-align: center;
-    padding: 0 5rem;
-    position: relative;
+    padding-left: 6.5rem;
     height: 100vh;
     section {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 2rem;
       h1 {
         font-size: 2rem;
         font-family: 'Heebo';
+        margin: 0;
         color: white;
         span {
           color: #9A33AF;
         }
       }
       .logo {
-        width: 60%;
-        height: 100%;
-        user-select: none;
-      }
-      .wavy {
-        position: absolute;
-        right: -5rem;
-        top: 0;
+        width: 75%;
         height: 100%;
         user-select: none;
       }
@@ -42,6 +34,14 @@ $secondary-color: #84dfbe;
     width: 100%;
     align-items: center;
     justify-content: center;
+    position: relative;
+    .wavy {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      user-select: none;
+    }
     .schedule-content {
       display: flex;
       width: 60%;
