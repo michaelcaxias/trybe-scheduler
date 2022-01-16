@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Avatar } from '@mui/material';
 import SelectTime from '../components/SelectTime';
 import SelectColors from '../components/SelectColors';
 import TextArea from '../components/TextArea';
@@ -35,12 +36,7 @@ export default function Home() {
         </section>
       </aside>
       <main className="main-content">
-        <img
-          src={ userImage }
-          alt="user-profile"
-          className="user-profile"
-          draggable={ false }
-        />
+        <Avatar className="user-profile" alt="User Profile" src={ userImage } />
         <section className="schedule-content">
           <img
             draggable={ false }
