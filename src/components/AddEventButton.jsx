@@ -88,6 +88,7 @@ export default function AddEventButton() {
         variant="outlined"
         size="large"
         startIcon={ <CalendarTodayIcon /> }
+        className="add-event-button"
       >
         Adicionar
       </Button>
