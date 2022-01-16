@@ -60,5 +60,5 @@ export default function Home() {
       </main>
     </section>
   );
-  return <Loading />;
+  return loading ? <Loading /> : homePage;
 }
