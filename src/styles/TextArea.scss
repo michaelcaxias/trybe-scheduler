@@ -2,6 +2,10 @@ $secondary-color: #86e0bf;
 $background-color: #DDFFF3;
 $main-purple: #9A33AF;
 
+.textarea-container {
+  width: 100% !important;
+}
+
 .MuiFilledInput-root {
   background-color: transparent !important;
 }

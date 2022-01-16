@@ -28,10 +28,14 @@ const OPTIONS = MAX_TIME.map((time) => {
 export default function SelectTime() {
   const { minutes, setMinutes, isSignedIn } = useContext(MyContext);
   return (
-    <FormControl variant="filled" sx={ { minWidth: 250 } } color="secondary">
+    <FormControl
+      variant="filled"
+      className="select-time"
+      sx={ { minWidth: 250 } }
+      color="secondary"
+    >
       <InputLabel>Notificar antecipadamente</InputLabel>
       <Select
-        className="select-time"
         value={ minutes }
         onChange={ ({ target: { value } }) => setMinutes(value) }
         disabled={ !isSignedIn }

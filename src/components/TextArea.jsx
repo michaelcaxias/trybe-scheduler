@@ -19,6 +19,7 @@ export default function TextArea() {
     <TextField
       fullWidth
       multiline
+      className="text-area"
       variant="filled"
       color="secondary"
       onChange={ ({ target: { value } }) => changeScheduleValue(value) }
