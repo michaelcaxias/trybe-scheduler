@@ -5,17 +5,22 @@ import { ImExit } from 'react-icons/im';
 import { MyContext } from '../context/Provider';
 import '../styles/LoginButton.scss';
 
+const blankImage = 'https://i.imgur.com/qEgz28w.png';
 const { gapi } = window;
 
 export default function LoginButton() {
-  const { isSignedIn } = useContext(MyContext);
+  const { isSignedIn, setUserImage } = useContext(MyContext);
 
-  const handleAuthClick = () => {
-    gapi.auth2.getAuthInstance().signIn();
+  const handleAuthClick = async () => {
+    await gapi.auth2.getAuthInstance().signIn();
+    const profileImage = gapi.auth2.getAuthInstance().currentUser.get()
+      .getBasicProfile().getImageUrl();
+    setUserImage(profileImage);
   };
 
   const handleSignoutClick = () => {
     gapi.auth2.getAuthInstance().signOut();
+    setUserImage(blankImage);
   };
 
   const connectButton = (
