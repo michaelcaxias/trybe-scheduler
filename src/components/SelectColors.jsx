@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
-import '../styles/selectColors.css';
+import '../styles/SelectColors.scss';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { MyContext } from '../context/Provider';
 
 const colors = [
@@ -46,7 +47,7 @@ export default function BasicMenu() {
         onClick={ handleClick }
       >
         <div className="color-picker" style={ { backgroundColor: colorId.color } } />
-        Cor do Evento
+        {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
       </Button>
       <Menu
         id="basic-menu"
@@ -74,13 +75,3 @@ export default function BasicMenu() {
     </div>
   );
 }
-
-// export default function SelectColors() {
-//   return (
-//     <section>
-//       <Button type="button" className="color-picker-container">
-//         <div className="color-picker" />
-//       </Button>
-//     </section>
-//   );
-// }

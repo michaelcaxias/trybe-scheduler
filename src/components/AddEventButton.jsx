@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Alert from './Alert';
 import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
 import { MyContext } from '../context/Provider';
+import '../styles/AddEventButton.scss';
 
 const { gapi } = window;
 const ONE_SECOND = 1000;
@@ -87,6 +88,7 @@ export default function AddEventButton() {
         variant="outlined"
         size="large"
         startIcon={ <CalendarTodayIcon /> }
+        className="add-event-button"
       >
         Adicionar
       </Button>

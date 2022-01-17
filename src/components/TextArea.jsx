@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { MyContext } from '../context/Provider';
+import '../styles/TextArea.scss';
 
 const placeholder = `
 [*] 13h00 às 13h50 - Mentoria
@@ -18,6 +19,7 @@ export default function TextArea() {
     <TextField
       fullWidth
       multiline
+      className="text-area"
       variant="filled"
       color="secondary"
       onChange={ ({ target: { value } }) => changeScheduleValue(value) }
