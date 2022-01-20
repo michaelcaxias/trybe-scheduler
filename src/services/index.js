@@ -3,34 +3,35 @@ const filterTime = (string, regex) => string.match(regex);
 // Código comentado para evitar erros na build
 
 // limpa o ctrl+v recebido na div editável
-// const cleanTextInput = () => {
-//  document.querySelectorAll('#divtexto img').forEach((img) => img.remove());
-//  [...text.children].forEach((element) => {
-//    if (element.style) { element.style = ''; }
-//  });
-//  const array = Array.from(text.children);
-//  array.forEach((element) => {
-//    if (element.className === 'c-mrkdwn__br') { element.innerText = '\n'; }
-//  });
-// };
+const cleanTextInput = () => {
+  document.querySelectorAll('#divtexto img').forEach((img) => img.remove());
+  [...text.children].forEach((element) => {
+    if (element.style) { element.style = ''; }
+  });
+  const array = Array.from(text.children);
+  array.forEach((element) => {
+    if (element.className === 'c-mrkdwn__br') { element.innerText = '\n'; }
+  });
+};
 
-// text.addEventListener('keyup', cleanTextInput);
+text.addEventListener('keyup', cleanTextInput);
 
-// const separateLinksAndText = () => {
+const separateLinksAndText = () => {
 // array com todas as linhas corretamente separadas.
-//  const array = Array.from(text.children);
-//  const arrayStrings = array.map((item) => item.innerText).join(' ').split('\n');
+  const array = Array.from(text.children);
+  const arrayStrings = array.map((item) => item.innerText).join(' ').split('\n');
 
-// array com os links do zoom.
-//  const links = [...document.links].map((l) => l.href);
-//  const linksZoom = links.filter((link) => link.includes('zoom'));
+  // array com os links do zoom.
+  const links = [...document.links].map((l) => l.href);
+  const linksZoom = links.filter((link) => link.includes('zoom'));
 
-// ** Retorna objeto com strings e links.
-//  return {
-//    string: arrayStrings,
-//    links: linksZoom,
-//  };
-// };
+  // ** Retorna objeto com strings e links.
+  return {
+    string: arrayStrings,
+    links: linksZoom,
+  };
+};
+
 // const button = document.querySelector('button');
 // button.addEventListener('click', separateLinksAndText);
 
