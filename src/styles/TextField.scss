@@ -49,17 +49,17 @@ $secondary-color: #86e0bf;
 }
 
 [contentEditable="true"] {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-  width: 95%;
+  width: 80vh;
   height: 80%;
   background-color: transparent;
   position: relative;
   color: #1c4637;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
+  padding: 1rem;
   div, blockquote, b, span, i, p {
     margin: 0;
     color: #1c4637 !important;
@@ -80,4 +80,3 @@ $secondary-color: #86e0bf;
     opacity: 100;
   }
 }
-
