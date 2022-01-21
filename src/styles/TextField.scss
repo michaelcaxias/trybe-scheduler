@@ -11,6 +11,7 @@ $secondary-color: #86e0bf;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  cursor: text;
   &:before {
     border-bottom: 1px solid rgba(0, 0, 0, 0.42);
     left: 0px;
@@ -55,10 +56,12 @@ $secondary-color: #86e0bf;
   width: 95%;
   height: 80%;
   background-color: transparent;
+  position: relative;
   color: #1c4637;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
   div, blockquote, b, span, i, p {
+    margin: 0;
     color: #1c4637 !important;
     font-family: 'Heebo', sans-serif;
     background-color: transparent !important;
@@ -68,9 +71,10 @@ $secondary-color: #86e0bf;
   }
   &:before {
     content: attr(data-text);
-    color: #00000070;
+    position: absolute;
+    color: #00000067;
     opacity: 0;
-    transition: all 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    transition: opacity 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
   &:empty:focus:before {
     opacity: 100;
