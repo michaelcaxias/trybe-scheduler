@@ -32,20 +32,33 @@ $secondary-color: #86e0bf;
     transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     pointer-events: none;
   }
+  &:focus-within {
+    &:before {
+      border-bottom-color: #86e0bf;
+    }
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+  &:hover {
+    &:before {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.726);
+    }
+  }
 }
 
 [contentEditable="true"] {
-  overflow: auto;
-  text-overflow: auto;
-  padding: 2px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   width: 95%;
   height: 80%;
   background-color: transparent;
-  color: #1c4637 !important;
+  color: #1c4637;
   font-family: 'Heebo', sans-serif;
-  overflow-wrap: break-word;
   transition: all 0.3s ease-in-out;
-  div, blockquote, b, span, i {
+  div, blockquote, b, span, i, p {
     color: #1c4637 !important;
     font-family: 'Heebo', sans-serif;
     background-color: transparent !important;
