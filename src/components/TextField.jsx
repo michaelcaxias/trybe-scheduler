@@ -2,5 +2,9 @@ import React from 'react';
 import '../styles/TextField.scss';
 
 export default function TextField() {
-  return <div contentEditable className="divtexto" />;
+  return (
+    <div className="text-field">
+      <div contentEditable />
+    </div>
+  );
 }

@@ -1,7 +1,27 @@
-.divtexto {
-  border: 1px solid gray;
+$secondary-color: #86e0bf;
+
+.text-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary-color;
+  width: 100%; 
+  height: 39.5vh;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+[contentEditable="true"] {
   overflow: auto;
   padding: 2px;
-  width: 100%;
-  height: 39vh;
+  width: 95%;
+  height: 80%;
+  background-color: transparent;
+  color: #1c4637 !important;
+  font-family: 'Heebo', sans-serif;
+  div, blockquote, b, span, i {
+    color: #1c4637 !important;
+    font-family: 'Heebo', sans-serif;
+    background-color: transparent !important;
+  }
 }
