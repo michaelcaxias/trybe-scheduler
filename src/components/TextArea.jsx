@@ -14,18 +14,12 @@ const placeholder = `
 `;
 
 export default function TextArea() {
-  const { isSignedIn, changeScheduleValue } = useContext(MyContext);
+  const { isSignedIn, scheduleElementRef } = useContext(MyContext);
   return (
     <TextField
-      fullWidth
-      multiline
-      className="text-area"
-      variant="filled"
-      color="secondary"
-      onChange={ ({ target: { value } }) => changeScheduleValue(value) }
+      refElement={ scheduleElementRef }
       disabled={ !isSignedIn }
       placeholder={ placeholder }
-      rows={ 10 }
       label="Agenda do Dia"
     />
   );
