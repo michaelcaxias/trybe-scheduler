@@ -13,15 +13,26 @@ $secondary-color: #86e0bf;
 
 [contentEditable="true"] {
   overflow: auto;
+  text-overflow: auto;
   padding: 2px;
   width: 95%;
   height: 80%;
   background-color: transparent;
   color: #1c4637 !important;
   font-family: 'Heebo', sans-serif;
+  overflow-wrap: break-word;
+  transition: all 0.3s ease-in-out;
   div, blockquote, b, span, i {
     color: #1c4637 !important;
     font-family: 'Heebo', sans-serif;
     background-color: transparent !important;
   }
+  &:focus {
+    outline: none;
+  }
+  &:empty:focus:before {
+    content: attr(data-text);
+    color: #00000070;
+  }
 }
+
