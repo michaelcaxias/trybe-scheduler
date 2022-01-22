@@ -4,10 +4,19 @@ import React, { useState } from 'react';
 import '../styles/TextField.scss';
 
 export default function TextField({
-  placeholder, refElement, label, disabled, onChange, value }) {
+  placeholder,
+  refElement,
+  label,
+  disabled,
+  handleTextAreaValue,
+  handleLinks,
+  value,
+}) {
   const getElementValue = () => {
     const refText = refElement ? refElement.current.innerText : '';
-    onChange(refText);
+    handleTextAreaValue(refText);
+    const getLinks = Array(...document.links).map((link) => link.href);
+    handleLinks(getLinks);
   };
 
   return (
@@ -37,6 +46,7 @@ TextField.propTypes = {
   refElement: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleTextAreaValue: PropTypes.func.isRequired,
+  handleLinks: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };

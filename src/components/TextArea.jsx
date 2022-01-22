@@ -19,11 +19,13 @@ export default function TextArea() {
     scheduleElementRef,
     changeScheduleValue,
     scheduleValue,
+    setLinks,
   } = useContext(MyContext);
   return (
     <TextField
       refElement={ scheduleElementRef }
-      onChange={ changeScheduleValue }
+      handleTextAreaValue={ changeScheduleValue }
+      handleLinks={ setLinks }
       value={ scheduleValue }
       disabled={ !isSignedIn }
       placeholder={ placeholder }

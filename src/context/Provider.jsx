@@ -21,6 +21,7 @@ export function Provider({ children }) {
   const [scheduleValue, changeScheduleValue] = useState('');
   const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
   const [loading, setLoading] = useState(true);
+  const [links, setLinks] = useState([]);
 
   const scheduleElementRef = useRef(null);
 
@@ -36,6 +37,8 @@ export function Provider({ children }) {
     setColorId,
     changeScheduleValue,
     scheduleElementRef,
+    links,
+    setLinks,
     loading,
   };
 
