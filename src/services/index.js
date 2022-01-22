@@ -13,7 +13,7 @@ export const filterString = (string, links) => {
       const title = line
         .replace(/-/g, '').trim();
       const optionalLine = /[[,(]\*[),\]]/.test(line); // regex para capturar (*) ou [*]
-      const location = line.toLowerCase().includes('zoom') ? linksZoom.shift() : 'Remote';
+      const location = /zoom/i.test(line) ? linksZoom.shift() : 'Remote';
       return {
         title,
         startTime,
