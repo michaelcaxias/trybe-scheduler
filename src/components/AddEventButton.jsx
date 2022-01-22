@@ -6,7 +6,13 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Alert from './Alert';
-import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
+import {
+  filterString,
+  getCurrentDate,
+  eventFormat,
+  delayLoop,
+  getLinks,
+} from '../services/index';
 import { MyContext } from '../context/Provider';
 import '../styles/AddEventButton.scss';
 
@@ -15,7 +21,7 @@ const ONE_SECOND = 1000;
 
 export default function AddEventButton() {
   const {
-    isSignedIn, colorId, minutes, scheduleValue,
+    isSignedIn, colorId, minutes, scheduleValue, links,
   } = useContext(MyContext);
 
   const [snackPack, setSnackPack] = useState([]);
@@ -54,7 +60,7 @@ export default function AddEventButton() {
     }, ONE_SECOND)));
 
   const handleClick = () => {
-    const scheduleFiltered = filterString(scheduleValue);
+    const scheduleFiltered = getLinks(links, filterString(scheduleValue));
     if (!scheduleFiltered.length) {
       eventNotPossible();
     }

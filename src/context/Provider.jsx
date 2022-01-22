@@ -19,6 +19,7 @@ export function Provider({ children }) {
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
+  const [links, setLinks] = useState('');
   const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
   const [loading, setLoading] = useState(true);
 
@@ -34,6 +35,8 @@ export function Provider({ children }) {
     setColorId,
     changeScheduleValue,
     loading,
+    links,
+    setLinks,
   };
 
   useEffect(() => {

@@ -14,7 +14,7 @@ const placeholder = `
 `;
 
 export default function TextArea() {
-  const { isSignedIn, changeScheduleValue } = useContext(MyContext);
+  const { isSignedIn, changeScheduleValue, setLinks } = useContext(MyContext);
   return (
     <TextField
       fullWidth
@@ -23,6 +23,7 @@ export default function TextArea() {
       variant="filled"
       color="secondary"
       onChange={ ({ target: { value } }) => changeScheduleValue(value) }
+      onPaste={ (target) => setLinks(target.clipboardData.getData('text/html')) }
       disabled={ !isSignedIn }
       placeholder={ placeholder }
       rows={ 10 }

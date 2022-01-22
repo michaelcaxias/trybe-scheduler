@@ -20,6 +20,23 @@ export const filterString = (string) => {
     });
 };
 
+export const getLinks = (string, arr) => {
+  const div = document.createElement('div');
+  div.innerHTML = string;
+  const links = Array.from(div.childNodes)
+    .filter(({ className, innerText }) => className === 'c-link'
+      && innerText === 'Zoom');
+
+  return arr.map((item) => {
+    if (item.title.toLowerCase().includes('zoom')) {
+      const newItem = { ...item, description: `Zoom: ${links[0].href}` };
+      links.shift();
+      return newItem;
+    }
+    return item;
+  });
+};
+
 export const getCurrentDate = () => {
   const date = new Date();
   const fullYear = date.getFullYear();
