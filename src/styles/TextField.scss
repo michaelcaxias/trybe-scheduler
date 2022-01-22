@@ -71,6 +71,9 @@ $primary-purple: rgb(156, 39, 176);
     pointer-events: none;
     z-index: 1;
   }
+  .label-text.focus {
+    transform: translate(14px, 7px) scale(0.75);
+  }
 }
 
 [contentEditable="true"] {
