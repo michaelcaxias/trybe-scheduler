@@ -12,7 +12,7 @@ export const filterString = (string, links) => {
         .map((hour) => hour.replace(/h(\d\d)?/i, (_, min) => (min ? `:${min}` : ':00')));
       const title = line
         .replace(/-/g, '').trim();
-      const optionalLine = line.includes('[*]') || line.includes('(*)');
+      const optionalLine = /[[,(]\*[),\]]/.test(line); // regex para capturar (*) ou [*]
       const location = line.toLowerCase().includes('zoom') ? linksZoom.shift() : 'Remote';
       return {
         title,
