@@ -16,6 +16,8 @@ export default function TextField({
     handleTextAreaValue(refText);
     const getLinks = Array(...document.links).map((link) => link.href);
     handleLinks(getLinks);
+    document.querySelectorAll('[contenteditable] .c-emoji')
+      .forEach((emoji) => emoji.remove());
   };
 
   return (
