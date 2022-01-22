@@ -39,7 +39,7 @@ $primary-purple: rgb(156, 39, 176);
       transform: scaleX(1);
     }
     .label-text {
-      transform: translate(12px, 7px) scale(0.75);
+      transform: translate(14px, 7px) scale(0.75);
       color: $primary-purple;
     }
   }
@@ -84,7 +84,7 @@ $primary-purple: rgb(156, 39, 176);
   color: #1c4637;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
-  padding: 1rem;
+  padding: 0.7rem;
   div, blockquote, b, span, i, p {
     margin: 0;
     color: #1c4637 !important;
