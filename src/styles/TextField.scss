@@ -1,4 +1,5 @@
 $secondary-color: #86e0bf;
+$primary-purple: rgb(156, 39, 176);
 
 .text-field {
   display: flex;
@@ -23,7 +24,7 @@ $secondary-color: #86e0bf;
     pointer-events: none;
   }
   &:after {
-    border-bottom: 2px solid rgb(156, 39, 176);
+    border-bottom: 2px solid $primary-purple;
     left: 0px;
     bottom: 0px;
     content: "";
@@ -34,17 +35,41 @@ $secondary-color: #86e0bf;
     pointer-events: none;
   }
   &:focus-within {
-    &:before {
-      border-bottom-color: #86e0bf;
-    }
     &:after {
       transform: scaleX(1);
+    }
+    .label-text {
+      transform: translate(12px, 7px) scale(0.75);
+      color: $primary-purple;
     }
   }
   &:hover {
     &:before {
       border-bottom: 1px solid rgba(0, 0, 0, 0.726);
     }
+  }
+  .label-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    max-width: calc(100% - 24px);
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.521);
+    padding: 0px;
+    display: block;
+    white-space: nowrap;
+    transform: translate(12px, 16px) scale(1);
+    transform-origin: left top;
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    max-width 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    pointer-events: none;
+    z-index: 1;
   }
 }
 

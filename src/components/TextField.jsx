@@ -1,11 +1,11 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import React from 'react';
 import '../styles/TextField.scss';
 
 export default function TextField({ placeholder, refElement, label, disabled }) {
   return (
     <div className="text-field">
+      <div className="label-text">Agenda do Dia</div>
       <div
         ref={ refElement }
         contentEditable
