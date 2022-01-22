@@ -10,6 +10,7 @@ export default function TextField({ placeholder, refElement, label, disabled }) 
     const refLength = refElement ? refElement.current.innerText.length : 0;
     changeTextAreaLength(refLength);
   };
+
   return (
     <div className="text-field">
       <div
