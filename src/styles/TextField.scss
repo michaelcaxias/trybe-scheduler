@@ -1,5 +1,6 @@
 $secondary-color: #86e0bf;
-$primary-purple: rgb(156, 39, 176);
+$primary-purple: #9A33AF;
+$primary-color: #4285F4;
 
 .text-field {
   display: flex;
@@ -106,5 +107,13 @@ $primary-purple: rgb(156, 39, 176);
   }
   &:empty:focus:before {
     opacity: 100;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background:$primary-purple; 
+    border-radius: 10px;
   }
 }
