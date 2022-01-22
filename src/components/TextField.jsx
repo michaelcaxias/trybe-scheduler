@@ -13,7 +13,7 @@ export default function TextField({
 }) {
   const getElementValue = () => {
     const refText = refElement ? refElement.current.innerText : '';
-    handleTextAreaValue(refText);
+    handleTextAreaValue(refText.trim());
     const getLinks = Array(...document.links).map((link) => link.href);
     handleLinks(getLinks);
     document.querySelectorAll('[contenteditable] .c-emoji')
