@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/TextField.scss';
 
 export default function TextField({
