@@ -6,8 +6,9 @@ import usePersistedState from '../hooks/usePersistedState';
 const { gapi } = window;
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
-const CLIENT_ID = '21771173827-darl8kjorgcnu0chelaillutki3fqc5e.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyCuU61dFOxsqTw0 wu8qvRSisl5nqTG4vbA';
+const { REACT_APP_CLIENT_ID } = process.env;
+const { REACT_APP_API_KEY } = process.env;
+
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
@@ -39,8 +40,8 @@ export function Provider({ children }) {
   useEffect(() => {
     gapi.load('client:auth2', () => {
       gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
+        apiKey: REACT_APP_API_KEY,
+        clientId: REACT_APP_CLIENT_ID,
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES,
       }).then(() => {
