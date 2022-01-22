@@ -1,7 +1,9 @@
+/* eslint-disable no-restricted-globals */
 const filterTime = (string, regex) => string.match(regex);
 
-export const filterString = (string) => {
+export const filterString = (string, links) => {
   const regex = /(([0-1]\d|2[0-4])(h|:)([0-5]\d)?)/ig;
+  const linksZoom = links.filter((link) => link.includes('zoom'));
   return string
     .split('\n')
     .filter((str) => str.match(regex))
@@ -11,9 +13,11 @@ export const filterString = (string) => {
       const title = line
         .replace(/-/g, '').trim();
       const optionalLine = line.includes('[*]') || line.includes('(*)');
+      const location = line.toLowerCase().includes('zoom') ? linksZoom.shift() : 'Remote';
       return {
         title,
         startTime,
+        location,
         endTime: endTime || startTime,
         description: optionalLine ? 'Momento opcional' : '',
       };
@@ -29,10 +33,10 @@ export const getCurrentDate = () => {
 };
 
 export const eventFormat = (
-  { title, startTime, endTime, description }, date, color, minutes,
+  { title, startTime, location, endTime, description }, date, color, minutes,
 ) => ({
   summary: title,
-  location: 'Remoto',
+  location,
   description,
   start: {
     dateTime: `${date}T${startTime}:00-03:00`,
