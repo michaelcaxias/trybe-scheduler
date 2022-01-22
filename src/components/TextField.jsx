@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import '../styles/TextField.scss';
 
-export default function TextField({ placeholder, refElement, label, disabled }) {
-  const [textAreaLength, changeTextAreaLength] = useState(0);
-
-  const getElementLength = () => {
-    const refLength = refElement ? refElement.current.innerText.length : 0;
-    changeTextAreaLength(refLength);
+export default function TextField({
+  placeholder, refElement, label, disabled, onChange, value }) {
+  const getElementValue = () => {
+    const refText = refElement ? refElement.current.innerText : '';
+    onChange(refText);
   };
 
   return (
     <div className="text-field">
       <div
-        className={ textAreaLength ? 'label-text focus' : 'label-text' }
+        className={ value.length ? 'label-text focus' : 'label-text' }
       >
         Agenda do Dia
 
@@ -24,7 +23,7 @@ export default function TextField({ placeholder, refElement, label, disabled }) 
         contentEditable
         data-text={ placeholder }
         disabled={ disabled }
-        onKeyUp={ getElementLength }
+        onKeyUp={ getElementValue }
         role="textbox"
         tabIndex="0"
         aria-label={ label }
@@ -38,4 +37,6 @@ TextField.propTypes = {
   refElement: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };

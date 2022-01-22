@@ -14,10 +14,17 @@ const placeholder = `
 `;
 
 export default function TextArea() {
-  const { isSignedIn, scheduleElementRef } = useContext(MyContext);
+  const {
+    isSignedIn,
+    scheduleElementRef,
+    changeScheduleValue,
+    scheduleValue,
+  } = useContext(MyContext);
   return (
     <TextField
       refElement={ scheduleElementRef }
+      onChange={ changeScheduleValue }
+      value={ scheduleValue }
       disabled={ !isSignedIn }
       placeholder={ placeholder }
       label="Agenda do Dia"
