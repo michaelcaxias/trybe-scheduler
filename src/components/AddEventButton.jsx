@@ -15,7 +15,7 @@ const ONE_SECOND = 1000;
 
 export default function AddEventButton() {
   const {
-    isSignedIn, colorId, minutes, scheduleValue,
+    isSignedIn, colorId, minutes, scheduleValue, links,
   } = useContext(MyContext);
 
   const [snackPack, setSnackPack] = useState([]);
@@ -54,7 +54,7 @@ export default function AddEventButton() {
     }, ONE_SECOND)));
 
   const handleClick = () => {
-    const scheduleFiltered = filterString(scheduleValue);
+    const scheduleFiltered = filterString(scheduleValue, links);
     if (!scheduleFiltered.length) {
       eventNotPossible();
     }

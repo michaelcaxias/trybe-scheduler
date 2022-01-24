@@ -1,17 +1,14 @@
-/* eslint-disable no-magic-numbers */
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import { MyContext } from '../context/Provider';
 import '../styles/SelectTime.scss';
 
 const ONE_HOUR = 60;
-const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % 5 === 0);
-const TEN = 10;
+const FIVE = 5;
+const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % FIVE === 0);
 
 const OPTIONS = MAX_TIME.map((time) => {
   const moreThanZero = {
@@ -52,12 +49,3 @@ export default function SelectTime() {
     </FormControl>
   );
 }
-
-// <Select
-//   classNamePrefix="select"
-//   onChange={ (event) => (event ? setMinutes(event.value) : setMinutes(0)) }
-//   defaultValue={ OPTIONS[0] }
-//   isDisabled={ !isSignedIn }
-//   isClearable
-//   isSearchable
-//   options={ OPTIONS }

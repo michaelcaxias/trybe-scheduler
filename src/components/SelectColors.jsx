@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useContext } from 'react';
 import '../styles/SelectColors.scss';
 import Button from '@material-ui/core/Button';

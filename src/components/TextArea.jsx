@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import TextField from '@material-ui/core/TextField';
+import TextField from './TextField';
 import { MyContext } from '../context/Provider';
 import '../styles/TextArea.scss';
 
@@ -14,18 +14,21 @@ const placeholder = `
 `;
 
 export default function TextArea() {
-  const { isSignedIn, changeScheduleValue } = useContext(MyContext);
+  const {
+    isSignedIn,
+    scheduleElementRef,
+    changeScheduleValue,
+    scheduleValue,
+    setLinks,
+  } = useContext(MyContext);
   return (
     <TextField
-      fullWidth
-      multiline
-      className="text-area"
-      variant="filled"
-      color="secondary"
-      onChange={ ({ target: { value } }) => changeScheduleValue(value) }
+      refElement={ scheduleElementRef }
+      handleTextAreaValue={ changeScheduleValue }
+      handleLinks={ setLinks }
+      value={ scheduleValue }
       disabled={ !isSignedIn }
       placeholder={ placeholder }
-      rows={ 10 }
       label="Agenda do Dia"
     />
   );
