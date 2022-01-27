@@ -9,10 +9,10 @@ const createDescription = (line, links) => {
     ? '<b>Momento opcional.</b>\n'
     : '';
   const slido = /slido/i.test(line)
-    ? `<b>Slido:</b> ${linksSlido.shift()}\n`
+    ? `<a href=${linksSlido.shift()}>Link Slido</a>\n`
     : '';
   const forms = /forms?|feedback|formulário/i.test(line)
-    ? `<b>Forms:</b> ${linksForms.shift()}\n`
+    ? `<a href=${linksForms.shift()}>Link Forms</a>\n`
     : '';
   let moreInfo = catchSeparatorRegex.test(line)
     ? line.split(catchSeparatorRegex)
@@ -20,7 +20,7 @@ const createDescription = (line, links) => {
       .join('\n')
     : '';
   if (moreInfo) {
-    moreInfo = `<b>Informações:</b>\n${moreInfo.replace(/\s{2,}/, ' ')}`;
+    moreInfo = `<b>Informações:</b>\n${moreInfo.replace(/\s{2,}/, ' ').trim()}`;
   }
 
   return {
