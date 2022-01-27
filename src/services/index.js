@@ -4,28 +4,23 @@ const filterTime = (string, regex) => string.match(regex);
 const createDescription = (line, links) => {
   const linksSlido = links.filter((link) => link.includes('sli.do'));
   const linksForms = links.filter((link) => link.includes('typeform'));
+  const catchSeparatorRegex = /(Desc\.:|\s*\/\/\/\s*)/i;
   const optionalLine = /[[,(]\*[),\]]/.test(line) // regex para capturar (*) ou [*]
     ? '<b>Momento opcional.</b>\n'
     : '';
   const slido = /slido/i.test(line)
     ? `<b>Slido:</b> ${linksSlido.shift()}\n`
     : '';
-  const forms = /forms/i.test(line)
-    || /feedback/i.test(line)
-    || /formulário/i.test(line)
-    || /form/i.test(line)
+  const forms = /forms?|feedback|formulário/i.test(line)
     ? `<b>Forms:</b> ${linksForms.shift()}\n`
     : '';
-  let moreInfo = line.includes('Desc.:')
-    ? line.split('Desc.:')[1]
+  let moreInfo = catchSeparatorRegex.test(line)
+    ? line.split(catchSeparatorRegex)
+      .filter((str, i) => i > 0 && !catchSeparatorRegex.test(str))
+      .join('\n')
     : '';
-  if (moreInfo !== '' && !moreInfo.includes('///')) {
-    moreInfo = `<b>Informação:</b> ${moreInfo.replace(/\s\s+/g, ' ').trim()}`;
-  }
-  if (moreInfo.includes('///')) {
-    moreInfo = `<b>Informações:</b>\n${moreInfo.split('///')
-      .map((elem) => elem.replace(/\s\s+/g, ' ')
-        .trim()).join('\n')}`;
+  if (moreInfo) {
+    moreInfo = `<b>Informações:</b>\n${moreInfo.replace(/\s{2,}/, ' ')}`;
   }
 
   return {
