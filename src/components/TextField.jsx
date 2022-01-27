@@ -12,8 +12,23 @@ export default function TextField({
   value,
 }) {
   const getElementValue = () => {
-    const refText = refElement ? refElement.current.innerText : '';
-    handleTextAreaValue(refText.trim());
+    const refText = refElement ? refElement.current.children : '';
+    const array = Array.from(refText);
+    array.forEach((elem) => {
+      if (elem.nodeName === 'BR' && elem.previousSibling.className === 'c-link') {
+        elem.outerHTML = '<p>Desc.:</p>';
+      }
+    });
+    array.forEach((elem) => {
+      if (elem.nodeName === 'BR' && elem.parentNode) {
+        elem.outerHTML = '<span> /// </span>';
+      }
+    });
+    array.forEach((element) => {
+      if (element.className === 'c-mrkdwn__br') { element.innerText = '\n'; }
+    });
+    const arrayStrings = array.map((item) => item.innerText).join(' ').trim();
+    handleTextAreaValue(arrayStrings);
     const getLinks = Array(...document.links).map((link) => link.href);
     handleLinks(getLinks);
     document.querySelectorAll('[contenteditable] .c-emoji')
