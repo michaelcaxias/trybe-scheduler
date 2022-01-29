@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import PropTypes from 'prop-types';
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useRef } from 'react';
 import usePersistedState from '../hooks/usePersistedState';
 
 const { gapi } = window;
@@ -20,8 +20,11 @@ export function Provider({ children }) {
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
   const [scheduleValue, changeScheduleValue] = useState('');
+  const [links, setLinks] = useState([]);
   const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
   const [loading, setLoading] = useState(true);
+
+  const scheduleElementRef = useRef(null);
 
   const context = {
     minutes,
@@ -34,6 +37,9 @@ export function Provider({ children }) {
     changeSignedInState,
     setColorId,
     changeScheduleValue,
+    scheduleElementRef,
+    links,
+    setLinks,
     loading,
   };
 

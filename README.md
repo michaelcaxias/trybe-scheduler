@@ -1,4 +1,5 @@
 # Trybe Schedule
+![image](https://i.imgur.com/KyOXOBl.png)
 ---
 Projeto dedicado aos estudantes da instituição Trybe para ajudar nos agendamentos diários de aula 😀
 
