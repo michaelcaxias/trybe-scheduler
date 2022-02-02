@@ -27,9 +27,10 @@ $ npm start
 ## Como contribuir ℹ️
   1. Crie um fork do projeto
   2. Crie uma branch e adicione a sua contribuição
-  4. Altere o caminho de merge da sua branch para a master do projeto `michaelcaxias:master`
-  3. Abra uma Issue no Github informando a sua contribuição 
-  5. Aguarde até a aprovação.
+  3. Altere o caminho de merge da sua branch para a master do projeto `michaelcaxias:master`
+  4. Abra uma Issue no Github informando a sua contribuição 
+  5. Solicite a API_KEY e CLIENT_ID dentro desta issue.
+  6. Aguarde até a aprovação.
 
 ---
 
