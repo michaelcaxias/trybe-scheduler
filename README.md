@@ -32,6 +32,10 @@ $ npm start
   5. Aguarde até a aprovação.
 
 ---
+
+[Termos de Uso](https://github.com/michaelcaxias/trybe-schedule/blob/master/terms_and_conditions.md) e [Políticas de Privacidade](https://github.com/michaelcaxias/trybe-schedule/blob/master/privacy_policy.md)
+
+
 ## Documentação do Google Calendar
 https://developers.google.com/calendar/api/quickstart/js
 ![image](https://user-images.githubusercontent.com/79621661/143962267-cd4fda15-2637-4425-ab4f-93862d66443b.png)
