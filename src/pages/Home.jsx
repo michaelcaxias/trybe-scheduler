@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Avatar } from '@mui/material';
 import SelectTime from '../components/SelectTime';
