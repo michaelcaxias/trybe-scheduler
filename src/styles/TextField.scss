@@ -106,6 +106,9 @@ $primary-color: #4285F4;
   img, button, svg {
     display: none !important; 
   }
+  .c-emoji {
+    display: none !important;
+  }
   &:focus {
     outline: none;
   }
