@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 const filterTime = (string, regex) => string.match(regex);
 
 export const filterString = (string, links) => {

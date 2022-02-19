@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, createContext, useRef } from 'react';
 import usePersistedState from '../hooks/usePersistedState';
