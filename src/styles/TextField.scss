@@ -60,6 +60,7 @@ $primary-color: #4285F4;
     letter-spacing: 0.00938em;
     max-width: calc(100% - 24px);
     text-overflow: ellipsis;
+    backdrop-filter: blur(1px);
     color: rgba(0, 0, 0, 0.521);
     padding: 0px;
     display: block;
