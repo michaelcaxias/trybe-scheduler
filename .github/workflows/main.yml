@@ -1,20 +1,24 @@
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  eslint:
-    runs-on: ubuntu-latest
+  evaluator:
+    runs-on: ubuntu-20.04
     steps:
-        - name: Verifica o repositório do Git
+        - name: Verificando o repositório do Git
           uses: actions/checkout@v2
-
-        - name: Instala o node com a versão
+        - name: Instalando o Node
           uses: actions/setup-node@v1
           with:
             node-version: 14
-
-
-        - name: instalando as dependências
+        - name: Instalando dependências
           run: npm install
-
-        - name: executando o lint para verificar se a erros
+        - name: Executando Lint
           run: npx eslint .
+
+        - name: Executando Cypress Evaluator
+          uses: actions/checkout@v2
+        - name: Cypress run
+          uses: cypress-io/github-action@v2
+          with:
+            browser: chrome
+            start: npm start
