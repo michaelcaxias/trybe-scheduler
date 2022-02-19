@@ -81,14 +81,14 @@ $primary-color: #4285F4;
   overflow: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-  width: 80vh;
+  width: 100%;
   height: 80%;
   background-color: transparent;
   position: relative;
   color: #1c4637;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
-  padding: 0 0.7rem;
+  padding: 1rem;
   a {
     color: $primary-purple !important;
   }
@@ -100,6 +100,10 @@ $primary-color: #4285F4;
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    box-shadow: none !important;
+  }
+  img, button, svg {
+    display: none !important; 
   }
   &:focus {
     outline: none;
@@ -115,7 +119,7 @@ $primary-color: #4285F4;
     opacity: 100;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
   }
   
   &::-webkit-scrollbar-thumb {
