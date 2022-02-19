@@ -82,7 +82,7 @@ $primary-color: #4285F4;
   overflow: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-  width: 100%;
+  width: 80vh;
   height: 80%;
   background-color: transparent;
   position: relative;
@@ -121,8 +121,9 @@ $primary-color: #4285F4;
   }
   &::-webkit-scrollbar {
     width: 3px;
+    height: 3px ;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background:$primary-purple; 
     border-radius: 10px;
