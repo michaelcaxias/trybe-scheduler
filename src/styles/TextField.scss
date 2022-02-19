@@ -89,11 +89,17 @@ $primary-color: #4285F4;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
   padding: 0 0.7rem;
-  div, blockquote, b, span, i, p {
+  a {
+    color: $primary-purple !important;
+  }
+  * {
     margin: 0;
     color: #1c4637 !important;
     font-family: 'Heebo', sans-serif;
     background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   &:focus {
     outline: none;
