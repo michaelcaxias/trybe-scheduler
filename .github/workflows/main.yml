@@ -6,19 +6,26 @@ jobs:
     steps:
         - name: Verificando o repositório do Git
           uses: actions/checkout@v2
+
         - name: Instalando o Node
           uses: actions/setup-node@v1
           with:
             node-version: 14
+
         - name: Instalando dependências
           run: npm install
+
         - name: Executando Lint
           run: npx eslint .
 
-        - name: Executando Cypress Evaluator
+        - name: Cypress Evaluator
           uses: actions/checkout@v2
+
         - name: Cypress run
           uses: cypress-io/github-action@v2
           with:
             browser: chrome
             start: npm start
+        
+        - name: Auto Assign
+          uses: kentaro-m/auto-assign-action@v1.2.1
