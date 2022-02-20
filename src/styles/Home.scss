@@ -3,6 +3,21 @@ $secondary-color: #84dfbe;
 
 .home-page {
   display: flex;
+  position: relative;
+  a {
+    .github-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      margin: 1rem;
+      color: black;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: #9A33AF;
+      }
+    }
+  }
   .aside-content {
     background: $secondary-color;
     display: flex;
@@ -45,7 +60,10 @@ $secondary-color: #84dfbe;
       left: -5px;
       top: 0;
       height: 100%;
+      fill: green;
       user-select: none;
+      // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+      filter: invert(90%) sepia(11%) saturate(1264%) hue-rotate(97deg) brightness(93%) contrast(88%);
     }
     .schedule-content {
       display: flex;
