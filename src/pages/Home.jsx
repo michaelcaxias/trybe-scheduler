@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Avatar } from '@mui/material';
+import { AiFillGithub } from 'react-icons/ai';
 import SelectTime from '../components/SelectTime';
 import SelectColors from '../components/SelectColors';
 import TextArea from '../components/TextArea';
@@ -15,6 +16,9 @@ export default function Home() {
   const { userImage, loading } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
+      <a href="https://github.com/michaelcaxias/trybe-schedule" target="_blank" rel="noreferrer">
+        <AiFillGithub className="github-icon" />
+      </a>
       <aside className="aside-content">
         <section>
           <h1>
