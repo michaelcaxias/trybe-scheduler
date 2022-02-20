@@ -26,6 +26,3 @@ jobs:
           with:
             browser: chrome
             start: npm start
-        
-        - name: Auto Assign
-          uses: kentaro-m/auto-assign-action@v1.2.1
