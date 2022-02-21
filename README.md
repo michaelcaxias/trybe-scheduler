@@ -34,7 +34,7 @@ $ npm start
 
 ---
 
-[Termos de Uso](https://github.com/michaelcaxias/trybe-schedule/blob/master/terms_and_conditions.md) e [Políticas de Privacidade](https://github.com/michaelcaxias/trybe-schedule/blob/master/privacy_policy.md)
+[Termos de Uso](https://trybe-schedule.vercel.app/terms-and-conditions) e [Políticas de Privacidade](https://trybe-schedule.vercel.app/privacy-policy)
 
 
 ## Documentação do Google Calendar
