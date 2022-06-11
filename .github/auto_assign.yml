@@ -1,0 +1,8 @@
+addReviewers: true
+
+addAssignees: author
+
+reviewers:
+  - michaelcaxias
+
+numberOfReviewers: 1

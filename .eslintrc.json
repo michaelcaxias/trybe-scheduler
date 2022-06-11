@@ -11,5 +11,9 @@
       },
       "sourceType": "module"
     },
-    "plugins": ["react", "sonarjs"]
+    "plugins": ["react", "sonarjs"],
+    "rules": {
+      "sonarjs/cognitive-complexity": ["error", 20],
+      "react/no-unescaped-entities": "off"
+    }
   }

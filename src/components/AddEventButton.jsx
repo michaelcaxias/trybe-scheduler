@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/cognitive-complexity */
 import React, { useContext, useState, useEffect } from 'react';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Button from '@mui/material/Button';

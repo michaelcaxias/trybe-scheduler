@@ -4,9 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
+.env
 
 # testing
 /coverage
+cypress/screenshots
+cypress/videos
 
 # production
 /build

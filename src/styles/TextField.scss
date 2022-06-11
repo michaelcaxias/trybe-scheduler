@@ -60,6 +60,7 @@ $primary-color: #4285F4;
     letter-spacing: 0.00938em;
     max-width: calc(100% - 24px);
     text-overflow: ellipsis;
+    backdrop-filter: blur(1px);
     color: rgba(0, 0, 0, 0.521);
     padding: 0px;
     display: block;
@@ -88,12 +89,25 @@ $primary-color: #4285F4;
   color: #1c4637;
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
-  padding: 0 0.7rem;
-  div, blockquote, b, span, i, p {
+  padding: 1rem;
+  a {
+    color: $primary-purple !important;
+  }
+  * {
     margin: 0;
     color: #1c4637 !important;
     font-family: 'Heebo', sans-serif;
     background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  img, button, svg {
+    display: none !important; 
+  }
+  .c-emoji {
+    display: none !important;
   }
   &:focus {
     outline: none;
@@ -109,9 +123,10 @@ $primary-color: #4285F4;
     opacity: 100;
   }
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
+    height: 3px ;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background:$primary-purple; 
     border-radius: 10px;

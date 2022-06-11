@@ -1,21 +1,28 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Avatar } from '@mui/material';
+import { AiFillGithub } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+
 import SelectTime from '../components/SelectTime';
 import SelectColors from '../components/SelectColors';
 import TextArea from '../components/TextArea';
 import LoginButton from '../components/LoginButton';
 import AddEventButton from '../components/AddEventButton';
-import '../styles/Home.scss';
-import logo from '../images/logo.svg';
-import wavy from '../images/wavy.svg';
 import { MyContext } from '../context/Provider';
 import Loading from '../components/Loading';
+
+import '../styles/Home.scss';
+
+import logo from '../images/logo.svg';
+import wavy from '../images/wavy.svg';
 
 export default function Home() {
   const { userImage, loading } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
+      <a href="https://github.com/michaelcaxias/trybe-schedule" target="_blank" rel="noreferrer">
+        <AiFillGithub className="github-icon" />
+      </a>
       <aside className="aside-content">
         <section>
           <h1>
@@ -57,6 +64,10 @@ export default function Home() {
           </section>
           <AddEventButton />
         </section>
+        <nav className="privacy-and-terms">
+          <Link to="/privacy-policy">Políticas de Privacidade</Link>
+          <Link to="/terms-and-conditions">Termos de Uso</Link>
+        </nav>
       </main>
     </section>
   );
