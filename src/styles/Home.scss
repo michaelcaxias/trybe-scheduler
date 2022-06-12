@@ -76,8 +76,11 @@ $secondary-color: #84dfbe;
       }
     }
 
-    .user-profile {
+    .nav-menu {
+      align-items: center;
+      display: flex;
       position: absolute;
+      gap: 1rem;
       right: 1.5rem;
       top: 1rem;
     }
