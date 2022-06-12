@@ -5,8 +5,7 @@ import usePersistedState from '../hooks/usePersistedState';
 const { gapi } = window;
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
-const { REACT_APP_CLIENT_ID } = process.env;
-const { REACT_APP_API_KEY } = process.env;
+const { REACT_APP_CLIENT_ID, REACT_APP_API_KEY } = process.env;
 
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
