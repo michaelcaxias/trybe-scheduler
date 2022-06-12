@@ -15,11 +15,13 @@ import '../styles/Home.scss';
 
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
+import Menu from '../components/Menu';
 
 export default function Home() {
   const { userImage, loading } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
+      <Menu />
       <a href="https://github.com/michaelcaxias/trybe-schedule" target="_blank" rel="noreferrer">
         <AiFillGithub className="github-icon" />
       </a>
