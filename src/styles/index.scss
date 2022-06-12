@@ -1,15 +1,16 @@
 @import 'globals';
+@import 'vars';
 
 //pages
 
-@import 'Home';
+@import 'pages/Home';
 
 //components
 
-@import 'Loading';
-@import 'AddEventButton';
-@import 'LoginButton';
-@import 'Menu';
-@import 'SelectColors';
-@import 'SelectTime';
-@import 'TextArea';
+@import 'components/Loading';
+@import 'components/AddEventButton';
+@import 'components/LoginButton';
+@import 'components/Menu';
+@import 'components/SelectColors';
+@import 'components/SelectTime';
+@import 'components/TextArea';
