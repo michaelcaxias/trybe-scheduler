@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import '../styles/TextField.scss';
 import { MyContext } from '../context/Provider';
 
 const placeholder = `

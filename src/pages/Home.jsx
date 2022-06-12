@@ -11,8 +11,6 @@ import AddEventButton from '../components/AddEventButton';
 import { MyContext } from '../context/Provider';
 import Loading from '../components/Loading';
 
-import '../styles/Home.scss';
-
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
 import Menu from '../components/Menu';
@@ -21,8 +19,11 @@ export default function Home() {
   const { userImage, loading } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
-      <Menu />
-      <a href="https://github.com/michaelcaxias/trybe-schedule" target="_blank" rel="noreferrer">
+      <a
+        href="https://github.com/michaelcaxias/trybe-schedule"
+        target="_blank"
+        rel="noreferrer"
+      >
         <AiFillGithub className="github-icon" />
       </a>
       <aside className="aside-content">
@@ -38,23 +39,16 @@ export default function Home() {
             <br />
             é a solução!
           </h1>
-          <img
-            draggable={ false }
-            src={ logo }
-            className="logo"
-            alt="logo"
-          />
+          <img draggable={ false } src={ logo } className="logo" alt="logo" />
         </section>
       </aside>
       <main className="main-content">
-        <Avatar className="user-profile" alt="User Profile" src={ userImage } />
+        <div className="nav-menu">
+          <Menu />
+          <Avatar className="user-profile" alt="User Profile" src={ userImage } />
+        </div>
         <section className="schedule-content">
-          <img
-            draggable={ false }
-            className="wavy"
-            src={ wavy }
-            alt="wavy"
-          />
+          <img draggable={ false } className="wavy" src={ wavy } alt="wavy" />
           <h1>Agende seus Horários</h1>
           <LoginButton />
           <section className="textarea-container">

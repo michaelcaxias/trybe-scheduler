@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Loading.scss';
 import rocket from '../images/rocket.svg';
 
 export default function Loading() {

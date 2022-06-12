@@ -3,7 +3,6 @@ import { Button } from '@material-ui/core';
 import { FcGoogle } from 'react-icons/fc';
 import { ImExit } from 'react-icons/im';
 import { MyContext } from '../context/Provider';
-import '../styles/LoginButton.scss';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 const { gapi } = window;
