@@ -1,7 +1,3 @@
-$secondary-color: #86e0bf;
-$primary-purple: #9A33AF;
-$primary-color: #4285F4;
-
 .text-field {
   display: flex;
   position: relative;
@@ -25,7 +21,7 @@ $primary-color: #4285F4;
     pointer-events: none;
   }
   &:after {
-    border-bottom: 2px solid $primary-purple;
+    border-bottom: 2px solid $purple;
     left: 0px;
     bottom: 0px;
     content: "";
@@ -41,7 +37,7 @@ $primary-color: #4285F4;
     }
     .label-text {
       transform: translate(14px, 7px) scale(0.75);
-      color: $primary-purple;
+      color: $purple;
     }
   }
   &:hover {
@@ -91,7 +87,7 @@ $primary-color: #4285F4;
   transition: all 0.3s ease-in-out;
   padding: 1rem;
   a {
-    color: $primary-purple !important;
+    color: $purple !important;
   }
   * {
     margin: 0;
@@ -128,7 +124,7 @@ $primary-color: #4285F4;
   }
 
   &::-webkit-scrollbar-thumb {
-    background:$primary-purple; 
+    background:$purple; 
     border-radius: 10px;
   }
 }
