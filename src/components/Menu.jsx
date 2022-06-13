@@ -6,8 +6,11 @@ import MenuItem from '@mui/material/MenuItem';
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    if (!event.target.className.includes('invisible')) {
+      setAnchorEl(event.currentTarget);
+    }
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -25,7 +28,6 @@ export default function NavMenu() {
 
   return (
     <Button
-      id="fade-button"
       className="mui-menu"
       aria-controls={ open ? 'basic-menu' : undefined }
       aria-haspopup="true"
@@ -34,7 +36,6 @@ export default function NavMenu() {
     >
       {generateSquares()}
       <Menu
-        id="basic-menu"
         anchorEl={ anchorEl }
         open={ open }
         onClose={ handleClose }
@@ -42,9 +43,9 @@ export default function NavMenu() {
           'aria-labelledby': 'basic-button',
         } }
       >
-        <MenuItem onClick={ handleClose }>Profile</MenuItem>
-        <MenuItem onClick={ handleClose }>My account</MenuItem>
-        <MenuItem onClick={ handleClose }>Logout</MenuItem>
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
       </Menu>
     </Button>
   );
