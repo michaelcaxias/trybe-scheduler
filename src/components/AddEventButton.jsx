@@ -79,7 +79,7 @@ export default function AddEventButton() {
   }, [snackPack, messageInfo, open]);
 
   return (
-    <>
+    <div className="add-event-button">
       <Button
         disabled={ !isSignedIn }
         onClick={ handleClick }
@@ -112,6 +112,6 @@ export default function AddEventButton() {
           { messageInfo ? messageInfo.message : undefined }
         </Alert>
       </Snackbar>
-    </>
+    </div>
   );
 }
