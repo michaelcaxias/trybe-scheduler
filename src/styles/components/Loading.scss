@@ -1,12 +1,13 @@
 .loading-section {
-  display: flex;
-  position: fixed;
   align-items: center;
-  justify-content: center;
   background-color: #05377b;
-  width: 100%;
+  display: flex;
   height: 100%;
+  justify-content: center;
   margin: 0;
+  position: fixed;
+  width: 100%;
+
   h1 {
     color: #f5f5f5;
     font-size: 2rem;
@@ -14,67 +15,74 @@
     top: 5%;
     z-index: 1;
   }
+
   .mars {
-    width: 250px;
-    position: relative;
-    height: 250px;
     background: #ef6b50;
     border-radius: 50%;
     box-shadow: inset 20px 0 0 10px #e2573b;
+    height: 250px;
+    position: relative;
+    width: 250px;
+
     .first-eye {
-      width: 30px;
-      height: 30px;
       background-color: black;
       border-radius: 50%;
+      height: 30px;
+      left: 30%;
       position: absolute;
       top: 40%;
-      left: 30%;
+      width: 30px;
+
       &:after {
-        content: '';
-        width: 10px;
-        height: 10px;
         background-color: white;
         border-radius: 50%;
+        content: '';
+        height: 10px;
+        left: 70%;
         position: absolute;
         top: 10px;
-        left: 70%;
         transform: translate(-50%, -50%);
+        width: 10px;
       }
     }
+
     .second-eye {
-      width: 30px;
-      height: 30px;
       background-color: black;
       border-radius: 50%;
+      height: 30px;
+      left: 70%;
       position: absolute;
       top: 40%;
-      left: 70%;
+      width: 30px;
+
       &:after {
-        content: '';
-        width: 10px;
-        height: 10px;
         background-color: white;
         border-radius: 50%;
+        content: '';
+        height: 10px;
+        left: 70%;
         position: absolute;
         top: 10px;
-        left: 70%;
         transform: translate(-50%, -50%);
+        width: 10px;
       }
     }
   }
+
   .orbit {
     animation: turn-around-mars 3s infinite linear;
-    position: absolute;
+    border-left: 5px solid orange;
     border-radius: 50%;
     border: 3px solid #f5f5f5;
-    border-left: 5px solid orange;
-    width: 350px;
     height: 350px;
+    position: absolute;
+    width: 350px;
+
     .rocket {
-      width: 50px;
       height: 50px;
       margin-left: 55px;
       transform: rotate(10deg);
+      width: 50px;
     }
   }
 }
