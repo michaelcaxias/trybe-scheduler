@@ -1,23 +1,22 @@
-.login-logout {
+button.login-logout {
   display: flex;
   gap: 1rem;
-  color: white !important;
-  border-radius: 8px !important;
-  font-family: 'Heebo' !important;
-  text-transform: none !important;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem 0.5rem 0.5rem !important;
+  color: white;
+  border-radius: 8px;
+  font-family: 'Heebo';
+  text-transform: none;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
   align-self: center;
   font-weight: bold;
   box-shadow: rgba(114, 61, 61, 0.25) 0px 13px 27px -5px, 
-  rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+  rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.login-button {
-  background-color: $primary-color !important;
+button.login-button {
+  background-color: $primary-color;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: #3779e2 !important;
+    background-color: #3779e2;
     color: white;
   }
   .google-icon-div {
@@ -31,12 +30,12 @@
   }
 }
 
-.logout-button {
-  background-color: $red !important;
+button.logout-button {
+  background-color: $red;
   transition: all 0.2s ease-in-out;
-  gap: 0.5rem !important;
+  gap: 0.5rem;
   &:hover {
-    background-color: #c53c24 !important;
+    background-color: #c53c24;
     color: white;
   }
   .exit-icon-div {
