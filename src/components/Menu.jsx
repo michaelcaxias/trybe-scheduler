@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 
 export default function Menu() {
   const generateSquares = () => {
@@ -11,5 +12,5 @@ export default function Menu() {
     return squares;
   };
 
-  return <div className="menu">{generateSquares()}</div>;
+  return <Button className="mui-menu">{generateSquares()}</Button>;
 }

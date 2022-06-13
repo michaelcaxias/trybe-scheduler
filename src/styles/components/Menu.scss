@@ -1,4 +1,4 @@
-.menu {
+button.mui-menu {
   align-items: center;
   background-color: white;
   border-radius: 8px;
@@ -7,7 +7,8 @@
   flex-wrap: wrap;
   gap: 4px;
   justify-content: center;
-  max-width: 2rem;
+  min-width: auto;
+  max-width: 2.5rem;
   padding: 0.4rem 0.3rem;
 
   .square {
@@ -15,4 +16,10 @@
     height: 7px;
     width: 7px;
   }
+
+  &:hover {
+    background-color: white;
+    color: #666666;
+  }
 }
+
