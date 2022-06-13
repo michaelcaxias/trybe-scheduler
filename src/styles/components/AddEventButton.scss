@@ -3,13 +3,13 @@
 
   button {
     background-color: $primary-color;
+    border-radius: 8px;
+    box-shadow: rgba(61, 61, 114, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     color: white;
     font-family: 'Heebo' ;
-    text-transform: none;
-    border-radius: 8px;
-    box-shadow: rgba(61, 61, 114, 0.25) 0px 13px 27px -5px, 
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
+    text-transform: none;
 
     &:hover {
       background-color: $primary-color;
