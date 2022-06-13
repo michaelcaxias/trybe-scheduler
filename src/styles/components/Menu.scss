@@ -1,7 +1,18 @@
 .menu {
+  align-items: center;
   background-color: white;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  height: 3rem;
-  width: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  max-width: 2rem;
+  padding: 0.4rem 0.3rem;
+
+  .square {
+    background-color: #666666;
+    height: 7px;
+    width: 7px;
+  }
 }
