@@ -86,25 +86,29 @@
   font-family: 'Heebo', sans-serif;
   transition: all 0.3s ease-in-out;
   padding: 1rem;
+
   a {
     color: $purple !important;
   }
+
   * {
-    margin: 0;
-    color: #1c4637 !important;
-    font-family: 'Heebo', sans-serif;
+    align-items: flex-start !important;
     background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
+    color: #1c4637 !important;
+    font-family: 'Heebo', sans-serif;
     margin: 0 !important;
     padding: 0 !important;
-    box-shadow: none !important;
+    overflow: hidden !important;
+    height: auto !important;
+    width: auto !important;
   }
-  img, button, svg {
+
+  img, button, svg, .c-emoji {
     display: none !important; 
   }
-  .c-emoji {
-    display: none !important;
-  }
+
   &:focus {
     outline: none;
   }
