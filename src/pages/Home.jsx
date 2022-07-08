@@ -13,7 +13,7 @@ import Loading from '../components/Loading';
 
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
-import Menu from '../components/Menu';
+import NavMenu from '../components/NavMenu';
 
 export default function Home() {
   const { userImage, loading } = useContext(MyContext);
@@ -44,7 +44,7 @@ export default function Home() {
       </aside>
       <main className="main-content">
         <div className="nav-menu">
-          <Menu />
+          <NavMenu />
           <Avatar className="user-profile" alt="User Profile" src={ userImage } />
         </div>
         <section className="schedule-content">
