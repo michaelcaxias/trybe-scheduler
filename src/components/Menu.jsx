@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import MenuAPIItem from './MenuAPIItem';
 
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -39,13 +39,20 @@ export default function NavMenu() {
         anchorEl={ anchorEl }
         open={ open }
         onClose={ handleClose }
+        anchorOrigin={ {
+          vertical: 'bottom',
+          horizontal: 'left',
+        } }
+        transformOrigin={ {
+          vertical: 'bottom',
+          horizontal: 'left',
+        } }
         MenuListProps={ {
           'aria-labelledby': 'basic-button',
         } }
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        <MenuAPIItem step={ 1 } />
+        <MenuAPIItem step={ 2 } />
       </Menu>
     </Button>
   );

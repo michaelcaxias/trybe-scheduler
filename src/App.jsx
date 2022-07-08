@@ -9,7 +9,6 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/2" element={ <Home /> } />
         <Route path="/privacy-policy" element={ <PrivacyPolicy /> } />
         <Route path="/terms-and-conditions" element={ <TermsAndConditions /> } />
       </Routes>
