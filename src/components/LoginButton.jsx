@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
+
 import { Button } from '@material-ui/core';
+
 import { FcGoogle } from 'react-icons/fc';
 import { ImExit } from 'react-icons/im';
+
+import { gapi } from 'gapi-script';
+
 import { MyContext } from '../context/Provider';
-import '../styles/LoginButton.scss';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
-const { gapi } = window;
 
 export default function LoginButton() {
   const { isSignedIn, setUserImage } = useContext(MyContext);

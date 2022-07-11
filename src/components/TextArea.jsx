@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import '../styles/TextField.scss';
 import { MyContext } from '../context/Provider';
 
 const placeholder = `
@@ -12,7 +11,7 @@ const placeholder = `
 19h40 às 20h00 - Fechamento
 `;
 
-export default function TextField() {
+export default function TextArea() {
   const {
     isSignedIn,
     scheduleElementRef,

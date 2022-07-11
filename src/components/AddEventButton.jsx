@@ -1,15 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
+
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Alert from './Alert';
-import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
-import { MyContext } from '../context/Provider';
-import '../styles/AddEventButton.scss';
 
-const { gapi } = window;
+import { gapi } from 'gapi-script';
+
+import Alert from './Alert';
+
+import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services';
+
+import { MyContext } from '../context/Provider';
+
 const ONE_SECOND = 1000;
 
 export default function AddEventButton() {
@@ -80,7 +84,7 @@ export default function AddEventButton() {
   }, [snackPack, messageInfo, open]);
 
   return (
-    <>
+    <div className="add-event-button">
       <Button
         disabled={ !isSignedIn }
         onClick={ handleClick }
@@ -113,6 +117,6 @@ export default function AddEventButton() {
           { messageInfo ? messageInfo.message : undefined }
         </Alert>
       </Snackbar>
-    </>
+    </div>
   );
 }

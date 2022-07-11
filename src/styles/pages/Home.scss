@@ -1,132 +1,153 @@
-$secondary-color: #84dfbe;
-
-
 .home-page {
   display: flex;
   position: relative;
+
   a {
     .github-icon {
-      width: 40px;
-      height: 40px;
       border-radius: 50%;
-      position: absolute;
-      margin: 1rem;
       color: black;
+      height: 40px;
+      margin: 1rem;
+      position: absolute;
       transition: all 0.2s ease-in-out;
+      width: 40px;
+
       &:hover {
         color: #9A33AF;
       }
     }
   }
   .aside-content {
+    align-items: center;
     background: $secondary-color;
     display: flex;
-    align-items: center;
-    padding-left: 6.5rem;
     height: 100vh;
+    padding-left: 6.5rem;
+
     section {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+
       h1 {
-        font-size: 2rem;
-        font-family: 'Heebo';
-        margin: 0;
         color: white;
+        font-family: 'Heebo';
+        font-size: 2rem;
+        margin: 0;
         span {
           color: #9A33AF;
         }
       }
+
       .logo {
-        width: 60%;
         height: 100%;
         user-select: none;
+        width: 60%;
       }
     }
   }
+
   .main-content {
-    display: flex;
-    width: 100%;
     align-items: center;
+    display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
+
     .privacy-and-terms {
-      display: flex;
       bottom: 1.2rem;
+      display: flex;
+      font-family: 'Heebo';
+      font-size: 0.9rem;
       gap: 0.5rem;
       position: absolute;
-      font-size: 0.9rem;
-      font-family: 'Heebo';
+
       a {
         color: #9A33AF;
         text-decoration: none;
         transition: all 0.2s ease-in-out;
+
         &:hover {
           font-weight: bold;
         }
       }
     }
-    .user-profile {
+
+    .nav-menu {
+      align-items: center;
+      display: flex;
       position: absolute;
-      top: 1rem;
+      gap: 1rem;
       right: 1.5rem;
+      top: 1rem;
+
+      .user-profile {
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+      }
     }
+
     .wavy {
-      position: absolute;
-      left: -5px;
-      top: 0;
-      height: 100%;
       fill: green;
-      user-select: none;
       // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
       filter: invert(90%) sepia(11%) saturate(1264%) hue-rotate(97deg) brightness(93%) contrast(88%);
+      height: 100%;
+      left: -5px;
+      position: absolute;
+      top: 0;
+      user-select: none;
     }
+
     .schedule-content {
       display: flex;
-      width: 60%;
       flex-direction: column;
+      gap: 1.5rem;
       justify-self: center;
       padding: 0 2rem;
-      gap: 1.5rem;
+      width: 60%;
+
       h1 {
-        font-size: 2rem;
         font-family: 'Heebo', sans-serif;
+        font-size: 2rem;
         font-weight: bold;
+        margin: 0;
         text-align: center;
         text-decoration: wavy;
-        margin: 0 !important;
       }
     }
   }
 }
 
 .input-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
   align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   width: 100%;
 }
 
 .textarea-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
 @media (max-width: 930px) {
   .home-page {
-    width: 100%;
     height: 100vh;
+    width: 100%;
+
     .aside-content {
       display: none;
     }
+
     .main-content {
       width: 100%;
+
       .schedule-content {
         width: 90%;
       }
+
       .wavy {
         display: none;
       }
