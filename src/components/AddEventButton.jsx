@@ -1,14 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
+
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+
+import { gapi } from 'gapi-script';
+
 import Alert from './Alert';
-import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services/index';
+
+import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services';
+
 import { MyContext } from '../context/Provider';
 
-const { gapi } = window;
 const ONE_SECOND = 1000;
 
 export default function AddEventButton() {

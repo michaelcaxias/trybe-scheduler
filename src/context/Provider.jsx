@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, createContext, useRef } from 'react';
+import { gapi } from 'gapi-script';
 import usePersistedState from '../hooks/usePersistedState';
 
-const { gapi } = window;
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
 const { REACT_APP_KEYS } = process.env;
