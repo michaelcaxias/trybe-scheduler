@@ -59,7 +59,7 @@ export function Provider({ children }) {
         gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
         changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
       })
-        .catch((error) => console.log(`Error intialize:${error}`));
+        .catch((error) => console.log(`Error intialize: ${error.details}`));
 
       gapi.client.load('calendar', 'v3').then(() => {
         setUserImage(gapi.auth2.getAuthInstance().currentUser.get()

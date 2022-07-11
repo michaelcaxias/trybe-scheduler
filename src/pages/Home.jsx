@@ -16,7 +16,7 @@ import wavy from '../images/wavy.svg';
 import NavMenu from '../components/NavMenu';
 
 export default function Home() {
-  const { userImage, loading } = useContext(MyContext);
+  const { userImage, loading, serviceId } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
       <a
@@ -44,6 +44,7 @@ export default function Home() {
       </aside>
       <main className="main-content">
         <div className="nav-menu">
+          <p>{`API ${serviceId}`}</p>
           <NavMenu />
           <Avatar className="user-profile" alt="User Profile" src={ userImage } />
         </div>
