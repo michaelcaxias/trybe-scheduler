@@ -9,6 +9,7 @@ import TextArea from '../../components/TextArea/TextArea';
 import LoginButton from '../../components/LoginButton/LoginButton';
 import AddEventButton from '../../components/AddEventButton/AddEventButton';
 import { MyContext } from '../../context/Provider';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 import logo from '../../images/logo.svg';
 import wavy from '../../images/wavy.svg';
@@ -16,7 +17,7 @@ import NavMenu from '../../components/NavMenu/NavMenu';
 
 import './Scheduler.scss';
 
-export default function Home() {
+const Scheduler = () => {
   const { userImage, serviceId } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
@@ -71,3 +72,5 @@ export default function Home() {
   );
   return homePage;
 }
+
+export default AppWrap(MotionWrap(Scheduler, 'app__scheduler'), 'scheduler', '');

@@ -1,14 +1,21 @@
+@import './styles/vars.scss';
+@import './styles/globals.scss';
+
 .app {
-  background-color: var(--primary-color);
-  font-family: var(--font-base);
+  background-color: $primary-color;
+  font-family: $font-base;
 }
 
 .app__whitebg {
-  background-color: var(--white-color);
+  background-color: $white-color;
 }
 
 .app__primarybg {
-  background-color: var(--primary-color);
+  background-color: $primary-color;
+}
+
+.app_light_blackbg {
+  background-color: $light-black-color;
 }
 
 .app__container {
@@ -47,7 +54,7 @@
 
   p {
     text-transform: uppercase;
-    color: var(--black-color);
+    color: $black-color;
   }
 }
 
@@ -55,11 +62,11 @@
   font-size: 2.75rem;
   font-weight: 800;
   text-align: center;
-  color: var(--black-color);
+  color: $black-color;
   text-transform: capitalize;
 
   span {
-    color: var(--secondary-color);
+    color: $secondary-color;
   }
 
   @media screen and (min-width: 2000px) {
@@ -72,9 +79,9 @@
 }
 
 .p-text {
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: left;
-  color: var(--gray-color);
+  color: $black-color;
   line-height: 1.5;
 
   @media screen and (min-width: 2000px) {
@@ -85,7 +92,7 @@
 .bold-text {
   font-size: 1rem;
   font-weight: 800;
-  color: var(--black-color);
+  color: $black-color;
   text-align: left;
 
   @media screen and (min-width: 2000px) {
@@ -109,10 +116,10 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--white-color);
+    background-color: $white-color;
     margin: 0.25rem 0;
-    border: 1px solid var(--lightGray-color);
-
+    border: 1px solid $lightGray-color;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,15 +133,15 @@
     svg {
       width: 15px;
       height: 15px;
-      color: var(--gray-color);
+      color: $gray-color
     }
 
     &:hover {
-      background-color: var(--secondary-color);
-      border-color: var(--secondary-color);
+      background-color: $secondary-color;
+      border-color: $secondary-color;
 
       svg {
-        color: var(--white-color);
+        color: $white-color;
       }
     }
 
@@ -170,7 +177,7 @@
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
-      background-color: var(--secondary-color);
+      background-color: $secondary-color;
     }
 
     @media screen and (min-width: 2000px) {

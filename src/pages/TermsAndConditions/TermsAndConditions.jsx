@@ -39,7 +39,7 @@ export default function TermsAndConditions() {
         </li>
         <li>
           transferir os materiais para outra pessoa ou
-          'espelhe' os materiais em qualquer outro servidor.
+         espelhe os materiais em qualquer outro servidor.
         </li>
       </ol>
       <p>
@@ -55,7 +55,7 @@ export default function TermsAndConditions() {
       <ol>
         <li>
           Os materiais no site da Trybe Schedule são fornecidos
-          'como estão'
+          como estão
           . Trybe Schedule não oferece garantias,
           expressas ou implícitas, e, por este meio, isenta e
           nega todas as outras garantias, incluindo, sem limitação, garantias
