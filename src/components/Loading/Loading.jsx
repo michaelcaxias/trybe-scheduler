@@ -1,5 +1,7 @@
 import React from 'react';
-import rocket from '../images/rocket.svg';
+import rocket from '../../images/rocket.svg';
+
+import './Loading.scss';
 
 export default function Loading() {
   return (

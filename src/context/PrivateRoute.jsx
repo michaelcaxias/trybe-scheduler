@@ -5,13 +5,12 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { MyContext } from './Provider';
-import Loading from '../components/Loading';
+import Loading from '../components/Loading/Loading';
 
 const PrivateRoute = ({ children }) => {
   const { isSignedIn, loading } = useContext(MyContext);
 
   function validar() {
-    console.log(isSignedIn);
     if (!isSignedIn) {
       return <Navigate to="/login" />;
     }

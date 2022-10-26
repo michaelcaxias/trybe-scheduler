@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
+
+import './TextArea.scss';
 
 const placeholder = `
 [*] 13h00 às 13h50 - Mentoria

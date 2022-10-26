@@ -3,16 +3,18 @@ import { Avatar } from '@mui/material';
 import { AiFillGithub } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-import SelectTime from '../components/SelectTime';
-import SelectColors from '../components/SelectColors';
-import TextArea from '../components/TextArea';
-import LoginButton from '../components/LoginButton';
-import AddEventButton from '../components/AddEventButton';
-import { MyContext } from '../context/Provider';
+import SelectTime from '../../components/SelectTime/SelectTime';
+import SelectColors from '../../components/SelectColors/SelectColors';
+import TextArea from '../../components/TextArea/TextArea';
+import LoginButton from '../../components/LoginButton/LoginButton';
+import AddEventButton from '../../components/AddEventButton/AddEventButton';
+import { MyContext } from '../../context/Provider';
 
-import logo from '../images/logo.svg';
-import wavy from '../images/wavy.svg';
-import NavMenu from '../components/NavMenu';
+import logo from '../../images/logo.svg';
+import wavy from '../../images/wavy.svg';
+import NavMenu from '../../components/NavMenu/NavMenu';
+
+import './Scheduler.scss';
 
 export default function Home() {
   const { userImage, serviceId } = useContext(MyContext);

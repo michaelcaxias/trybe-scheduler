@@ -8,11 +8,13 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { gapi } from 'gapi-script';
 
-import Alert from './Alert';
+import Alert from '../Alert/Alert';
 
-import { filterString, getCurrentDate, eventFormat, delayLoop } from '../services';
+import { filterString, getCurrentDate, eventFormat, delayLoop } from '../../services';
 
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
+
+import './AddEventButton.scss';
 
 const ONE_SECOND = 1000;
 

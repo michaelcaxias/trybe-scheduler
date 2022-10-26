@@ -3,7 +3,9 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
+
+import './SelectColors.scss';
 
 const colors = [
   { color: '#7986cb', name: 'Lavanda', id: '1' },

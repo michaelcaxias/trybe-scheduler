@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import MenuAPIItem from './MenuAPIItem';
+import MenuAPIItem from '../MenuAPIItem/MenuAPIItem';
+
+import './Menu.scss';
 
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = useState(null);

@@ -3,7 +3,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
+
+import './SelectTime.scss';
 
 const ONE_HOUR = 60;
 const FIVE = 5;

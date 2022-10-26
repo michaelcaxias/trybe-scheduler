@@ -9,7 +9,9 @@ import { gapi } from 'gapi-script';
 
 import { useNavigate } from 'react-router-dom';
 
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
+
+import './LoginButton.scss';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 
 import MenuItem from '@mui/material/MenuItem';
-import { MyContext } from '../context/Provider';
+import { MyContext } from '../../context/Provider';
 
 export default function MenuAPIItem({ step }) {
   const { setServiceId } = useContext(MyContext);
