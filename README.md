@@ -74,11 +74,11 @@ Você provavelmente foi redirecionado para a página de APIs e serviços, se nã
 ---
 ## Como contribuir ℹ️
   1. Crie um fork do projeto
-  2. Crie uma branch e adicione a sua contribuição
-  3. Altere o caminho de merge da sua branch para a master do projeto `michaelcaxias:master`
-  4. Abra uma Issue no Github informando a sua contribuição 
-  5. Solicite a API_KEY e CLIENT_ID dentro desta issue.
-  6. Aguarde até a aprovação.
+  2. Clone a branch main com `git checkout -b 'nome-da-sua-branch'`, desse jeito você vai criar uma nova branch para fazer as suas alterações
+  3. Faça as alterações que você quiser, depois, faça os seus commits, e por fim use `git push -u origin 'nome-da-sua-branch'` para enviar as suas alterações para o seu fork
+  4. Agora, você vai ter que criar um Pull Request, para isso, venha até esse repositório que você está agora, e lá em cima vai aparecer um botão escrito "Compare & pull request", clique nele, se não aparecer esse botão, clique em "Pull requests" e depois em "New pull request"
+  5. Agora, você vai ter que preencher algumas informações, como o título do seu PR, e uma descrição, depois, clique em "Create pull request"
+  6. Pronto, agora é só esperar alguém revisar o seu PR, e se tudo estiver certo, ele vai ser aceito e vai ser adicionado ao projeto.
 
 ---
 
