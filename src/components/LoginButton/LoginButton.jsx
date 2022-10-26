@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 
 import { FcGoogle } from 'react-icons/fc';
 import { ImExit } from 'react-icons/im';
