@@ -14,14 +14,24 @@ import { MyContext } from '../context/Provider';
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
 export default function LoginButton() {
-  const { isSignedIn, setUserImage } = useContext(MyContext);
+  const { isSignedIn, setUserImage, changeSignedInState } = useContext(MyContext);
   const navigate = useNavigate();
 
   const handleAuthClick = async () => {
+    // Faz o Login
     await gapi.auth2.getAuthInstance().signIn();
+
+    // Depois verifica se o usuário está logado, e seta esse valor em isSignedIn
+    await gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
+    await changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
+
+    // Agora pega a imagem do usuário e seta em userImage
     const profileImage = gapi.auth2.getAuthInstance().currentUser.get()
       .getBasicProfile().getImageUrl();
+
     setUserImage(profileImage);
+
+    // Finalmente navega para a página de schedule
     navigate('/scheduler');
   };
 

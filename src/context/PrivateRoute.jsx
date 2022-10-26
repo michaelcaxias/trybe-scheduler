@@ -5,15 +5,20 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { MyContext } from './Provider';
+import Loading from '../components/Loading';
 
 const PrivateRoute = ({ children }) => {
-  const { isSignedIn } = useContext(MyContext);
+  const { isSignedIn, loading } = useContext(MyContext);
 
-  if (!isSignedIn) {
-    return <Navigate to="/login" replace />;
+  function validar() {
+    console.log(isSignedIn);
+    if (!isSignedIn) {
+      return <Navigate to="/login" />;
+    }
+    return children;
   }
 
-  return children;
+  return loading ? <Loading /> : validar();
 };
 
 PrivateRoute.propTypes = {

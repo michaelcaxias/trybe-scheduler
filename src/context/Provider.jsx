@@ -49,25 +49,30 @@ export function Provider({ children }) {
   useEffect(() => {
     const keys = JSON.parse(REACT_APP_KEYS);
     const { apiKey, clientId } = keys.find((key) => key.id === serviceId);
-    gapi.load('client:auth2', () => {
-      gapi.client.init({
-        apiKey,
-        clientId,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES,
-      }).then(() => {
+
+    gapi.load('client:auth2', async () => {
+      try {
+        await gapi.client.init({
+          apiKey,
+          clientId,
+          discoveryDocs: DISCOVERY_DOCS,
+          scope: SCOPES,
+        });
         gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
         changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
-      })
-        .catch((error) => console.log('Error intialize: ', error));
 
-      gapi.client.load('calendar', 'v3').then(() => {
-        setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
-          .getBasicProfile().getImageUrl());
+        await gapi.client.load('calendar', 'v3');
+        if (isSignedIn) {
+          setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
+            .getBasicProfile().getImageUrl());
+        }
+
         setLoading(false);
-      }).catch(() => setLoading(false));
+      } catch (error) {
+        console.log('Error intialize: ', error);
+      }
     });
-  }, [setUserImage, serviceId]);
+  }, [setUserImage, serviceId, isSignedIn]);
 
   return (
     <MyContext.Provider value={ context }>

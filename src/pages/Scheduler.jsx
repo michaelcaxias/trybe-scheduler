@@ -9,14 +9,13 @@ import TextArea from '../components/TextArea';
 import LoginButton from '../components/LoginButton';
 import AddEventButton from '../components/AddEventButton';
 import { MyContext } from '../context/Provider';
-import Loading from '../components/Loading';
 
 import logo from '../images/logo.svg';
 import wavy from '../images/wavy.svg';
 import NavMenu from '../components/NavMenu';
 
 export default function Home() {
-  const { userImage, loading, serviceId } = useContext(MyContext);
+  const { userImage, serviceId } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
       <a
@@ -68,5 +67,5 @@ export default function Home() {
       </main>
     </section>
   );
-  return loading ? <Loading /> : homePage;
+  return homePage;
 }
