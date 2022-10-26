@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { MyContext } from '../context/Provider';
 import LoginButton from '../components/LoginButton';
 import Loading from '../components/Loading';
 
 const Login = () => {
-  const { loading } = useContext(MyContext);
+  const { loading, isSignedIn } = useContext(MyContext);
 
   const loginPage = (
     <div>
@@ -14,7 +15,14 @@ const Login = () => {
     </div>
   );
 
-  return loading ? <Loading /> : loginPage;
+  function validar() {
+    if (isSignedIn) {
+      return <Navigate to="/scheduler" />;
+    }
+    return loginPage;
+  }
+
+  return loading ? <Loading /> : validar();
 };
 
 export default Login;
