@@ -23,7 +23,7 @@ export function Provider({ children }) {
   const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
 
   const [loading, setLoading] = useState(true);
-  const [serviceId, setServiceId] = usePersistedState('serviceId', 1);
+  const [serviceId, setServiceId] = usePersistedState('serviceId', 2);
 
   const scheduleElementRef = useRef(null);
 
@@ -59,7 +59,7 @@ export function Provider({ children }) {
         gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
         changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
       })
-        .catch((error) => console.log(`Error intialize: ${error.details}`));
+        .catch((error) => console.log('Error intialize: ', error));
 
       gapi.client.load('calendar', 'v3').then(() => {
         setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
