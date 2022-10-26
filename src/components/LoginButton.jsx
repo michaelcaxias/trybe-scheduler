@@ -7,23 +7,28 @@ import { ImExit } from 'react-icons/im';
 
 import { gapi } from 'gapi-script';
 
+import { useNavigate } from 'react-router-dom';
+
 import { MyContext } from '../context/Provider';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
 export default function LoginButton() {
   const { isSignedIn, setUserImage } = useContext(MyContext);
+  const navigate = useNavigate();
 
   const handleAuthClick = async () => {
     await gapi.auth2.getAuthInstance().signIn();
     const profileImage = gapi.auth2.getAuthInstance().currentUser.get()
       .getBasicProfile().getImageUrl();
     setUserImage(profileImage);
+    navigate('/scheduler');
   };
 
   const handleSignoutClick = () => {
     gapi.auth2.getAuthInstance().signOut();
     setUserImage(blankImage);
+    navigate('/');
   };
 
   const connectButton = (
