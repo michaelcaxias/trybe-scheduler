@@ -1,5 +1,5 @@
 import React from 'react';
-import rocket from '../../images/rocket.svg';
+import { images } from '../../constants'
 
 import './Loading.scss';
 
@@ -14,7 +14,7 @@ export default function Loading() {
       <div className="orbit">
         <img
           className="rocket"
-          src={ rocket }
+          src={ images.rocket }
           alt="rocket"
         />
       </div>

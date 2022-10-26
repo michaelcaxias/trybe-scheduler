@@ -6,7 +6,7 @@ import LoginButton from '../../components/LoginButton/LoginButton';
 import Loading from '../../components/Loading/Loading';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
-import logo from '../../images/logo.svg';
+import { images } from '../../constants'
 
 import './Login.scss';
 
@@ -16,7 +16,7 @@ const Login = () => {
   const loginPage = (
     <>
     <div className="login__logo">
-      <img src={logo}/>
+      <img src={images.logo}/>
       <h1>Trybe Schedule</h1>
     </div>
 

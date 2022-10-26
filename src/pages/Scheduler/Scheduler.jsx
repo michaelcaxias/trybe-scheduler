@@ -11,8 +11,7 @@ import AddEventButton from '../../components/AddEventButton/AddEventButton';
 import { MyContext } from '../../context/Provider';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
-import logo from '../../images/logo.svg';
-import wavy from '../../images/wavy.svg';
+import { images } from '../../constants'
 import NavMenu from '../../components/NavMenu/NavMenu';
 
 import './Scheduler.scss';
@@ -41,7 +40,7 @@ const Scheduler = () => {
             <br />
             é a solução!
           </h1>
-          <img draggable={ false } src={ logo } className="logo" alt="logo" />
+          <img draggable={ false } src={ images.logo } className="logo" alt="logo" />
         </section>
       </aside>
       <main className="main-content">
@@ -51,7 +50,7 @@ const Scheduler = () => {
           <Avatar className="user-profile" alt="User Profile" src={ userImage } />
         </div>
         <section className="schedule-content">
-          <img draggable={ false } className="wavy" src={ wavy } alt="wavy" />
+          <img draggable={ false } className="wavy" src={ images.wavy } alt="wavy" />
           <h1>Agende seus Horários</h1>
           <LoginButton />
           <section className="textarea-container">
