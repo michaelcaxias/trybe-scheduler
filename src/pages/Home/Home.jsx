@@ -5,7 +5,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="app__home">
       <h1>Home</h1>
       <button type="button" onClick={ () => navigate('/scheduler') }>Fazer Login</button>
     </div>
