@@ -1,16 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import SelectTime from '../../components/SelectTime/SelectTime';
 import SelectColors from '../../components/SelectColors/SelectColors';
 import TextArea from '../../components/TextArea/TextArea';
 import AddEventButton from '../../components/AddEventButton/AddEventButton';
-import { MyContext } from '../../context/Provider';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
 import './Scheduler.scss';
 
 const Scheduler = () => {
-  const { userImage, serviceId } = useContext(MyContext);
   const homePage = (
     <section className='home-page'>
       <aside className="aside-content">

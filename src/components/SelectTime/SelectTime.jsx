@@ -14,7 +14,7 @@ const MAX_TIME = [...Array(ONE_HOUR + 1).keys()].filter((number) => number % FIV
 const OPTIONS = MAX_TIME.map((time) => {
   const moreThanZero = {
     value: time,
-    label: `${time < 1 ? `${time} minuto` : `${time} minutos`}`,
+    label: time < 1 ? `${time} minuto` : `${time} minutos`,
   };
   const zero = {
     value: time,

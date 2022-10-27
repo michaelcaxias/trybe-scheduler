@@ -27,11 +27,6 @@ const Menu = (props) => {
     onClose();
   }
 
-  const handleListItemClick = () => {
-    console.log('Fechando!')
-    onClose();
-  };
-
   const handleLogout = () => {
     gapi.auth2.getAuthInstance().signOut();
     changeSignedInState(false);
