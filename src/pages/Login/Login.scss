@@ -30,6 +30,10 @@
       font-weight: 700;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+  }
 }
 
 .login__logo {
@@ -45,5 +49,15 @@
   h1 {
     margin-left: 1rem;
     color: $white-color;
+  }
+
+  @media screen and (max-width: 500px) {
+    img {
+      width: 50px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 }

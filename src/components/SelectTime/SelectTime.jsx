@@ -29,7 +29,6 @@ export default function SelectTime() {
     <FormControl
       variant="filled"
       className="select-time"
-      sx={ { minWidth: 250 } }
       color="primary"
     >
       <InputLabel>Notificar antecipadamente</InputLabel>
