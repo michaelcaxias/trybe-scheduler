@@ -1,0 +1,137 @@
+@import '../../styles/vars.scss';
+@import '../../styles/globals.scss';
+
+.app__scheduler {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+
+  width: 100%;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 4rem;
+  width: 100%;
+
+  .aside-content {
+    min-height: 60vh;
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    border: 2px solid $lightGray-color;
+    border-radius: 10px;
+    background: $high-black-color;
+    box-shadow: 0 0 10px 0 #84dfbebb;
+
+    padding: 0.3rem;
+
+    h1 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: $white-color;
+      margin: 0;
+      text-decoration: wavy;
+    }
+  }
+
+  .schedule-content {
+    min-height: 60vh;
+    width: 100%;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    justify-self: center;
+
+    .schedule-configs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .wavy {
+      fill: green;
+      // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+      filter: invert(90%) sepia(11%) saturate(1264%) hue-rotate(97deg) brightness(93%) contrast(88%);
+      height: 100%;
+      left: -5px;
+      position: absolute;
+      top: 0;
+      user-select: none;
+    }
+  
+    .input-group {
+      align-items: center;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .textarea-container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    h1 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: $white-color;
+      margin: 0;
+      margin-bottom: 20px;
+      text-decoration: wavy;
+    }
+
+    h5 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: $white-color;
+      margin: 0;
+      padding: 0;
+      text-decoration: wavy;
+    }
+
+    h4 {
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: $white-black;
+      text-decoration: wavy;
+    }
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+
+    .schedule-content {
+      min-height: fit-content;
+    }
+
+    .aside-content {
+      height: 60vh;
+    }
+
+    gap: 2rem;
+  }
+}

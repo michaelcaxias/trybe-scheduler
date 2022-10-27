@@ -1,19 +1,20 @@
 {
     "env": {
-      "browser": true,
-      "es2021": true
+        "browser": true,
+        "es2021": true
     },
-    "extends": "trybe-frontend",
-    "parser": "babel-eslint",
+    "extends": [
+        "plugin:react/recommended"
+    ],
+    "overrides": [
+    ],
     "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "sourceType": "module"
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
-    "plugins": ["react", "sonarjs"],
+    "plugins": [
+        "react"
+    ],
     "rules": {
-      "sonarjs/cognitive-complexity": ["error", 20],
-      "react/no-unescaped-entities": "off"
     }
-  }
+}
