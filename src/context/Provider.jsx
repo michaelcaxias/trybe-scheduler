@@ -20,7 +20,10 @@ export function Provider({ children }) {
 
   const [scheduleValue, changeScheduleValue] = useState('');
   const [links, setLinks] = useState([]);
+
   const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
+  const [userName, setUserName] = usePersistedState('userName', 'Carregando...');
+  const [userEmail, setUserEmail] = usePersistedState('userEmail', 'Carregando...');
 
   const [loading, setLoading] = useState(true);
   const [serviceId, setServiceId] = usePersistedState('serviceId', 2);
@@ -35,6 +38,8 @@ export function Provider({ children }) {
     setMinutes,
     setUserImage,
     userImage,
+    userName,
+    userEmail,
     changeSignedInState,
     setColorId,
     changeScheduleValue,
@@ -65,6 +70,12 @@ export function Provider({ children }) {
         if (isSignedIn) {
           setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
             .getBasicProfile().getImageUrl());
+
+          setUserName(gapi.auth2.getAuthInstance().currentUser.get()
+            .getBasicProfile().getName());
+
+          setUserEmail(gapi.auth2.getAuthInstance().currentUser.get()
+            .getBasicProfile().getEmail());
         }
 
         setLoading(false);

@@ -20,13 +20,6 @@ const Scheduler = () => {
   const { userImage, serviceId } = useContext(MyContext);
   const homePage = (
     <section className="home-page">
-      <a
-        href="https://github.com/michaelcaxias/trybe-schedule"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <AiFillGithub className="github-icon" />
-      </a>
       <aside className="aside-content">
         <section>
           <h1>

@@ -1,0 +1,26 @@
+@import '../../styles/vars.scss';
+@import '../../styles/globals.scss';
+
+.app__menu {
+  background: rgba(22, 27, 34, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  .MuiDialog-paper {
+    background: rgba(22, 27, 34, 1) !important;
+  }
+  
+  .MuiDialogTitle-root {
+    color: $white-color;
+  }
+  
+  .MuiList-root {
+    color: $white-color;
+  }
+  
+  .MuiListItem-button {
+    &:hover {
+      background: $light-black-color !important;
+    }
+  }
+}
