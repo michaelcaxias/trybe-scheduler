@@ -9,6 +9,13 @@
   padding: 0 2rem;
 
   width: 100%;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0;
+  }
 }
 
 .home-page {
@@ -133,5 +140,15 @@
     }
 
     gap: 2rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    max-width: fit-content;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem 1rem;
+    margin: 0;
   }
 }
