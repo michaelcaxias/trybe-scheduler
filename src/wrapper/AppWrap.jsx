@@ -8,8 +8,8 @@ const AppWrap = (Component, idName, classNames) => function HOC() {
     <>
       {idName === 'Login' ? null : <Header />}
       
-      <div id={idName} className={`app__container ${classNames}`}>
-        <div className="app__wrapper app__flex">
+      <div id={idName} className={classNames ? `app__container` : 'app__container'}>
+        <div className={classNames ? classNames : 'app__wrapper app__flex'}>
           <Component />
         </div>
       </div>

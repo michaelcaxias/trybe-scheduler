@@ -3,12 +3,11 @@
 
 .text-field {
   align-items: center;
-  background-color: $secondary-color;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   cursor: text;
   display: flex;
-  height: 39.5vh;
+  height: 100%;
   justify-content: center;
   position: relative;
   transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
@@ -26,7 +25,7 @@
   }
 
   &:after {
-    border-bottom: 2px solid $purple;
+    border-bottom: 2px solid $secondary-color;
     bottom: 0px;
     content: "";
     left: 0px;
@@ -45,7 +44,7 @@
 
     .label-text {
       transform: translate(14px, 7px) scale(0.75);
-      color: $purple;
+      color: $secondary-color;
     }
   }
 
@@ -58,10 +57,10 @@
 
   .label-text {
     backdrop-filter: blur(1px);
-    color: rgba(0, 0, 0, 0.521);
+    color: $lightGray-color;
     display: block;
     font-family: 'Heebo', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     left: 0;
     letter-spacing: 0.00938em;
@@ -88,7 +87,7 @@
 
 [contentEditable="true"] {
   background-color: transparent;
-  color: #1c4637;
+  color: $lightGray-color;
   font-family: 'Heebo', sans-serif;
   height: 80%;
   overflow: auto;
@@ -96,11 +95,11 @@
   position: relative;
   transition: all 0.3s ease-in-out;
   white-space: pre-wrap;
-  width: 80vh;
+  width: 100%;
   word-wrap: break-word;
 
   a {
-    color: $purple !important;
+    color: $secondary-color !important;
   }
 
   * {
@@ -108,13 +107,12 @@
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    color: #1c4637 !important;
+    color: $lightGray-color !important;
     font-family: 'Heebo', sans-serif;
     height: auto !important;
     margin: 0 !important;
     overflow: hidden !important;
     padding: 0 !important;
-    width: auto !important;
   }
 
   img, button, svg, .c-emoji {
@@ -126,7 +124,7 @@
   }
 
   &:before {
-    color: #00000067;
+    color: $lightGray-color;
     content: attr(data-text);
     opacity: 0;
     position: absolute;
@@ -143,7 +141,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $purple; 
+    background: $secondary-color; 
     border-radius: 10px;
   }
 }

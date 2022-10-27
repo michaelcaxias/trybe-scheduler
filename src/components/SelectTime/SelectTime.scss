@@ -4,6 +4,7 @@
 .select-time {
   width: 85%;
   box-shadow: rgba(61, 61, 114, 0.25) 0px 13px 27px -5px;
+  border-radius: 10px;
 }
 
 .MuiFilledInput-root {
@@ -11,7 +12,7 @@
 }
 
 .MuiFormControl-root {
-  background-color: $secondary-color;
+  background-color: $lightGray-color !important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }

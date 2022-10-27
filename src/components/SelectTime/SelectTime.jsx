@@ -30,7 +30,7 @@ export default function SelectTime() {
       variant="filled"
       className="select-time"
       sx={ { minWidth: 250 } }
-      color="secondary"
+      color="primary"
     >
       <InputLabel>Notificar antecipadamente</InputLabel>
       <Select

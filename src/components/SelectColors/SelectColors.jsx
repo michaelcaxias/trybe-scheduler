@@ -38,7 +38,7 @@ export default function BasicMenu() {
         aria-controls="basic-menu"
         disabled={ !isSignedIn }
         variant="outlined"
-        color="secondary"
+        color="primary"
         size="large"
         aria-haspopup="true"
         aria-expanded={ open ? 'true' : undefined }
