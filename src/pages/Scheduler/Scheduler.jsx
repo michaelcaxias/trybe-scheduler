@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import SelectTime from '../../components/SelectTime/SelectTime';
 import SelectColors from '../../components/SelectColors/SelectColors';
 import TextArea from '../../components/TextArea/TextArea';
 import AddEventButton from '../../components/AddEventButton/AddEventButton';
+import APISelector from '../../components/APISelector/APISelector';
 import { AppWrap, MotionWrap } from '../../wrapper';
+
+import { MyContext } from '../../context/Provider';
 
 import './Scheduler.scss';
 
 const Scheduler = () => {
+  const { serviceId } = useContext(MyContext);
+
   const homePage = (
     <section className='home-page'>
       <aside className="aside-content">
@@ -29,7 +34,13 @@ const Scheduler = () => {
           </div>
         </div>
 
-        <AddEventButton />
+        <div className="schedule-footer">
+          <h4>Usando a API {serviceId}, se não conseguir adicionar, troque de API.</h4>
+          <div className="schedule-content-buttons">
+            <APISelector />
+            <AddEventButton />
+          </div>
+        </div>
       </main>
     </section>
   );
