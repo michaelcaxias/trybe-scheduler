@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuAPIItem from '../MenuAPIItem/MenuAPIItem';
+import { TbApi } from 'react-icons/tb'
 
-import './Menu.scss';
+import './APISelector.scss';
 
-export default function NavMenu() {
+export default function APISelector() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -36,7 +37,7 @@ export default function NavMenu() {
       aria-expanded={ open ? 'true' : undefined }
       onClick={ handleClick }
     >
-      {generateSquares()}
+      <TbApi size={30} pointerEvents={'none'} />
       <Menu
         anchorEl={ anchorEl }
         open={ open }

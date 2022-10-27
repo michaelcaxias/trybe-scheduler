@@ -125,6 +125,15 @@
     }
   }
 
+  .schedule-content-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
   @media (max-width: 950px) {
     flex-direction: column;
     justify-content: center;
