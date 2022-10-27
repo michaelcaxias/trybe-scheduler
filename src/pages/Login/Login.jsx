@@ -38,4 +38,4 @@ const Login = () => {
   return loading ? <Loading /> : validar();
 };
 
-export default AppWrap(MotionWrap(Login, ''), 'Login', 'app_light_blackbg');
+export default AppWrap(MotionWrap(Login, ''), 'Login', '');

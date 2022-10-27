@@ -13,7 +13,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <Home /> } />
+        <Route path="/" element={ <PrivateRoute><Scheduler /></PrivateRoute> } />
         <Route path="/scheduler" element={ <PrivateRoute><Scheduler /></PrivateRoute> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/privacy-policy" element={ <PrivacyPolicy /> } />
