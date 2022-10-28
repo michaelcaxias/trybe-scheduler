@@ -4,7 +4,10 @@ import { Navigate } from 'react-router-dom';
 import { MyContext } from '../../context/Provider';
 import LoginButton from '../../components/LoginButton/LoginButton';
 import Loading from '../../components/Loading/Loading';
+
 import { AppWrap, MotionWrap } from '../../wrapper';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 import { images } from '../../constants'
 
@@ -38,4 +41,4 @@ const Login = () => {
   return loading ? <Loading /> : validar();
 };
 
-export default AppWrap(MotionWrap(Login, ''), 'Login', '');
+export default AppWrap(MotionWrap(Login, ''), null, Footer, 'Login', '');

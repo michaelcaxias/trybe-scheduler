@@ -2,6 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppWrap, MotionWrap } from '../../wrapper';
 
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
 const Home = () => {
   const navigate = useNavigate();
   return (
@@ -12,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Home, ''), 'Home', '');
+export default AppWrap(MotionWrap(Home, ''), Header, Footer, 'Home', '');

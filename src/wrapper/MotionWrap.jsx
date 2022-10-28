@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 
+/**
+ * 
+ * @param {React.Component} Componente [Obrigatório] - O componente que será envolvido
+ * @param {string} ClassNames [Opcional] - Classes CSS que serão adicionadas ao componente, por padrão será 'app__flex'
+ */
 const MotionWrap = (Component, classNames) => function HOC() {
   return (
     <motion.div
