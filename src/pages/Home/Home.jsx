@@ -27,13 +27,9 @@ const Home = () => {
       </motion.div>
 
       <div className="app__flex app__home-laptop">
-        <motion.img 
-        whileInView={{ opacity: [0,0,1] }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        <img 
         src={Images.glow} alt="Glow" className="app__home-laptop-glow" />
-        <motion.img 
-          whileInView={{ y: [100,50,0], opacity: [0,0,1] }}
-          transition={{ duration: 0.5 }}
+        <img 
           src={Images.laptop} alt="laptop" className='app__home-laptop-mockup' />
       </div>
 
