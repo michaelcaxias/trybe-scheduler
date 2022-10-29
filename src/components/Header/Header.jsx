@@ -33,7 +33,7 @@ const Header = () => {
         aria-label="Voltar para página inicial"  
       >
         <img src={images.logo} draggable={false}/>
-        <h1>Trybe Schedule</h1>
+        <h1>Trybe Scheduler</h1>
       </div>
 
       <div
