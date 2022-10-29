@@ -1,8 +1,13 @@
 import React from 'react';
 
-export default function PrivacyAndTerms() {
+import { AppWrap, MotionWrap } from '../../wrapper';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+
+const PrivacyAndTerms = () => {
   return (
-    <div style={ { padding: '1rem' } }>
+    <div className="text-page">
       <h1>Política Privacidade</h1>
       <p>
         A sua privacidade é importante para nós.
@@ -131,3 +136,5 @@ export default function PrivacyAndTerms() {
     </div>
   );
 }
+
+export default AppWrap(MotionWrap(PrivacyAndTerms, ''), Header, Footer, 'PrivacyAndTerms', '');

@@ -13,7 +13,7 @@ export default function MenuAPIItem({ step }) {
   };
 
   return (
-    <MenuItem onClick={ handleClick }>
+    <MenuItem onClick={ handleClick } className="api__selector">
       {`Google API ${step}`}
     </MenuItem>
   );

@@ -1,8 +1,12 @@
 import React from 'react';
 
-export default function TermsAndConditions() {
+import { AppWrap, MotionWrap } from '../../wrapper';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+
+const TermsAndConditions = () => {
   return (
-    <div style={ { padding: '1rem' } }>
+    <div className="text-page">
       <h2>1. Termos</h2>
       <p>
         Aoacessar ao site
@@ -126,3 +130,5 @@ export default function TermsAndConditions() {
     </div>
   );
 }
+
+export default AppWrap(MotionWrap(TermsAndConditions, ''), Header, Footer, 'PrivacyAndTerms', '');

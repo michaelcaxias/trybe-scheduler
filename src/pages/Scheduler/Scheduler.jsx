@@ -5,7 +5,10 @@ import SelectColors from '../../components/SelectColors/SelectColors';
 import TextArea from '../../components/TextArea/TextArea';
 import AddEventButton from '../../components/AddEventButton/AddEventButton';
 import APISelector from '../../components/APISelector/APISelector';
+
 import { AppWrap, MotionWrap } from '../../wrapper';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 import { MyContext } from '../../context/Provider';
 
@@ -47,4 +50,4 @@ const Scheduler = () => {
   return homePage;
 }
 
-export default AppWrap(MotionWrap(Scheduler, 'app__scheduler'), 'scheduler', 'app__scheduler');
+export default AppWrap(MotionWrap(Scheduler, 'app__scheduler'), Header, Footer, 'scheduler', 'app__scheduler');

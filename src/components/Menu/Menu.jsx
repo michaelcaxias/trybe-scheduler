@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types';
 import { gapi } from 'gapi-script';
 import { CgLogOut } from 'react-icons/cg';
+import { useNavigate } from "react-router-dom";
 
 import { 
   Dialog,
@@ -20,8 +21,9 @@ import { MyContext } from '../../context/Provider';
 import './Menu.scss';
 
 const Menu = (props) => {
-  const { setUserImage, changeSignedInState, serviceId } = useContext(MyContext);
+  const { changeSignedInState, serviceId } = useContext(MyContext);
   const { open, onClose } = props;
+  const navigate = useNavigate();
 
   const handleClose = () => {
     onClose();
@@ -30,7 +32,6 @@ const Menu = (props) => {
   const handleLogout = () => {
     gapi.auth2.getAuthInstance().signOut();
     changeSignedInState(false);
-    setUserImage(blankImage);
 
     onClose();
     navigate('/');
