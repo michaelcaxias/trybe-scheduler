@@ -196,3 +196,21 @@
     padding: 2rem;
   }
 }
+
+.text-page {
+  padding: 4rem;
+  color: $white-color;
+
+  a {
+    color: $mars-color;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 2rem;
+  }
+}

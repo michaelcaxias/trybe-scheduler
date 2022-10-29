@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Scheduler from './pages/Scheduler/Scheduler';
 import Login from './pages/Login/Login';
+import Page404 from './pages/Page404/Page404';
 import Home from './pages/Home/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions';
@@ -18,6 +20,7 @@ export default function App() {
         <Route path="/login" element={ <Login /> } />
         <Route path="/privacy-policy" element={ <PrivacyPolicy /> } />
         <Route path="/terms-and-conditions" element={ <TermsAndConditions /> } />
+        <Route path="*" element={ <Page404 /> } />
       </Routes>
     </Router>
   );
