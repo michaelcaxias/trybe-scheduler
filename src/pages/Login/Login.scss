@@ -61,3 +61,16 @@
     }
   }
 }
+
+.login__changeapi {
+  flex-direction: row;
+  margin-top: 2rem;
+  gap: 1.2rem;
+
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+
+  color: red;
+  font-weight: 500;
+}
