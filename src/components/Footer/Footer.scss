@@ -9,7 +9,7 @@
 
   padding: 0.5rem 2rem;
   background: $medium-black-color;
-  border: 1px solid rgba(48, 55, 64, 0.5);
+  border-top: 1px solid $border-color;
 
   p {
     color: $white-color;
@@ -26,6 +26,15 @@
         text-decoration: underline;
         transition: all 0.3s ease;
       }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+
+    p {
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
   }
 }
@@ -70,6 +79,19 @@
         text-decoration: underline;
         transition: all 0.3s ease;
       }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+
+    .privacy-and-terms {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      margin-bottom: 0.5rem;
     }
   }
 }

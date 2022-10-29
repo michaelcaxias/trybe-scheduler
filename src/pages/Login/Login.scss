@@ -30,6 +30,10 @@
       font-weight: 700;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+  }
 }
 
 .login__logo {
@@ -46,4 +50,27 @@
     margin-left: 1rem;
     color: $white-color;
   }
+
+  @media screen and (max-width: 500px) {
+    img {
+      width: 50px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.login__changeapi {
+  flex-direction: row;
+  margin-top: 2rem;
+  gap: 1.2rem;
+
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+
+  color: red;
+  font-weight: 500;
 }
