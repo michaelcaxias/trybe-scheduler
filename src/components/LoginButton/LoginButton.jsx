@@ -50,7 +50,7 @@ export default function LoginButton() {
       size="large"
     >
       <div className="google-icon-div">
-        <FcGoogle />
+        <FcGoogle aria-label="Logo do Google" />
       </div>
       Logar com o Google
     </Button>
@@ -65,7 +65,7 @@ export default function LoginButton() {
       color="error"
     >
       <div className="exit-icon-div">
-        <ImExit />
+        <ImExit aria-label="ícone de saída" />
       </div>
       Desconectar
     </Button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuAPIItem from '../MenuAPIItem/MenuAPIItem';
-import { TbApi } from 'react-icons/tb'
+import { TbApi } from 'react-icons/tb';
 
 import './APISelector.scss';
 
@@ -27,7 +27,7 @@ export default function APISelector() {
       aria-expanded={ open ? 'true' : undefined }
       onClick={ handleClick }
     >
-      <TbApi size={30} pointerEvents={'none'} />
+      <TbApi size={30} pointerEvents={'none'} aria-label="API" />
       <Menu
         anchorEl={ anchorEl }
         open={ open }
