@@ -1,11 +1,11 @@
 import React from 'react';
-import { images } from '../../constants'
+import { images } from '../../constants';
 
 import './Loading.scss';
 
 export default function Loading() {
   return (
-    <section className="loading-section">
+    <section className="loading-section" role="alert" aria-label="Tela de carregamento">
     <div id="stars"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
