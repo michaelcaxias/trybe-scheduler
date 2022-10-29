@@ -135,6 +135,6 @@ const PrivacyAndTerms = () => {
       </p>
     </div>
   );
-}
+};
 
 export default AppWrap(MotionWrap(PrivacyAndTerms, ''), Header, Footer, 'PrivacyAndTerms', '');

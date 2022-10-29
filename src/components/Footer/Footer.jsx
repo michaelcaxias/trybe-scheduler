@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-import './Footer.scss'
+import './Footer.scss';
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

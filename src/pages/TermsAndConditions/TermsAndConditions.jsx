@@ -129,6 +129,6 @@ const TermsAndConditions = () => {
       </p>
     </div>
   );
-}
+};
 
 export default AppWrap(MotionWrap(TermsAndConditions, ''), Header, Footer, 'PrivacyAndTerms', '');

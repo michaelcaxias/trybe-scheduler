@@ -18,7 +18,7 @@ const Scheduler = () => {
   const { serviceId } = useContext(MyContext);
 
   const homePage = (
-    <section className='home-page'>
+    <section className="home-page">
       <aside className="aside-content">
         <TextArea />
       </aside>
@@ -27,7 +27,7 @@ const Scheduler = () => {
         <div>
           <h1>Agende seus Horários</h1>
 
-          <div className='schedule-configs'>
+          <div className="schedule-configs">
             <h5>Notificação:</h5>
             <section className="input-group">
               <SelectTime />
@@ -48,6 +48,6 @@ const Scheduler = () => {
     </section>
   );
   return homePage;
-}
+};
 
 export default AppWrap(MotionWrap(Scheduler, 'app__scheduler'), Header, Footer, 'scheduler', 'app__scheduler');
