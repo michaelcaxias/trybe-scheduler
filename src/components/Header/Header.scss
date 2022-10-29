@@ -44,7 +44,7 @@
     border: 3px solid transparent;
     transition: all 0.3s ease;
 
-    &:hover {
+    &:hover, &:focus {
       cursor: pointer;
       border: 3px solid rgba(48, 55, 64, 0.6);
       border-radius: 5px;

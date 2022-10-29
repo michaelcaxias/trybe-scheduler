@@ -9,7 +9,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import APISelector from '../../components/APISelector/APISelector';
 import Footer from '../../components/Footer/Footer';
 
-import { images } from '../../constants'
+import { images } from '../../constants';
 
 import './Login.scss';
 
@@ -19,19 +19,24 @@ const Login = () => {
   const loginPage = (
     <>
     <div className="login__logo">
-      <img src={images.logo}/>
-      <h1>Trybe Schedule</h1>
+      <img src={images.logo} alt=""/>
+      <h1>Trybe Scheduler</h1>
     </div>
 
     <div className="app__flex login__box">
       <h2 className="login__head">Faça login!</h2>
-      <p className="p-text">Para a aplicação conseguir alterar seu calendar, você precisa nos autorizar, não se preocupe com a mensagem de <span className="bold-text">aplicação não verificada</span>, estamos resolvendo isso.</p>
+        <p className="p-text">
+          Para a aplicação conseguir alterar seu calendar, você precisa nos autorizar, não se preocupe com a mensagem de
+          <span className="bold-text"> aplicação não verificada</span>
+          , estamos resolvendo isso.
+        </p>
       <LoginButton />
     </div>
 
-    <div className='app__flex login__changeapi'>
+    <div className="app__flex login__changeapi">
       <APISelector />
-      <p>Se der aplicativo bloqueado, <br/>troque de API, isso é temporário!</p>
+        <p>Se der aplicativo bloqueado,
+          <br />troque de API, isso é temporário!</p>
     </div>
     </>
   );

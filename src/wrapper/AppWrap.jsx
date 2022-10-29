@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 /**
  * 
@@ -14,7 +14,7 @@ const AppWrap = (Component, Header, Footer, idName, classNames) => function HOC(
     <>
       {Header && <Header />}
       
-      <div id={idName} className='app__container'>
+      <div id={idName} className="app__container">
         <div className={classNames ? classNames : 'app__wrapper app__flex'}>
           <Component />
         </div>
@@ -22,7 +22,7 @@ const AppWrap = (Component, Header, Footer, idName, classNames) => function HOC(
 
       {Footer && <Footer />}
     </>
-  )
-}
+  );
+};
 
 export default AppWrap;

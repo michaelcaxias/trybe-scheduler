@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-import './Footer.scss'
+import './Footer.scss';
 
 const Footer = () => {
   return (
     <div className="app__footer">
-      <p>Desenvolvido em React, com ❤️ por <a href="https://github.com/michaelcaxias/trybe-schedule/graphs/contributors">Todos os Colaboradores</a>.</p>
+      <p>Desenvolvido em React, com ❤️ por <a href="https://github.com/michaelcaxias/trybe-scheduler/graphs/contributors">Todos os Colaboradores</a>.</p>
 
       <div className="app__footer-links">
         <nav className="privacy-and-terms">
@@ -16,7 +16,7 @@ const Footer = () => {
         </nav>
 
         <a
-          href="https://github.com/michaelcaxias/trybe-schedule"
+          href="https://github.com/michaelcaxias/trybe-scheduler"
           target="_blank"
           rel="noreferrer"
           className="app__flex"
@@ -25,7 +25,7 @@ const Footer = () => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
