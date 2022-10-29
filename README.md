@@ -1,4 +1,4 @@
-# Trybe Schedule 2.0 🎉
+# Trybe Scheduler 2.0 🎉
 Seja bem vindo ao **Trybe Schedule**, esse projeto tem como objetivo facilitar a organização do seu tempo durante o curso da Trybe, mas como?
 Simples! Basta copiar lá no seu Slack os horários do dia, e colar no campo "Agenda do Dia" na aplicação, e nós vamos nos encarregar de adicionar esses horários na sua agenda, e te lembrar quando chegar o horário de cada atividade.
 
