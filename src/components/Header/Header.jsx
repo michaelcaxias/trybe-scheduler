@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Avatar } from '@mui/material';
 import { FiLogIn } from 'react-icons/fi';
 
 import { MyContext } from '../../context/Provider';
 import Menu from '../Menu/Menu';
-import { images } from '../../constants'
+import { images } from '../../constants';
 
 import { useNavigate } from 'react-router';
 
-import './Header.scss'
+import './Header.scss';
 
 const Header = () => {
   const { userImage, userName, userEmail, isSignedIn } = useContext(MyContext);
@@ -25,25 +25,35 @@ const Header = () => {
 
   return (
     <div id="topo" className="app__header">
-      <div className="app__flex login__logo-header" onClick={() => navigate('/')}>
+      <div
+        className="app__flex login__logo-header"
+        onClick={() => navigate('/')}
+        tabIndex={0}
+        role="link"
+        aria-label="Voltar para página inicial"  
+      >
         <img src={images.logo} draggable={false}/>
         <h1>Trybe Schedule</h1>
       </div>
 
-      <div className="app__flex login__user-info">
+      <div
+        className="app__flex login__user-info"
+        tabIndex={0}
+        role="button"
+      >
         {isSignedIn ? (
           <>
-           <div className='app__flex login__user-logged' onClick={handleClickOpen}>
+           <div className="app__flex login__user-logged" onClick={handleClickOpen}>
             <div className="app__flex login__user-info-google">
               <h4>{userName}</h4>
               <h5>{userEmail}</h5>
             </div>
 
-            <Avatar alt="User Image" src={userImage} style={{pointerEvents: 'none'}}/>
+            <Avatar alt="Usuário Google" src={userImage} style={{pointerEvents: 'none'}}/>
           </div>
           </>
         ) : (
-          <div className='app__flex login__user-logout' onClick={() => navigate('/login')}>
+          <div className="app__flex login__user-logout" onClick={() => navigate('/login')}>
             <h4>Entrar</h4>
             <FiLogIn className="icon" />
           </div>
@@ -52,7 +62,7 @@ const Header = () => {
         <Menu open={open} onClose={handleClose} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Header;
