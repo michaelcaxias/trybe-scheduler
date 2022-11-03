@@ -26,7 +26,7 @@ export function Provider({ children }) {
   const [userEmail, setUserEmail] = usePersistedState('userEmail', 'Carregando...');
 
   const [loading, setLoading] = useState(true);
-  const [serviceId, setServiceId] = usePersistedState('serviceId', 2);
+  const [serviceId, setServiceId] = usePersistedState('serviceId', 1);
 
   const scheduleElementRef = useRef(null);
 

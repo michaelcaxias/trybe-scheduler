@@ -38,9 +38,7 @@ const Scheduler = () => {
         </div>
 
         <div className="schedule-footer">
-          <h4>Usando a API {serviceId}, se não conseguir adicionar, troque de API.</h4>
           <div className="schedule-content-buttons">
-            <APISelector />
             <AddEventButton />
           </div>
         </div>

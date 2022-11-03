@@ -32,12 +32,6 @@ const Login = () => {
         </p>
       <LoginButton />
     </div>
-
-    <div className="app__flex login__changeapi">
-      <APISelector />
-        <p>Se der aplicativo bloqueado,
-          <br />troque de API, isso é temporário!</p>
-    </div>
     </>
   );
 
