@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@mui/material';
-import { images } from '../../constants'
+import { images } from '../../constants';
 
 import './Page404.scss';
 
@@ -33,7 +33,7 @@ const Page404 = () => {
       style={{ position: 'absolute', bottom: '10%' }}
     >Voltar para Home</Button>
   </section>
-  )
-}
+  );
+};
 
-export default Page404
+export default Page404;

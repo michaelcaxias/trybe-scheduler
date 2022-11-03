@@ -8,9 +8,9 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Images from '../../constants/images'
+import Images from '../../constants/images';
 
-import './Home.scss'
+import './Home.scss';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,14 +23,19 @@ const Home = () => {
       >
         <h1>Da sua agenda do Slack para o Google Calendar em um único clique!</h1>
         <h2>Trybe Scheduler é o que você precisa para não perder seus momentos sincronos.</h2>
-        <Button endIcon={<FiLogIn className="icon" />} variant="contained" onClick={() => navigate('/login')}>Experimente Agora</Button>
+        <Button
+          endIcon={<FiLogIn className="icon" aria-label="ícone de entrar" />}
+          variant="contained" onClick={() => navigate('/login')}
+        >
+          Experimente Agora
+        </Button>
       </motion.div>
 
       <div className="app__flex app__home-laptop">
         <img 
-        src={Images.glow} alt="Glow" className="app__home-laptop-glow" />
+        src={Images.glow} alt="" className="app__home-laptop-glow" tabIndex={-1} />
         <img 
-          src={Images.laptop} alt="laptop" className='app__home-laptop-mockup' />
+          src={Images.laptop} alt="Notebook com a imagem da aplicação" className="app__home-laptop-mockup" tabIndex={0} />
       </div>
 
       <motion.div
@@ -55,8 +60,8 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           className="feature-right"
          >
-          <img src={Images.f1} alt="feature1" className="feature-image-1" />
-          <img src={Images.f2} alt="feature2" className="feature-image-2" />
+          <img src={Images.f1} alt="Exemplo da aplicação funcionando" className="feature-image-1" />
+          <img src={Images.f2} alt="Exemplo das configurações da aplicação" className="feature-image-2" />
         </motion.div>
       </motion.div>
 
@@ -82,7 +87,7 @@ const Home = () => {
           transition={{ duration: 0.5 }}
           className="feature-right"
         >
-          <img src={Images.cpu} alt="feature3" className="feature-image-3" />
+          <img src={Images.cpu} alt="Logo do Google em um processador" className="feature-image-3" />
         </motion.div>
       </motion.div>
 
@@ -91,7 +96,13 @@ const Home = () => {
         transition={{ duration: 0.5 }}
         className="app__flex background-button"
       >
-        <Button endIcon={<FiLogIn className="icon" />} variant="contained" onClick={() => navigate('/login')}>Experimente Agora</Button>
+        <Button
+          endIcon={<FiLogIn className="icon" aria-label="ícone de entrar" />}
+          variant="contained"
+          onClick={() => navigate('/login')}
+        >
+          Experimente Agora
+        </Button>
       </motion.div>
     </div>
   );

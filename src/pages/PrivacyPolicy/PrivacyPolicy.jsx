@@ -11,10 +11,10 @@ const PrivacyAndTerms = () => {
       <h1>Política Privacidade</h1>
       <p>
         A sua privacidade é importante para nós.
-        É política do Trybe Schedule respeitar a sua privacidade em relação a
+        É política do Trybe Scheduler respeitar a sua privacidade em relação a
         qualquer informação sua que possamos coletar no site
         {' '}
-        <a href="https://trybe-schedule.vercel.app/">Trybe Schedule</a>
+        <a href="https://trybe-schedule.vercel.app/">Trybe Scheduler</a>
       </p>
       <p>
         Solicitamos informações pessoais apenas quando realmente
@@ -58,7 +58,7 @@ const PrivacyAndTerms = () => {
       </p>
       <h3>Google Calendar API</h3>
       <p>
-        A Trybe Schedule utiliza em seu funcionamento a
+        A Trybe Scheduler utiliza em seu funcionamento a
         API e servidor do Google Calendar. Sem ela, essa aplicação não seria
         possível da forma que é hoje. Com isso temos os seguintes fatores:
 
@@ -76,7 +76,7 @@ const PrivacyAndTerms = () => {
           <a href="https://console.cloud.google.com/">Google Cloud Console</a>
         </li>
         <li>
-          Nós da Trybe Schedule temos acesso a informação de quantas
+          Nós da Trybe Scheduler temos acesso a informação de quantas
           pessoas visitaram a aplicação
 
         </li>
@@ -91,7 +91,7 @@ const PrivacyAndTerms = () => {
       <h3>Compromisso do Usuário</h3>
       <p>
         O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o
-        Trybe Schedule oferece no site e com caráter enunciativo, mas não limitativo:
+        Trybe Scheduler oferece no site e com caráter enunciativo, mas não limitativo:
 
       </p>
       <ul>
@@ -110,7 +110,7 @@ const PrivacyAndTerms = () => {
         </li>
         <li>
           C) Não causar danos aos sistemas físicos (hardwares) e
-          lógicos (softwares) do Trybe Schedule, de seus fornecedores
+          lógicos (softwares) do Trybe Scheduler, de seus fornecedores
           ou terceiros, para introduzir ou disseminar vírus informáticos
           ou quaisquer outros sistemas de hardware ou software que sejam
           capazes de causar danos anteriormente mencionados.
@@ -135,6 +135,6 @@ const PrivacyAndTerms = () => {
       </p>
     </div>
   );
-}
+};
 
 export default AppWrap(MotionWrap(PrivacyAndTerms, ''), Header, Footer, 'PrivacyAndTerms', '');
