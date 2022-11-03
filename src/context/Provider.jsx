@@ -5,7 +5,7 @@ import usePersistedState from '../hooks/usePersistedState';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
 
-const { REACT_APP_KEYS } = process.env;
+const { REACT_APP_API_KEY, REACT_APP_CLIENT_ID } = process.env;
 
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
@@ -26,7 +26,6 @@ export function Provider({ children }) {
   const [userEmail, setUserEmail] = usePersistedState('userEmail', 'Carregando...');
 
   const [loading, setLoading] = useState(true);
-  const [serviceId, setServiceId] = usePersistedState('serviceId', 1);
 
   const scheduleElementRef = useRef(null);
 
@@ -47,13 +46,11 @@ export function Provider({ children }) {
     links,
     setLinks,
     loading,
-    serviceId,
-    setServiceId,
   };
 
   useEffect(() => {
-    const keys = JSON.parse(REACT_APP_KEYS);
-    const { apiKey, clientId } = keys.find((key) => key.id === serviceId);
+    const apiKey = REACT_APP_API_KEY || '';
+    const clientId = REACT_APP_CLIENT_ID || '';
 
     gapi.load('client:auth2', async () => {
       try {
@@ -83,7 +80,7 @@ export function Provider({ children }) {
         console.log('Error intialize: ', error);
       }
     });
-  }, [setUserImage, serviceId, isSignedIn]);
+  }, [setUserImage, isSignedIn]);
 
   return (
     <MyContext.Provider value={ context }>
