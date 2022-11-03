@@ -25,9 +25,9 @@ const Login = () => {
     <div className="app__flex login__box">
       <h2 className="login__head">Faça login!</h2>
         <p className="p-text">
-          Para a aplicação conseguir alterar seu calendar, você precisa nos autorizar, não se preocupe com a mensagem de
-          <span className="bold-text"> aplicação não verificada</span>
-          , estamos resolvendo isso.
+          Caso você tenha problemas ao adicionar a sua agenda da Trybe, 
+          <span className="bold-text"> limpe os cookies e recarregue a página</span>
+          , isso deve resolver a maioria dos problemas, se não resolver, nos chame no Slack!
         </p>
       <LoginButton />
     </div>
