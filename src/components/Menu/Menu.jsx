@@ -11,9 +11,7 @@ import {
   ListItemAvatar,
   Avatar,
   List,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
+  DialogTitle
 } from '@mui/material';
 
 import { MyContext } from '../../context/Provider';
@@ -21,7 +19,7 @@ import { MyContext } from '../../context/Provider';
 import './Menu.scss';
 
 const Menu = (props) => {
-  const { changeSignedInState, serviceId } = useContext(MyContext);
+  const { changeSignedInState } = useContext(MyContext);
   const { open, onClose } = props;
   const navigate = useNavigate();
 
@@ -40,11 +38,6 @@ const Menu = (props) => {
   return (
     <Dialog className="app__menu" onClose={handleClose} open={open}>
       <DialogTitle sx={{ paddingBottom: '0px' }}>Menu de Configuração</DialogTitle>
-      <DialogContent>
-        <DialogContentText sx={{ color: '#e4e4e4', fontSize: '14px' }}>
-          Usando a API {serviceId} do Google.
-        </DialogContentText>
-      </DialogContent>
       <List sx={{ pt: 0 }}>
         <ListItem autoFocus button onClick={() => handleLogout()}>
           <ListItemAvatar>
