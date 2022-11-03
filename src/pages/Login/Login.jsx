@@ -6,7 +6,6 @@ import LoginButton from '../../components/LoginButton/LoginButton';
 import Loading from '../../components/Loading/Loading';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import APISelector from '../../components/APISelector/APISelector';
 import Footer from '../../components/Footer/Footer';
 
 import { images } from '../../constants';

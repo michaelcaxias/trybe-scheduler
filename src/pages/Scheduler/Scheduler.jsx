@@ -4,7 +4,6 @@ import SelectTime from '../../components/SelectTime/SelectTime';
 import SelectColors from '../../components/SelectColors/SelectColors';
 import TextArea from '../../components/TextArea/TextArea';
 import AddEventButton from '../../components/AddEventButton/AddEventButton';
-import APISelector from '../../components/APISelector/APISelector';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import Header from '../../components/Header/Header';
