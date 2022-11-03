@@ -6,7 +6,6 @@ import LoginButton from '../../components/LoginButton/LoginButton';
 import Loading from '../../components/Loading/Loading';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import APISelector from '../../components/APISelector/APISelector';
 import Footer from '../../components/Footer/Footer';
 
 import { images } from '../../constants';
@@ -31,12 +30,6 @@ const Login = () => {
           , estamos resolvendo isso.
         </p>
       <LoginButton />
-    </div>
-
-    <div className="app__flex login__changeapi">
-      <APISelector />
-        <p>Se der aplicativo bloqueado,
-          <br />troque de API, isso é temporário!</p>
     </div>
     </>
   );
