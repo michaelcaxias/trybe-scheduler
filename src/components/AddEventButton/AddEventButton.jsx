@@ -6,7 +6,7 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { gapi } from 'gapi-script';
+const { gapi } = window;
 
 import Alert from '../Alert/Alert';
 

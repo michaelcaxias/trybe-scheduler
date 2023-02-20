@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, createContext, useRef } from 'react';
-import { gapi } from 'gapi-script';
+const { gapi } = window;
 import usePersistedState from '../hooks/usePersistedState';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
@@ -36,6 +36,8 @@ export function Provider({ children }) {
     scheduleValue,
     setMinutes,
     setUserImage,
+    setUserName,
+    setUserEmail,
     userImage,
     userName,
     userEmail,
@@ -49,38 +51,30 @@ export function Provider({ children }) {
   };
 
   useEffect(() => {
-    const apiKey = REACT_APP_API_KEY || '';
-    const clientId = REACT_APP_CLIENT_ID || '';
-
+    try {
+      initalizeGapi();
+    } catch (error) {
+      console.error('Error intialize: ', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  
+  const initalizeGapi = async () => {
     gapi.load('client:auth2', async () => {
-      try {
-        await gapi.client.init({
-          apiKey,
-          clientId,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES,
-        });
-        gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
-        changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
-
-        await gapi.client.load('calendar', 'v3');
-        if (isSignedIn) {
-          setUserImage(gapi.auth2.getAuthInstance().currentUser.get()
-            .getBasicProfile().getImageUrl());
-
-          setUserName(gapi.auth2.getAuthInstance().currentUser.get()
-            .getBasicProfile().getName());
-
-          setUserEmail(gapi.auth2.getAuthInstance().currentUser.get()
-            .getBasicProfile().getEmail());
-        }
-
-        setLoading(false);
-      } catch (error) {
-        console.log('Error intialize: ', error);
-      }
+      const apiKey = REACT_APP_API_KEY || '';
+      const clientId = REACT_APP_CLIENT_ID || '';
+  
+      await gapi.client.init({
+        apiKey,
+        clientId,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES,
+      });
+    
+      await gapi.client.load('calendar', 'v3');
     });
-  }, [setUserImage, isSignedIn]);
+  };
 
   return (
     <MyContext.Provider value={ context }>

@@ -1,44 +1,54 @@
 import React, { useContext } from 'react';
+import { MyContext } from '../../context/Provider';
 
 import { Button } from '@mui/material';
-
 import { FcGoogle } from 'react-icons/fc';
 import { ImExit } from 'react-icons/im';
 
-import { gapi } from 'gapi-script';
-
 import { useNavigate } from 'react-router-dom';
-
-import { MyContext } from '../../context/Provider';
+import { useGoogleLogin, googleLogout } from '@react-oauth/google';
+import axios from 'axios';
 
 import './LoginButton.scss';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
+const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export default function LoginButton() {
-  const { isSignedIn, setUserImage, changeSignedInState } = useContext(MyContext);
+  const { isSignedIn, setUserImage, setUserName, setUserEmail, changeSignedInState } = useContext(MyContext);
   const navigate = useNavigate();
 
-  const handleAuthClick = async () => {
-    // Faz o Login
-    await gapi.auth2.getAuthInstance().signIn();
+  const login = useGoogleLogin({
+    scope: SCOPES,
+    onSuccess: (response) => signInWorkflow(response),
+    onError: (error) => console.error(error),
+  });
 
-    // Depois verifica se o usuário está logado, e seta esse valor em isSignedIn
-    await gapi.auth2.getAuthInstance().isSignedIn.listen(changeSignedInState);
-    await changeSignedInState(gapi.auth2.getAuthInstance().isSignedIn.get());
-
-    // Agora pega a imagem do usuário e seta em userImage
-    const profileImage = gapi.auth2.getAuthInstance().currentUser.get()
-      .getBasicProfile().getImageUrl();
-
-    setUserImage(profileImage);
-
-    // Finalmente navega para a página de schedule
+  const signInWorkflow = async (response) => {
+    changeSignedInState(true);
+    const userInfo = await requestUserInfo(response);
+    updateUserInfo(userInfo.data);
     navigate('/scheduler');
   };
 
+  const updateUserInfo = (userInfo) => {
+    const { picture, name, email } = userInfo;
+    setUserImage(picture);
+    setUserName(name);
+    setUserEmail(email);
+  };
+
+  const requestUserInfo = async (response) => {
+    const gettingUserInfo = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+      headers: {
+        Authorization: `Bearer ${response.access_token}`
+      }
+    });
+    return gettingUserInfo;
+  };
+
   const handleSignoutClick = () => {
-    gapi.auth2.getAuthInstance().signOut();
+    googleLogout();
     setUserImage(blankImage);
     navigate('/');
   };
@@ -46,7 +56,7 @@ export default function LoginButton() {
   const connectButton = (
     <Button
       className="login-logout login-button"
-      onClick={ handleAuthClick }
+      onClick={ login }
       size="large"
     >
       <div className="google-icon-div">
