@@ -10,14 +10,14 @@ import Loading from '../components/Loading/Loading';
 const PrivateRoute = ({ children }) => {
   const { isSignedIn, loading } = useContext(MyContext);
 
-  function validar() {
+  function validateWorkflow() {
     if (!isSignedIn) {
       return <Navigate to="/login" />;
     }
     return children;
   }
 
-  return loading ? <Loading /> : validar();
+  return loading ? <Loading /> : validateWorkflow();
 };
 
 PrivateRoute.propTypes = {
