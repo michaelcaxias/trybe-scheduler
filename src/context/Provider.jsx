@@ -1,14 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, createContext, useRef, useMemo } from 'react';
-const { gapi } = window;
 import usePersistedState from '../hooks/usePersistedState';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
-
-const { REACT_APP_API_KEY, REACT_APP_CLIENT_ID } = process.env;
-
-const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
-const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export const MyContext = createContext();
 
@@ -26,7 +20,7 @@ export function Provider({ children }) {
   const [userName, setUserName] = usePersistedState('userName', 'Carregando...');
   const [userEmail, setUserEmail] = usePersistedState('userEmail', 'Carregando...');
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const scheduleElementRef = useRef(null);
 
@@ -52,32 +46,6 @@ export function Provider({ children }) {
       accessToken,
       setAccessToken
   }), [accessToken, minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
-
-  useEffect(() => {
-    try {
-      initalizeGapi();
-    } catch (error) {
-      console.error('Error intialize: ', error);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-  
-  const initalizeGapi = async () => {
-    gapi.load('client:auth2', async () => {
-      const apiKey = REACT_APP_API_KEY || '';
-      const clientId = REACT_APP_CLIENT_ID || '';
-  
-      await gapi.client.init({
-        apiKey,
-        clientId,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES,
-      });
-    
-      await gapi.client.load('calendar', 'v3');
-    });
-  };
 
   return (
     <MyContext.Provider value={ context }>
