@@ -14,7 +14,7 @@ export const MyContext = createContext();
 
 export function Provider({ children }) {
   const [minutes, setMinutes] = usePersistedState('minutes', 0);
-  const [isSignedIn, changeSignedInState] = useState(false);
+  const [isSignedIn, changeSignedInState] = usePersistedState('isSignedIn', false);
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
 
