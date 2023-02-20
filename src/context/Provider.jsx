@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect, createContext, useRef } from 'react';
+import React, { useState, useEffect, createContext, useRef, useMemo } from 'react';
 const { gapi } = window;
 import usePersistedState from '../hooks/usePersistedState';
 
@@ -29,26 +29,26 @@ export function Provider({ children }) {
 
   const scheduleElementRef = useRef(null);
 
-  const context = {
-    minutes,
-    isSignedIn,
-    colorId,
-    scheduleValue,
-    setMinutes,
-    setUserImage,
-    setUserName,
-    setUserEmail,
-    userImage,
-    userName,
-    userEmail,
-    changeSignedInState,
-    setColorId,
-    changeScheduleValue,
-    scheduleElementRef,
-    links,
-    setLinks,
-    loading,
-  };
+  const context = useMemo(() => ({
+      minutes,
+      isSignedIn,
+      colorId,
+      scheduleValue,
+      setMinutes,
+      setUserImage,
+      setUserName,
+      setUserEmail,
+      userImage,
+      userName,
+      userEmail,
+      changeSignedInState,
+      setColorId,
+      changeScheduleValue,
+      scheduleElementRef,
+      links,
+      setLinks,
+      loading,
+  }), [minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
 
   useEffect(() => {
     try {

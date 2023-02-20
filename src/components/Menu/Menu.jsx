@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-const { gapi } = window;
 import { CgLogOut } from 'react-icons/cg';
 import { useNavigate } from 'react-router-dom';
 import { googleLogout } from '@react-oauth/google';

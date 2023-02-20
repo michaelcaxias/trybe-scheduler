@@ -3,15 +3,13 @@ import { MyContext } from '../../context/Provider';
 
 import { Button } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
-import { ImExit } from 'react-icons/im';
 
 import { useNavigate } from 'react-router-dom';
-import { useGoogleLogin, googleLogout } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
 import './LoginButton.scss';
 
-const blankImage = 'https://i.imgur.com/qEgz28w.png';
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export default function LoginButton() {
