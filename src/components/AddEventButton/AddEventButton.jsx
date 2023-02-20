@@ -6,27 +6,34 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-const { gapi } = window;
-
 import Alert from '../Alert/Alert';
 
 import { filterString, getCurrentDate, eventFormat, delayLoop } from '../../services';
 
 import { MyContext } from '../../context/Provider';
 
+import { googleLogout } from '@react-oauth/google';
+import axios from 'axios';
+
+const { REACT_APP_API_KEY } = process.env;
+
 import './AddEventButton.scss';
+import { useNavigate } from 'react-router';
+
 
 const ONE_SECOND = 1000;
 
 export default function AddEventButton() {
   const {
-    isSignedIn, colorId, minutes, scheduleValue, links,
+    isSignedIn, colorId, minutes, scheduleValue, links, accessToken
   } = useContext(MyContext);
 
   const [snackPack, setSnackPack] = useState([]);
   const [open, setOpen] = useState(false);
   const [messageInfo, setMessageInfo] = useState(undefined);
   const [alertVariant, setAlertVariant] = useState('success');
+
+  const navigate = useNavigate();
 
   const eventNotPossible = () => {
     setAlertVariant('warning');
@@ -35,35 +42,51 @@ export default function AddEventButton() {
     }]);
   };
 
-  const insertEvent = (textAreaValue) => (
-    textAreaValue.forEach(delayLoop((calendarEvents) => {
+  const insertEvents = (textAreaValue) => (
+    textAreaValue.forEach(delayLoop(async (calendarEvents) => {
       const message = `Evento criado: ${calendarEvents.title}`;
       const errorEventMessage = 'Não foi possível criar o evento';
-      const request = gapi.client.calendar.events.insert({
-        calendarId: 'primary',
-        resource: eventFormat(calendarEvents, getCurrentDate(), colorId.id, minutes),
-      });
-      request.execute((event) => {
-        if (!event.htmlLink) {
-          setAlertVariant('error');
-          setSnackPack((prev) => [...prev, {
-            message: errorEventMessage, key: new Date().getTime(),
-          }]);
-        } else {
-          setAlertVariant('success');
-          setSnackPack((prev) => [...prev, {
-            message, key: new Date().getTime(),
-          }]);
-        }
-      });
-    }, ONE_SECOND)));
+      const calendarEventFormat = eventFormat(calendarEvents, getCurrentDate(), colorId.id, minutes);
+      const request = await insertEventCalendarAPI(calendarEventFormat);
+      const response = request.data;
+      logoutUserIfUnauthorized(response);
+      if (!response.htmlLink) {
+        setAlertVariant('error');
+        setSnackPack((prev) => [...prev, {
+          message: errorEventMessage, key: new Date().getTime(),
+        }]);
+      } else {
+        setAlertVariant('success');
+        setSnackPack((prev) => [...prev, {
+          message, key: new Date().getTime(),
+        }]);
+      }
+  }, ONE_SECOND)));
+
+  const logoutUserIfUnauthorized = (error) => {
+    if (error.code === 401) {
+      googleLogout();
+      navigate('/');
+    }
+  };
+
+  const insertEventCalendarAPI = async (calendarEvents) => {
+    const baseURL = 'https://content.googleapis.com';
+    const calendarPath = '/calendar/v3/calendars/primary/events?alt=json&key=';
+    const URL = `${baseURL}${calendarPath}${REACT_APP_API_KEY}`;
+    return axios.post(URL, calendarEvents, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      }
+    });
+  };
 
   const handleClick = () => {
     const scheduleFiltered = filterString(scheduleValue, links);
     if (!scheduleFiltered.length) {
       eventNotPossible();
     }
-    insertEvent(scheduleFiltered);
+    insertEvents(scheduleFiltered);
   };
 
   const handleClose = (_event, reason) => {

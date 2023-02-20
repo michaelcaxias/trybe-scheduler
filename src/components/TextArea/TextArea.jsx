@@ -25,27 +25,42 @@ export default function TextArea() {
   const getElementValue = () => {
     try {
       const refText = scheduleElementRef ? scheduleElementRef.current.children : '';
-      const array = Array.from(refText);
-      array.forEach((elem) => {
-        if (elem.nodeName === 'BR' && elem.previousSibling.className === 'c-link') {
-          elem.outerHTML = '<p>Desc.:</p>';
-        }
-      });
-      array.forEach((elem) => {
-        if (elem.nodeName === 'BR' && elem.parentNode) {
-          elem.outerHTML = '<span> /// </span>';
-        }
-      });
-      array.forEach((element) => {
-        if (element.className === 'c-mrkdwn__br') { element.innerText = '\n'; }
-      });
-      const arrayStrings = array.map((item) => item.innerText).join(' ').trim();
-      changeScheduleValue(arrayStrings);
-      const getLinks = Array(...document.links).map((link) => link.href);
-      setLinks(getLinks);
+      const hasNodeAsChild = refText.length > 0;
+
+      if (hasNodeAsChild) {
+        scheduleValueWhenIsNodeElement(refText);
+      } else {
+        const pureText = scheduleElementRef.current.innerText;
+        scheduleValueWhenIsString(pureText);
+      }
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const scheduleValueWhenIsNodeElement = (value) => {
+    const array = Array.from(value);
+    array.forEach((elem) => {
+      if (elem.nodeName === 'BR' && elem.previousSibling.className === 'c-link') {
+        elem.outerHTML = '<p>Desc.:</p>';
+      }
+    });
+    array.forEach((elem) => {
+      if (elem.nodeName === 'BR' && elem.parentNode) {
+        elem.outerHTML = '<span> /// </span>';
+      }
+    });
+    array.forEach((element) => {
+      if (element.className === 'c-mrkdwn__br') { element.innerText = '\n'; }
+    });
+    const arrayStrings = array.map((item) => item.innerText).join(' ').trim();
+    changeScheduleValue(arrayStrings);
+    const getLinks = Array(...document.links).map((link) => link.href);
+    setLinks(getLinks);
+  };
+
+  const scheduleValueWhenIsString = (value) => {
+    changeScheduleValue(value);
   };
 
   return (
