@@ -13,7 +13,7 @@ import './LoginButton.scss';
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export default function LoginButton() {
-  const { setUserImage, setUserName, setUserEmail, changeSignedInState } = useContext(MyContext);
+  const { setUserImage, setUserName, setUserEmail, changeSignedInState, setAccessToken } = useContext(MyContext);
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -24,6 +24,7 @@ export default function LoginButton() {
 
   const signInWorkflow = async (response) => {
     changeSignedInState(true);
+    setAccessToken(response.access_token);
     const userInfo = await requestUserInfo(response);
     updateUserInfo(userInfo.data);
     navigate('/scheduler');

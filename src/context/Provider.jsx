@@ -15,6 +15,7 @@ export const MyContext = createContext();
 export function Provider({ children }) {
   const [minutes, setMinutes] = usePersistedState('minutes', 0);
   const [isSignedIn, changeSignedInState] = usePersistedState('isSignedIn', false);
+  const [accessToken, setAccessToken] = usePersistedState('accessToken', '');
   const [colorId, setColorId] = usePersistedState('color',
     { color: '#33b679', name: 'Sálvia', id: '2' });
 
@@ -48,7 +49,9 @@ export function Provider({ children }) {
       links,
       setLinks,
       loading,
-  }), [minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
+      accessToken,
+      setAccessToken
+  }), [accessToken, minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
 
   useEffect(() => {
     try {
