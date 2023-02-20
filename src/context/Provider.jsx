@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect, createContext, useRef, useMemo } from 'react';
+import React, { useState, createContext, useRef, useMemo } from 'react';
 import usePersistedState from '../hooks/usePersistedState';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
@@ -43,6 +43,7 @@ export function Provider({ children }) {
       links,
       setLinks,
       loading,
+      setLoading,
       accessToken,
       setAccessToken
   }), [accessToken, minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
