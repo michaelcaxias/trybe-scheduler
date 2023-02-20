@@ -15,7 +15,7 @@ const blankImage = 'https://i.imgur.com/qEgz28w.png';
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export default function LoginButton() {
-  const { isSignedIn, setUserImage, setUserName, setUserEmail, changeSignedInState } = useContext(MyContext);
+  const { setUserImage, setUserName, setUserEmail, changeSignedInState } = useContext(MyContext);
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -47,13 +47,7 @@ export default function LoginButton() {
     return gettingUserInfo;
   };
 
-  const handleSignoutClick = () => {
-    googleLogout();
-    setUserImage(blankImage);
-    navigate('/');
-  };
-
-  const connectButton = (
+  return (
     <Button
       className="login-logout login-button"
       onClick={ login }
@@ -65,21 +59,4 @@ export default function LoginButton() {
       Logar com o Google
     </Button>
   );
-
-  const disconnectButton = (
-    <Button
-      className="login-logout logout-button"
-      variant="contained"
-      onClick={ handleSignoutClick }
-      size="large"
-      color="error"
-    >
-      <div className="exit-icon-div">
-        <ImExit aria-label="ícone de saída" />
-      </div>
-      Desconectar
-    </Button>
-  );
-
-  return isSignedIn ? disconnectButton : connectButton;
 }
