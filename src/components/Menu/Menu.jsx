@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { gapi } from 'gapi-script';
 import { CgLogOut } from 'react-icons/cg';
 import { useNavigate } from 'react-router-dom';
+import { googleLogout } from '@react-oauth/google';
 
 import { 
   Dialog,
@@ -28,7 +28,7 @@ const Menu = (props) => {
   };
 
   const handleLogout = () => {
-    gapi.auth2.getAuthInstance().signOut();
+    googleLogout();
     changeSignedInState(false);
 
     onClose();

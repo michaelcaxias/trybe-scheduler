@@ -34,14 +34,14 @@ const Login = () => {
     </>
   );
 
-  function validar() {
+  function validateWorkflow() {
     if (isSignedIn) {
       return <Navigate to="/scheduler" />;
     }
     return loginPage;
   }
 
-  return loading ? <Loading /> : validar();
+  return loading ? <Loading /> : validateWorkflow();
 };
 
 export default AppWrap(MotionWrap(Login, ''), null, Footer, 'Login', '');
