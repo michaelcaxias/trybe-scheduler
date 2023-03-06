@@ -16,26 +16,19 @@ export function Provider({ children }) {
   const [scheduleValue, changeScheduleValue] = useState('');
   const [links, setLinks] = useState([]);
 
-  const [userImage, setUserImage] = usePersistedState('userImage', blankImage);
-  const [userName, setUserName] = usePersistedState('userName', 'Carregando...');
-  const [userEmail, setUserEmail] = usePersistedState('userEmail', 'Carregando...');
+  const [userInfo, setUserInfo] = useState({ picture: blankImage, name: 'Carregando...', email: 'Carregando...' });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const scheduleElementRef = useRef(null);
 
-  const context = useMemo(() => ({
+  const context = useMemo(
+    () => ({
       minutes,
       isSignedIn,
       colorId,
       scheduleValue,
       setMinutes,
-      setUserImage,
-      setUserName,
-      setUserEmail,
-      userImage,
-      userName,
-      userEmail,
       changeSignedInState,
       setColorId,
       changeScheduleValue,
@@ -45,8 +38,21 @@ export function Provider({ children }) {
       loading,
       setLoading,
       accessToken,
-      setAccessToken
-  }), [accessToken, minutes, isSignedIn, colorId, scheduleValue, userImage, userName, userEmail, links, loading]);
+      setAccessToken,
+      userInfo,
+      setUserInfo,
+    }),
+    [
+      accessToken,
+      minutes,
+      isSignedIn,
+      colorId,
+      scheduleValue,
+      links,
+      loading,
+      userInfo,
+    ]
+  );
 
   return (
     <MyContext.Provider value={ context }>

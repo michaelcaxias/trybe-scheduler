@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router';
 import './Header.scss';
 
 const Header = () => {
-  const { userImage, userName, userEmail, isSignedIn } = useContext(MyContext);
+  const { userInfo, isSignedIn } = useContext(MyContext);
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
@@ -30,30 +30,33 @@ const Header = () => {
         onClick={() => navigate('/')}
         tabIndex={0}
         role="link"
-        aria-label="Voltar para página inicial"  
+        aria-label="Voltar para página inicial"
       >
-        <img src={images.logo} draggable={false}/>
+        <img src={images.logo} draggable={false} />
         <h1>Trybe Scheduler</h1>
       </div>
 
-      <div
-        className="app__flex login__user-info"
-        tabIndex={0}
-        role="button"
-      >
+      <div className="app__flex login__user-info" tabIndex={0} role="button">
         {isSignedIn ? (
           <>
-           <div className="app__flex login__user-logged" onClick={handleClickOpen}>
-            <div className="app__flex login__user-info-google">
-              <h4>{userName}</h4>
-              <h5>{userEmail}</h5>
-            </div>
+            <div className="app__flex login__user-logged" onClick={handleClickOpen}>
+              <div className="app__flex login__user-info-google">
+                <h4>{userInfo.name}</h4>
+                <h5>{userInfo.email}</h5>
+              </div>
 
-            <Avatar alt="Usuário Google" src={userImage} style={{pointerEvents: 'none'}}/>
-          </div>
+              <Avatar
+                alt="Usuário Google"
+                src={userInfo.picture}
+                style={{ pointerEvents: 'none' }}
+              />
+            </div>
           </>
         ) : (
-          <div className="app__flex login__user-logout" onClick={() => navigate('/login')}>
+          <div
+            className="app__flex login__user-logout"
+            onClick={() => navigate('/login')}
+          >
             <h4>Entrar</h4>
             <FiLogIn className="icon" />
           </div>

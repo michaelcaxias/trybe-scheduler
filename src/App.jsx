@@ -8,20 +8,30 @@ import Home from './pages/Home/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions';
 import PrivateRoute from './context/PrivateRoute';
+import LoginWrap from './wrapper/LoginWrap';
 
 import './App.scss';
 
 export default function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/scheduler" element={ <PrivateRoute><Scheduler /></PrivateRoute> } />
-        <Route path="/login" element={ <Login /> } />
-        <Route path="/privacy-policy" element={ <PrivacyPolicy /> } />
-        <Route path="/terms-and-conditions" element={ <TermsAndConditions /> } />
-        <Route path="*" element={ <Page404 /> } />
-      </Routes>
+      <LoginWrap>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/scheduler"
+            element={
+              <PrivateRoute>
+                <Scheduler />
+              </PrivateRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+      </LoginWrap>
     </Router>
   );
 }

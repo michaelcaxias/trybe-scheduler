@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
 
   function validateWorkflow() {
     if (!isSignedIn) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/" />;
     }
     return children;
   }
