@@ -13,7 +13,7 @@ import './LoginButton.scss';
 const SCOPES = 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.profile';
 
 export default function LoginButton() {
-  const { setUserImage, setUserName, setUserEmail, changeSignedInState, setAccessToken } = useContext(MyContext);
+  const { changeSignedInState, setAccessToken, setUserInfo } = useContext(MyContext);
   const navigate = useNavigate();
 
   const login = useGoogleLogin({
@@ -31,10 +31,7 @@ export default function LoginButton() {
   };
 
   const updateUserInfo = (userInfo) => {
-    const { picture, name, email } = userInfo;
-    setUserImage(picture);
-    setUserName(name);
-    setUserEmail(email);
+    setUserInfo(userInfo);
   };
 
   const requestUserInfo = async (response) => {
