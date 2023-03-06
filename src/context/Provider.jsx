@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, createContext, useRef, useMemo, useEffect } from 'react';
+import React, { useState, createContext, useRef, useMemo } from 'react';
 import usePersistedState from '../hooks/usePersistedState';
 
 const blankImage = 'https://i.imgur.com/qEgz28w.png';
